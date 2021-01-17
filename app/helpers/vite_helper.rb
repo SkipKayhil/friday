@@ -1,29 +1,28 @@
+# frozen_string_literal: true
+
+# Vite asset helpers
 module ViteHelper
   def javascript_vite_tag
-    if Rails.env.development?
-      sources = %w[
-        http://localhost:4000/@vite/client
-        http://localhost:4000/main.jsx
-      ]
+    return tag.script(src: "dist/#{manifest.dig('main.js', 'file')}", type: 'module') unless Rails.env.development?
 
-      sources.map do |src|
-        tag.script src: src, type: 'module'
-      end.join.html_safe
-    else
-      tag.script(src: "dist/#{manifest.dig('application.js', 'file')}", type: 'module')
-    end
+    sources = %w[
+      http://localhost:4000/@vite/client
+      http://localhost:4000/main.jsx
+    ]
+
+    safe_join(sources.map { |src| tag.script src: src, type: 'module' })
   end
 
   def stylesheet_vite_tag
     return if Rails.env.development?
 
-    tag.link(href: "dist/#{manifest.dig('application.css', 'file')}", rel: 'stylesheet')
+    tag.link(href: "dist/#{manifest.dig('main.css', 'file')}", rel: 'stylesheet')
   end
 
   private
 
   def manifest
     manifest_path = Rails.root.join('public/dist/manifest.json')
-    @manifest_hash ||= JSON.parse(File.read(manifest_path))
+    @manifest ||= JSON.parse(File.read(manifest_path))
   end
 end
