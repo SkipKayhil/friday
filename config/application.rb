@@ -32,7 +32,11 @@ module Dep
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |g|
+      # Don't generate system test files.
+      g.system_tests = nil
+      g.assets = false
+      g.scaffold_stylesheet = false
+    end
   end
 end
