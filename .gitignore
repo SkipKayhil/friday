@@ -24,3 +24,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# vite
+node_modules
+.DS_Store
+public/dist
+public/dist-ssr
