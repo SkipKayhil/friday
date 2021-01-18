@@ -3,9 +3,9 @@
 module Dep
   # A wrapper class for Dependabot::Source
   class Source
-    def initialize(repo:, directory: '/', branch: nil, type: :gitlab)
+    def initialize(repo:, directory: nil, branch: nil, type: :gitlab)
       @repo = repo
-      @directory = directory
+      @directory = directory || '/'
       @branch = branch
 
       case type

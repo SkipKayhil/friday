@@ -23,7 +23,7 @@ module Api
         @repo = Repo.new(repo_params)
 
         if @repo.save
-          render json: @repo, status: :created, location: @repo
+          render json: @repo, status: :created, location: api_v1_repo_url(@repo)
         else
           render json: @repo.errors, status: :unprocessable_entity
         end
@@ -31,7 +31,7 @@ module Api
 
       # PATCH/PUT /repos/1
       def update
-        if @repo.update(repo_params)
+        if @repo.update_dependencies
           render json: @repo
         else
           render json: @repo.errors, status: :unprocessable_entity
@@ -52,7 +52,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def repo_params
-        params.require(:repo).permit(:full_path)
+        params.require(:repo).permit(:full_path, :directory)
       end
     end
   end
