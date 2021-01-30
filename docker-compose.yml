@@ -1,0 +1,61 @@
+version: "2.4"
+
+x-rails: &rails
+  build: &build
+    context: .
+    dockerfile: Dockerfile
+  environment: &env
+    DATABASE_URL: postgres://postgres:postgres@postgres:5432
+  image: dep:latest
+  ports:
+    - "3000:3000"
+  tmpfs:
+    - /tmp
+  depends_on: &deps
+    postgres:
+      condition: service_healthy
+
+services:
+  rails-prod:
+    <<: *rails
+    environment:
+      <<: *env
+      RAILS_SERVE_STATIC_FILES: 'true'
+      RAILS_LOG_TO_STDOUT: 'true'
+    ports:
+      - '5000:3000'
+
+  rails-dev:
+    <<: *rails
+    environment:
+      <<: *env
+      RAILS_ENV: development
+    depends_on:
+      <<: *deps
+      vite-dev:
+        condition: service_healthy
+
+  vite-dev:
+    build:
+      <<: *build
+      target: frontend
+    ports:
+      - '4000:4000'
+    healthcheck:
+      test: ["CMD", "wget", "http://localhost:4000/@vite/client"]
+      interval: 5s
+
+  postgres:
+    image: postgres:13.0
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432
+    healthcheck:
+      test: pg_isready -U postgres -h 127.0.0.1
+      interval: 5s
+
+volumes:
+  postgres:
