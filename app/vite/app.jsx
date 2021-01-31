@@ -1,20 +1,39 @@
-import { Logo } from './logo'
+import { useEffect, useState } from "preact/hooks";
 
-export function App(props) {
+export function App() {
+  const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    async function getRepos() {
+      const response = await fetch("/api/v1/repos");
+      const repos = await response.json();
+
+      setRepos(repos);
+    }
+
+    getRepos();
+  }, []);
+
   return (
     <>
-      <Logo />
-      <p>Hello Vite + Preact!</p>
-      <p>
-        <a
-          class="link"
-          href="https://preactjs.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Preact
-        </a>
-      </p>
+      <h1>Dep</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {repos.map((repo) => (
+            <tr>
+              <td>
+                <a href={repo.full_path}>{repo.full_path}</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
-  )
+  );
 }
