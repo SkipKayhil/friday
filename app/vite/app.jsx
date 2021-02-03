@@ -1,4 +1,11 @@
 import { useEffect, useState } from "preact/hooks";
+import { Header } from "./components/header";
+import { Table } from "./components/table";
+
+const columns = [
+  { field: "full_path", headerName: "Name" },
+  { field: "repoable_type", headerName: "Type" },
+];
 
 export function App() {
   const [repos, setRepos] = useState([]);
@@ -16,24 +23,15 @@ export function App() {
 
   return (
     <>
-      <h1>Dep</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {repos.map((repo) => (
-            <tr>
-              <td>
-                <a href={repo.full_path}>{repo.full_path}</a>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Header />
+      <div class="max-w-7xl mx-auto py-6">
+        <h1 class="text-3xl font-bold leading-tight text-gray-900">
+          dashboard
+        </h1>
+      </div>
+      <main>
+        <Table rows={repos} columns={columns} />
+      </main>
     </>
   );
 }

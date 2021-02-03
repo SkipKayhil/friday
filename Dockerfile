@@ -4,7 +4,7 @@ WORKDIR /usr/src
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-COPY vite.config.js ./
+COPY vite.config.js postcss.config.js tailwind.config.js ./
 COPY app app/
 RUN yarn build
 
