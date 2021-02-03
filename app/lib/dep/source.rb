@@ -3,18 +3,20 @@
 module Dep
   # A wrapper class for Dependabot::Source
   class Source
-    def initialize(repo:, directory: nil, branch: nil, type: :gitlab)
+    def initialize(repo:, host:)
       @repo = repo
-      @directory = directory || '/'
-      @branch = branch
+      @host = host
 
-      case type
-      when :gitlab
-        @source = gitlab
-        @config = Config.new(credentials: Env::Gitlab.credentials)
-      else
-        raise "Invalid type provided to Dep::Source - #{type}"
-      end
+      @config = Config.new(credentials: host.credentials)
+
+      # case :github
+      # when :github
+      @source = github
+      # when :gitlab
+      #   @source = gitlab
+      # else
+      #   raise "Invalid type provided to Dep::Source - #{type}"
+      # end
     end
 
     def fetcher(package_manager: 'bundler')
@@ -32,15 +34,24 @@ module Dep
     private
 
     def gitlab
-      gitlab_hostname = Env::Gitlab.hostname
+      gitlab_hostname = @host.domain
 
       Dependabot::Source.new(
         provider: 'gitlab',
         hostname: gitlab_hostname,
         api_endpoint: "https://#{gitlab_hostname}/api/v4",
-        repo: @repo,
-        directory: @directory,
-        branch: @branch
+        repo: @repo.full_path,
+        directory: @repo.directory || '/',
+        branch: nil # not implemented yet
+      )
+    end
+
+    def github
+      Dependabot::Source.new(
+        provider: 'github',
+        # hostname: @host.domain, # specifying hostname requires specifying api_endpoint
+        repo: @repo.full_path,
+        directory: @repo.directory || '/'
       )
     end
   end

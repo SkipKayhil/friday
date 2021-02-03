@@ -10,18 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_043657) do
+ActiveRecord::Schema.define(version: 2021_01_18_215718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "apps", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "hosts", force: :cascade do |t|
+    t.string "domain"
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "libraries", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "repos", force: :cascade do |t|
+    t.string "name"
     t.string "full_path"
     t.string "directory"
     t.string "ruby_version"
     t.jsonb "dependencies"
+    t.string "repoable_type"
+    t.bigint "repoable_id"
+    t.bigint "host_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["host_id"], name: "index_repos_on_host_id"
+    t.index ["repoable_type", "repoable_id"], name: "index_repos_on_repoable"
   end
 
 end

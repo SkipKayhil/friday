@@ -25,5 +25,16 @@ module Dep
 
       Parser.new(config: config)
     end
+
+    def parse_ruby_version
+      lockfile = @fetcher.send(:lockfile).content
+      ruby = Bundler::LockfileParser.new(lockfile).ruby_version
+
+      return ruby if ruby
+
+      ruby_version = @fetcher.send(:fetch_file_if_present, '.ruby-version')
+
+      ruby_version.content
+    end
   end
 end

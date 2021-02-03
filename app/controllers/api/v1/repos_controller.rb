@@ -15,7 +15,7 @@ module Api
 
       # GET /repos/1
       def show
-        render json: @repo
+        render json: @repo.as_json(include: :repoable)
       end
 
       # POST /repos

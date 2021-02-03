@@ -2,21 +2,23 @@
 
 # A git repository
 class Repo < ApplicationRecord
-  def update_dependencies
-    parser = Dep::Source.new(repo: full_path, directory: directory).fetcher.parser
-    lockfile = parser.get.send(:lockfile).content
+  belongs_to :host
 
-    self.ruby_version = parse_ruby_version(lockfile)
+  delegated_type :repoable, types: %w[App Library]
+
+  scope :depends_on, ->(name) { where('(dependencies -> ?) is not null', name) }
+
+  def update_dependencies
+    fetcher = Dep::Source.new(repo: self, host: host).fetcher
+    parser = fetcher.parser
+
+    self.ruby_version = fetcher.parse_ruby_version.match(/\d+\.\d+\.\d+/)
     self.dependencies = parse_dependencies(parser)
 
     save
   end
 
   private
-
-  def parse_ruby_version(lockfile)
-    Bundler::LockfileParser.new(lockfile).ruby_version.match(/\d+\.\d+\.\d+/)
-  end
 
   def parse_dependencies(parser)
     parsed_deps = {}
