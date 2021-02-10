@@ -43,6 +43,8 @@ services:
       target: frontend
     volumes:
       - ./app/vite:/usr/src/app/vite
+      - ./package.json:/usr/src/package.json
+      - ./yarn.lock:/usr/src/yarn.lock
     ports:
       - '4000:4000'
     healthcheck:

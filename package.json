@@ -6,13 +6,14 @@
     "build": "vite build"
   },
   "dependencies": {
-    "preact": "^10.5.9"
+    "preact": "^10.5.12",
+    "preact-router": "^3.2.1"
   },
   "devDependencies": {
-    "@prefresh/vite": "^2.0.0",
+    "@prefresh/vite": "^2.0.4",
     "autoprefixer": "^10.2.4",
-    "postcss": "^8.2.4",
-    "tailwindcss": "^2.0.2",
-    "vite": "^2.0.0-beta.12"
+    "postcss": "^8.2.5",
+    "tailwindcss": "^2.0.3",
+    "vite": "^2.0.0-beta.67"
   }
 }

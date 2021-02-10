@@ -1,4 +1,5 @@
 // @ts-check
+import { resolve } from "path";
 import preactRefresh from "@prefresh/vite";
 
 /**
@@ -9,7 +10,7 @@ const config = {
     manifest: true,
     outDir: "../../public/dist",
     rollupOptions: {
-      input: "./app/vite/main.jsx",
+      input: resolve(__dirname, "app/vite/main.jsx"),
     },
   },
   esbuild: {

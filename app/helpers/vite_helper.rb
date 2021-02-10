@@ -3,7 +3,7 @@
 # Vite asset helpers
 module ViteHelper
   def javascript_vite_tag
-    return tag.script(src: "dist/#{manifest.dig('main.js', 'file')}", type: 'module') unless Rails.env.development?
+    return tag.script(src: "dist/#{manifest.dig('main.jsx', 'file')}", type: 'module') unless Rails.env.development?
 
     sources = %w[
       http://localhost:4000/@vite/client
@@ -16,7 +16,9 @@ module ViteHelper
   def stylesheet_vite_tag
     return if Rails.env.development?
 
-    tag.link(href: "dist/#{manifest.dig('main.css', 'file')}", rel: 'stylesheet')
+    safe_join(
+      manifest.dig('main.jsx', 'css').map { |path| tag.link(href: "dist/#{path}", rel: 'stylesheet') }
+    )
   end
 
   private
