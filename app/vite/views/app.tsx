@@ -14,7 +14,7 @@ export function App({ id }) {
     }
 
     getApp();
-  }, [id, setApp]);
+  }, [id]);
 
   if (!app) return "loading";
 

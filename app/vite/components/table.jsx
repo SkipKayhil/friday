@@ -2,7 +2,7 @@ const getColumnName = (column) => column.headerName || column.field;
 
 function Cell({ row, column }) {
   const cellContent = column.renderCell
-    ? renderCell({ row, column })
+    ? column.renderCell({ row, column })
     : row[column.field];
 
   return <td class="px-6 py-4 whitespace-nowrap">{cellContent}</td>;
