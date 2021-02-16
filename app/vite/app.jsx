@@ -3,6 +3,7 @@ import { Navbar } from "./components/navbar";
 import { Dashboard } from "./views/dashboard";
 import { Apps } from "./views/apps";
 import { Libraries } from "./views/libraries";
+import { App as AppView } from "./views/app";
 
 export function App() {
   return (
@@ -11,6 +12,7 @@ export function App() {
       <Router>
         <Dashboard path="/" />
         <Apps path="/apps" />
+        <AppView path="/apps/:id" />
         <Libraries path="/libraries" />
       </Router>
     </>
