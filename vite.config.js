@@ -6,6 +6,12 @@ import preactRefresh from "@prefresh/vite";
  * @type { import('vite').UserConfig }
  */
 const config = {
+  resolve: {
+    alias: [
+      { find: "react", replacement: "preact/compat" },
+      { find: "react-dom", replacement: "preact/compat" },
+    ],
+  },
   build: {
     manifest: true,
     outDir: "../../public/dist",

@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "preact": "^10.5.12",
-    "preact-router": "^3.2.1"
+    "preact-router": "^3.2.1",
+    "swr": "^0.4.2"
   },
   "devDependencies": {
     "@prefresh/vite": "^2.0.4",

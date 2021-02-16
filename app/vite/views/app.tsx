@@ -1,26 +1,16 @@
-import { useEffect, useState } from "preact/hooks";
+import useSWR from "swr";
 import { Header } from "../components/header";
 import { AppWithRepo } from "../models";
 
 export function App({ id }) {
-  const [app, setApp] = useState<AppWithRepo>(undefined);
+  const { data, error } = useSWR<AppWithRepo>(`/api/v1/apps/${id}`);
 
-  useEffect(() => {
-    async function getApp() {
-      const response = await fetch(`/api/v1/apps/${id}`);
-      const app: AppWithRepo = await response.json();
-
-      setApp(app);
-    }
-
-    getApp();
-  }, [id]);
-
-  if (!app) return "loading";
+  if (!data) return "loading";
+  if (error) return "error fetching app";
 
   return (
     <>
-      <Header title={app.repo.full_path} />
+      <Header title={data.repo.full_path} />
     </>
   );
 }

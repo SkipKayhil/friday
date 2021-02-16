@@ -1,7 +1,8 @@
-import { useEffect, useState } from "preact/hooks";
+import useSWR from "swr";
 import { route } from "preact-router";
 import { Header } from "../components/header";
 import { Table } from "../components/table";
+import { RepoWithRepoable } from "../models";
 
 const columns = [
   { field: "full_path", headerName: "Name" },
@@ -17,24 +18,13 @@ const onRowClick = ({ row }) => {
 };
 
 export function Dashboard() {
-  const [repos, setRepos] = useState([]);
-
-  useEffect(() => {
-    async function getRepos() {
-      const response = await fetch("/api/v1/repos");
-      const repos = await response.json();
-
-      setRepos(repos);
-    }
-
-    getRepos();
-  }, []);
+  const { data } = useSWR<RepoWithRepoable>("/api/v1/repos");
 
   return (
     <>
       <Header title="dashboard" />
       <main>
-        <Table rows={repos} columns={columns} onRowClick={onRowClick} />
+        <Table rows={data || []} columns={columns} onRowClick={onRowClick} />
       </main>
     </>
   );
