@@ -16,10 +16,17 @@ interface App {
   updated_at: string;
 }
 
+interface Dependent {
+  id: number;
+  full_path: string;
+  version: string;
+}
+
 interface Library {
   id: number;
   created_at: string;
   updated_at: string;
+  dependents: Dependent[];
 }
 
 interface Repoable {
