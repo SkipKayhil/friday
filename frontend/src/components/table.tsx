@@ -1,6 +1,6 @@
 import { JSX } from "preact";
 
-type RowClick<T> = (params: { row: T; columns?: Column<T>[] }) => any;
+type RowClick<T> = (params: { row: T; columns?: Column<T>[] }) => unknown;
 
 interface RowCol<T> {
   row: T;
@@ -14,12 +14,12 @@ interface Column<T> {
 }
 
 const getColumnName = <T,>(column: Column<T>) =>
-  column.headerName || column.field as string;
+  column.headerName || (column.field as string);
 
 function Cell<T>({ row, column }: RowCol<T>) {
   const cellContent = column.renderCell
     ? column.renderCell({ row, column })
-    : row[column.field] as any;
+    : (row[column.field] as any);
 
   return <td class="px-6 py-4 whitespace-nowrap">{cellContent}</td>;
 }
@@ -55,7 +55,7 @@ export function Table<T>({
   rows,
   columns,
   onRowClick,
-}: TableProps<T>) {
+}: TableProps<T>): JSX.Element {
   return (
     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">

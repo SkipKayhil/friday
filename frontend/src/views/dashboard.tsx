@@ -1,3 +1,4 @@
+import { JSX } from "preact";
 import useSWR from "swr";
 import { route } from "preact-router";
 import { Header } from "../components/header";
@@ -15,14 +16,14 @@ const columns: RepoColumns[] = [
   { field: "updated_at", headerName: "Last Updated" },
 ];
 
-const onRowClick = ({ row }: { row: Record<string, any> }) => {
+const onRowClick = ({ row }: { row: RepoWithRepoable }) => {
   const type = row.repoable_type === "Library" ? "libraries" : "apps";
   const link = `/${type}/${row.repoable_id}`;
 
   route(link);
 };
 
-export function Dashboard() {
+export function Dashboard(): JSX.Element {
   const { data } = useSWR<RepoWithRepoable[]>("/api/v1/repos");
 
   return (

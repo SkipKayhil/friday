@@ -1,3 +1,4 @@
+import { JSX } from "preact";
 import useSWR from "swr";
 import { Header } from "../components/header";
 import { Spinner } from "../components/spinner";
@@ -5,7 +6,7 @@ import { Table } from "../components/table";
 import { LibraryWithRepo } from "../models";
 
 interface LibraryColumns {
-  field: keyof LibraryWithRepo['dependents'][number];
+  field: keyof LibraryWithRepo["dependents"][number];
   headerName?: string;
 }
 
@@ -14,7 +15,7 @@ const columns: LibraryColumns[] = [
   { field: "version" },
 ];
 
-export function Library({ id }: { id: string }) {
+export function Library({ id }: { id: string }): JSX.Element {
   const { data, error } = useSWR<LibraryWithRepo>(`/api/v1/libraries/${id}`);
 
   if (!data) return <Spinner />;

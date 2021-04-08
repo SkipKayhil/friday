@@ -1,3 +1,4 @@
+import { JSX } from "preact";
 import useSWR from "swr";
 import { Header } from "../components/header";
 import { Spinner } from "../components/spinner";
@@ -5,12 +6,12 @@ import { Table } from "../components/table";
 import { AppWithRepo, Dependency } from "../models";
 
 type DepColumn = {
-  field: keyof Dependency | 'name';
-}
+  field: keyof Dependency | "name";
+};
 
 const columns: DepColumn[] = [{ field: "name" }, { field: "version" }];
 
-export function App({ id }: { id: string }) {
+export function App({ id }: { id: string }): JSX.Element {
   const { data, error } = useSWR<AppWithRepo>(`/api/v1/apps/${id}`);
 
   if (!data) return <Spinner />;

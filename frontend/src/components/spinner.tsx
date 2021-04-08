@@ -1,4 +1,6 @@
-export function Spinner() {
+import { JSX } from "preact";
+
+export function Spinner(): JSX.Element {
   return (
     <svg class="animate-material-spin text-gray-900 w-10" viewBox="22 22 44 44">
       <circle
