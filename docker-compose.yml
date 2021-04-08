@@ -20,10 +20,10 @@ services:
     <<: *rails
     environment:
       <<: *env
-      RAILS_SERVE_STATIC_FILES: 'true'
-      RAILS_LOG_TO_STDOUT: 'true'
+      RAILS_SERVE_STATIC_FILES: "true"
+      RAILS_LOG_TO_STDOUT: "true"
     ports:
-      - '5000:3000'
+      - "5000:3000"
 
   rails-dev:
     <<: *rails
@@ -39,14 +39,12 @@ services:
 
   vite-dev:
     build:
-      <<: *build
-      target: frontend
+      context: ./frontend
+      target: builder
     volumes:
-      - ./app/vite:/usr/src/app/vite
-      - ./package.json:/usr/src/package.json
-      - ./yarn.lock:/usr/src/yarn.lock
+      - ./frontend:/usr/src
     ports:
-      - '4000:4000'
+      - "4000:4000"
     healthcheck:
       test: ["CMD", "wget", "-O/dev/null", "http://localhost:4000/@vite/client"]
       interval: 5s

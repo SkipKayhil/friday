@@ -12,7 +12,7 @@ export function App({ id }) {
   if (!data) return <Spinner />;
   if (error) return "error fetching app";
 
-  const transformedData = Object.entries(data.repo.dependencies).map(
+  const transformedData = Object.entries(data.repo.dependencies || {}).map(
     ([name, value]) => ({
       ...value,
       name,

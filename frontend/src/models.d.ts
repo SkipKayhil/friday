@@ -4,7 +4,7 @@ interface Repo {
   full_path: string;
   directory: string;
   ruby_version: string;
-  dependencies: Record<string, string>;
+  dependencies?: Record<string, {}>;
   host_id: number;
   created_at: string;
   updated_at: string;
