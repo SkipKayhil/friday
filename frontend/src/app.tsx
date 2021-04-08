@@ -1,4 +1,4 @@
-import { Router } from "preact-router";
+import { Router, Route } from "preact-router";
 import { Navbar } from "./components/navbar";
 import { Dashboard } from "./views/dashboard";
 import { Apps } from "./views/apps";
@@ -11,11 +11,11 @@ export function App() {
     <>
       <Navbar />
       <Router>
-        <Dashboard path="/" />
-        <Apps path="/apps" />
-        <AppView path="/apps/:id" />
-        <Libraries path="/libraries" />
-        <LibraryView path="/libraries/:id" />
+        <Route component={Dashboard} path="/" />
+        <Route component={Apps} path="/apps" />
+        <Route component={AppView} path="/apps/:id" />
+        <Route component={Libraries} path="/libraries" />
+        <Route component={LibraryView} path="/libraries/:id" />
       </Router>
     </>
   );

@@ -2,7 +2,7 @@
   "name": "dep",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --port 4000",
+    "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "lint": "eslint src/**/*"

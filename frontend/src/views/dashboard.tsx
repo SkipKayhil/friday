@@ -4,13 +4,18 @@ import { Header } from "../components/header";
 import { Table } from "../components/table";
 import { RepoWithRepoable } from "../models";
 
-const columns = [
+interface RepoColumns {
+  field: keyof RepoWithRepoable;
+  headerName: string;
+}
+
+const columns: RepoColumns[] = [
   { field: "full_path", headerName: "Name" },
   { field: "repoable_type", headerName: "Type" },
   { field: "updated_at", headerName: "Last Updated" },
 ];
 
-const onRowClick = ({ row }) => {
+const onRowClick = ({ row }: { row: Record<string, any> }) => {
   const type = row.repoable_type === "Library" ? "libraries" : "apps";
   const link = `/${type}/${row.repoable_id}`;
 
@@ -18,7 +23,7 @@ const onRowClick = ({ row }) => {
 };
 
 export function Dashboard() {
-  const { data } = useSWR<RepoWithRepoable>("/api/v1/repos");
+  const { data } = useSWR<RepoWithRepoable[]>("/api/v1/repos");
 
   return (
     <>

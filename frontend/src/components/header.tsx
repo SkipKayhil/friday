@@ -1,4 +1,4 @@
-export function Header({ title }) {
+export function Header({ title }: { title: string }) {
   return (
     <div class="max-w-7xl mx-auto py-6">
       <h1 class="text-3xl font-bold leading-tight text-gray-900">{title}</h1>

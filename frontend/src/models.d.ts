@@ -1,10 +1,14 @@
+interface Dependency {
+  version: string;
+}
+
 interface Repo {
   id: number;
   name: string;
   full_path: string;
   directory: string;
   ruby_version: string;
-  dependencies?: Record<string, {}>;
+  dependencies?: Record<string, Dependency | undefined>;
   host_id: number;
   created_at: string;
   updated_at: string;
@@ -51,4 +55,12 @@ type AppWithRepo = App & Repoable;
 
 type LibraryWithRepo = Library & Repoable;
 
-export { Repo, App, Library, RepoWithRepoable, AppWithRepo, LibraryWithRepo };
+export {
+  Dependency,
+  Repo,
+  App,
+  Library,
+  RepoWithRepoable,
+  AppWithRepo,
+  LibraryWithRepo,
+};
