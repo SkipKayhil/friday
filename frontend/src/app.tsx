@@ -5,6 +5,7 @@ import { Apps } from "./views/apps";
 import { Libraries } from "./views/libraries";
 import { App as AppView } from "./views/app";
 import { Library as LibraryView } from "./views/library";
+import { NewRepo } from "./views/newRepo";
 
 export function App() {
   return (
@@ -16,6 +17,7 @@ export function App() {
         <Route component={AppView} path="/apps/:id" />
         <Route component={Libraries} path="/libraries" />
         <Route component={LibraryView} path="/libraries/:id" />
+        <Route component={NewRepo} path="/repos/new" />
       </Router>
     </>
   );

@@ -16,7 +16,7 @@ export function Navbar(): JSX.Element {
           </Link>
         </li>
         {["apps", "libraries"].map((text) => (
-          <li>
+          <li key={text}>
             <Link
               href={`/${text}`}
               class={linkClass}
@@ -27,6 +27,13 @@ export function Navbar(): JSX.Element {
           </li>
         ))}
       </ul>
+      <Link
+        href={`/repos/new`}
+        class={`${linkClass} ml-auto`}
+        activeClass={`${selectedClass} ml-auto`}
+      >
+        new
+      </Link>
     </nav>
   );
 }
