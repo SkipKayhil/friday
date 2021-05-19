@@ -13,4 +13,4 @@ FROM nginx:alpine
 WORKDIR /app
 
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=frontend /usr/src/dist /
+COPY --from=builder /usr/src/dist /
