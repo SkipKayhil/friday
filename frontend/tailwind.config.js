@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["app/vite/**/*.{js,jsx,ts,tsx}"],
+  purge: ["src/**/*.{js,jsx,ts,tsx}", "index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -38,7 +38,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [require("@tailwindcss/forms")],
 };
