@@ -7,7 +7,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-github = Host.find_or_create_by(domain: 'github.com', token: ENV['GITHUB_ACCESS_TOKEN'])
+github = Host::Github.find_or_create_by(domain: 'github.com', token: ENV['GITHUB_ACCESS_TOKEN'])
 # gitlab = Host.find_or_create_by(domain: 'gitlab.com', token: ENV['GITLAB_ACCESS_TOKEN'])
 
 apps = [
