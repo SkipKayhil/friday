@@ -52,7 +52,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def app_params
-        params.require(:app).permit
+        params.require(:app).permit(repo_attributes: %i[name full_path directory host_id])
       end
     end
   end
