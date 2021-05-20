@@ -29,10 +29,38 @@ module Dep
     def dependencies
       parsed_deps = {}
       @parser.parse.each do |dep|
-        parsed_deps[dep.name] = { version: dep.version }
+        parsed_deps[dep.name] = { version: dep.version, known_vulnerability: audit[dep.name] }
       end
 
       parsed_deps
+    end
+
+    def audit
+      @audit ||= begin
+        @parser.send(:parsed_lockfile).specs.map do |gem|
+          known_vulnerability = false
+
+          database.check_gem(gem) do |advisory|
+            known_vulnerability = true
+          end
+
+          [gem.name, known_vulnerability]
+        end.to_h
+      end
+    end
+
+    private
+
+    def database
+      @database ||= begin
+        if Bundler::Audit::Database.exists?
+          Bundler::Audit::Database.update
+        else
+          Bundler::Audit::Database.download
+        end
+
+        Bundler::Audit::Database.new
+      end
     end
   end
 end

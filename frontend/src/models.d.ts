@@ -1,5 +1,6 @@
 interface Dependency {
   version: string;
+  known_vulnerability: boolean;
 }
 
 interface Repo {

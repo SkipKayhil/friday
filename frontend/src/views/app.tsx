@@ -9,7 +9,11 @@ type DepColumn = {
   field: keyof Dependency | "name";
 };
 
-const columns: DepColumn[] = [{ field: "name" }, { field: "version" }];
+const columns: DepColumn[] = [
+  { field: "name" },
+  { field: "version" },
+  { field: "known_vulnerability" },
+];
 
 export function App({ id }: { id: string }): JSX.Element {
   const { data, error } = useSWR<AppWithRepo>(`/api/v1/apps/${id}`);
@@ -17,12 +21,19 @@ export function App({ id }: { id: string }): JSX.Element {
   if (!data) return <Spinner />;
   if (error) return <>{"error fetching app"}</>;
 
-  const transformedData = Object.entries(data.repo.dependencies || {}).map(
-    ([name, value]) => ({
+  const transformedData = Object.entries(data.repo.dependencies || {})
+    .map(([name, { known_vulnerability, ...value }]) => ({
       ...value,
+      known_vulnerability: known_vulnerability ? "YES" : "",
       name,
-    })
-  );
+    }))
+    .sort((a, b) => {
+      if (a.known_vulnerability === b.known_vulnerability) {
+        return a.name.localeCompare(b.name);
+      }
+
+      return a.known_vulnerability === "YES" ? -1 : 1;
+    });
 
   return (
     <>
