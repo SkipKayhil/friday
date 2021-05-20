@@ -9,14 +9,13 @@ module Dep
 
       @config = Config.new(credentials: host.credentials)
 
-      # case :github
-      # when :github
-      @source = github
-      # when :gitlab
-      #   @source = gitlab
-      # else
-      #   raise "Invalid type provided to Dep::Source - #{type}"
-      # end
+      @source = Dependabot::Source.new(
+        provider: host.class::PROVIDER,
+        hostname: host.domain_unless_default,
+        api_endpoint: host.api_endpoint,
+        repo: repo.full_path,
+        directory: repo.directory || '/'
+      )
     end
 
     def fetcher(package_manager: 'bundler')
@@ -29,30 +28,6 @@ module Dep
 
     def get
       @source
-    end
-
-    private
-
-    def gitlab
-      gitlab_hostname = @host.domain
-
-      Dependabot::Source.new(
-        provider: 'gitlab',
-        hostname: gitlab_hostname,
-        api_endpoint: "https://#{gitlab_hostname}/api/v4",
-        repo: @repo.full_path,
-        directory: @repo.directory || '/',
-        branch: nil # not implemented yet
-      )
-    end
-
-    def github
-      Dependabot::Source.new(
-        provider: 'github',
-        # hostname: @host.domain, # specifying hostname requires specifying api_endpoint
-        repo: @repo.full_path,
-        directory: @repo.directory || '/'
-      )
     end
   end
 end

@@ -10,4 +10,14 @@ class Host < ApplicationRecord
       password: token
     }
   end
+
+  def domain_unless_default
+    domain unless default_domain?
+  end
+
+  private
+
+  def default_domain?
+    domain == self.class::DEFAULT_DOMAIN
+  end
 end
