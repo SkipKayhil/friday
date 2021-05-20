@@ -52,7 +52,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def library_params
-        params.fetch(:library, {})
+        params.require(:library).permit(repo_attributes: %i[name full_path directory host_id])
       end
     end
   end
