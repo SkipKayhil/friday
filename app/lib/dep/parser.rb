@@ -17,13 +17,7 @@ module Dep
     end
 
     def ruby_version
-      lockfile_ruby = @parser.send(:parsed_lockfile).ruby_version
-
-      return lockfile_ruby if lockfile_ruby
-
-      ruby_version = @config.fetcher.get.send(:fetch_file_if_present, '.ruby-version')
-
-      ruby_version.content
+      full_ruby_version.match(/\d+\.\d+\.\d+/)
     end
 
     def dependencies
@@ -36,17 +30,15 @@ module Dep
     end
 
     def audit
-      @audit ||= begin
-        @parser.send(:parsed_lockfile).specs.map do |gem|
-          known_vulnerability = false
+      @audit ||= @parser.send(:parsed_lockfile).specs.map do |gem|
+        known_vulnerability = false
 
-          database.check_gem(gem) do |advisory|
-            known_vulnerability = true
-          end
+        database.check_gem(gem) do |advisory|
+          known_vulnerability = true
+        end
 
-          [gem.name, known_vulnerability]
-        end.to_h
-      end
+        [gem.name, known_vulnerability]
+      end.to_h
     end
 
     private
@@ -61,6 +53,16 @@ module Dep
 
         Bundler::Audit::Database.new
       end
+    end
+
+    def full_ruby_version
+      lockfile_ruby = Bundler::LockfileParser.new(@parser.send(:lockfile).content).ruby_version
+
+      return lockfile_ruby if lockfile_ruby
+
+      ruby_version = @config.fetcher.get.send(:fetch_file_if_present, '.ruby-version')
+
+      ruby_version.content
     end
   end
 end

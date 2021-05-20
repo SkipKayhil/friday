@@ -11,7 +11,7 @@ class Repo < ApplicationRecord
   def update_dependencies
     parser = Dep::Source.new(repo: self, host: host).fetcher.parser
 
-    self.ruby_version = parser.ruby_version.match(/\d+\.\d+\.\d+/)
+    self.ruby_version = parser.ruby_version
     self.dependencies = parser.dependencies
 
     save
