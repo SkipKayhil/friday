@@ -15,5 +15,24 @@ module Dep
     def get
       @parser
     end
+
+    def ruby_version
+      lockfile_ruby = @parser.send(:parsed_lockfile).ruby_version
+
+      return lockfile_ruby if lockfile_ruby
+
+      ruby_version = @config.fetcher.get.send(:fetch_file_if_present, '.ruby-version')
+
+      ruby_version.content
+    end
+
+    def dependencies
+      parsed_deps = {}
+      @parser.parse.each do |dep|
+        parsed_deps[dep.name] = { version: dep.version }
+      end
+
+      parsed_deps
+    end
   end
 end

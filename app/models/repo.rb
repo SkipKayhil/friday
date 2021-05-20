@@ -9,23 +9,11 @@ class Repo < ApplicationRecord
   scope :depends_on, ->(name) { where('(dependencies -> ?) is not null', name) }
 
   def update_dependencies
-    fetcher = Dep::Source.new(repo: self, host: host).fetcher
-    parser = fetcher.parser
+    parser = Dep::Source.new(repo: self, host: host).fetcher.parser
 
-    self.ruby_version = fetcher.parse_ruby_version.match(/\d+\.\d+\.\d+/)
-    self.dependencies = parse_dependencies(parser)
+    self.ruby_version = parser.ruby_version.match(/\d+\.\d+\.\d+/)
+    self.dependencies = parser.dependencies
 
     save
-  end
-
-  private
-
-  def parse_dependencies(parser)
-    parsed_deps = {}
-    parser.get.parse.each do |dep|
-      parsed_deps[dep.name] = { version: dep.version }
-    end
-
-    parsed_deps
   end
 end
