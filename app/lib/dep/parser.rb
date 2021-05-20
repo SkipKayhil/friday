@@ -46,7 +46,7 @@ module Dep
     def database
       @database ||= begin
         if Bundler::Audit::Database.exists?
-          Bundler::Audit::Database.update
+          Bundler::Audit::Database.update!
         else
           Bundler::Audit::Database.download
         end
