@@ -7,7 +7,7 @@ module Dep
       @repo = repo
       @host = host
 
-      @config = Config.new(credentials: host.credentials)
+      @config = Config.new(credentials: [host.credentials])
 
       @source = Dependabot::Source.new(
         provider: host.class::PROVIDER,
