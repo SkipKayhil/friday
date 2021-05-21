@@ -4,10 +4,10 @@
 class Host < ApplicationRecord
   def credentials
     {
-      type: 'git_source',
-      host: domain,
-      username: 'x-access-token',
-      password: token
+      'type' => 'git_source',
+      'host' => domain,
+      'username' => 'x-access-token',
+      'password' => token
     }
   end
 
