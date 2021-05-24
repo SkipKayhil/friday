@@ -13,6 +13,7 @@ interface LibraryColumns {
 const columns: LibraryColumns[] = [
   { field: "full_path", headerName: "Name" },
   { field: "version" },
+  { field: "known_vulnerability", headerName: "Known Vulnerability" },
 ];
 
 export function Library({ id }: { id: string }): JSX.Element {
@@ -21,11 +22,16 @@ export function Library({ id }: { id: string }): JSX.Element {
   if (!data) return <Spinner />;
   if (error) return <>{"error fetching library"}</>;
 
+  const transformedData = data.dependents.map((dependent) => ({
+    ...dependent,
+    known_vulnerability: dependent.known_vulnerability ? "YES" : "",
+  }));
+
   return (
     <>
       <Header title={data.repo.full_path} />
       <main>
-        <Table rows={data.dependents} columns={columns} />
+        <Table rows={transformedData} columns={columns} />
       </main>
     </>
   );

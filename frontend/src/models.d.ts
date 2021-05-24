@@ -21,10 +21,9 @@ interface App {
   updated_at: string;
 }
 
-interface Dependent {
+interface Dependent extends Dependency {
   id: number;
   full_path: string;
-  version: string;
 }
 
 interface Library {

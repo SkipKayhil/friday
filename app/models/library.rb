@@ -19,7 +19,9 @@ class Library < ApplicationRecord
 
     Repo
       .depends_on(lib_name)
-      .pluck(*attrs, Arel.sql(self.class.sanitize_sql_array(["dependencies -> ? -> 'version'", lib_name])))
-      .map { |pluck| (attrs + ['version']).zip(pluck).to_h }
+      .pluck(*attrs, Arel.sql(self.class.sanitize_sql_array(['dependencies -> ?', lib_name])))
+      .map do |id, full_path, dep|
+        { id: id, full_path: full_path }.merge!(dep)
+      end
   end
 end
