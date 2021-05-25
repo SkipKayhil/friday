@@ -1,10 +1,12 @@
 import { FunctionComponent, JSX } from "preact";
+import { useState } from "preact/hooks";
 import useSWR from "swr";
 import { route } from "preact-router";
 import { Header } from "../components/header";
 import { Spinner } from "../components/spinner";
 import { Status } from "../components/status";
 import { Table } from "../components/table";
+import { TextField } from "../components/textField";
 import { AppWithRepo } from "../models";
 
 interface Row extends AppWithRepo {
@@ -40,18 +42,29 @@ const onRowClick = ({ row }: { row: Row }) => {
 };
 
 const Apps: FunctionComponent = () => {
+  const [search, setSearch] = useState("");
   const { data } = useSWR<AppWithRepo[]>("/api/v1/apps");
 
   if (!data) return <Spinner />;
 
-  const transformedData = data.map((app) => ({
-    ...app,
-    full_path: app.repo.full_path,
-  }));
+  const transformedData = data
+    .map((app) => ({
+      ...app,
+      full_path: app.repo.full_path,
+    }))
+    .filter((app) => app.full_path.includes(search));
 
   return (
     <>
-      <Header title="apps" />
+      <Header title="apps">
+        <TextField
+          id="search"
+          class="ml-auto"
+          placeholder="search"
+          value={search}
+          onInput={(e) => setSearch((e.target as HTMLInputElement).value)}
+        />
+      </Header>
       <main>
         <Table
           rows={transformedData}
