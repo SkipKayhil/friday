@@ -14,7 +14,9 @@ interface Column<T> {
 }
 
 const getColumnName = <T,>(column: Column<T>) =>
-  column.headerName || (column.field as string);
+  column.headerName === undefined
+    ? (column.field as string)
+    : column.headerName;
 
 function Cell<T>({ row, column }: RowCol<T>) {
   const cellContent = column.renderCell
@@ -39,7 +41,7 @@ function Row<T>({ row, columns, onRowClick }: RowProps<T>) {
       class={rowClass}
     >
       {columns.map((column) => (
-        <Cell row={row} column={column} />
+        <Cell key={column.field} row={row} column={column} />
       ))}
     </tr>
   );
@@ -63,6 +65,7 @@ export function Table<T>({
           <tr>
             {columns.map((column) => (
               <th
+                key={column.field}
                 scope="col"
                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >

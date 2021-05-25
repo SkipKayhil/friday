@@ -1,8 +1,9 @@
-import { JSX } from "preact";
+import { FunctionComponent, JSX } from "preact";
 import useSWR from "swr";
 import { route } from "preact-router";
 import { Header } from "../components/header";
 import { Spinner } from "../components/spinner";
+import { Status } from "../components/status";
 import { Table } from "../components/table";
 import { AppWithRepo } from "../models";
 
@@ -11,11 +12,25 @@ interface Row extends AppWithRepo {
 }
 
 interface AppColumns {
-  field: keyof Row;
+  field: keyof Row | "status";
   headerName: string;
+  renderCell?({ row, column }: { row: Row; column: AppColumns }): JSX.Element;
 }
 
+const statusCell = ({ row }: { row: Row }) => {
+  if (!row.repo.dependencies) {
+    return <Status type="warning" />;
+  }
+
+  const vulnerable = Object.entries(row.repo.dependencies).some(
+    ([, dep]) => dep?.known_vulnerability
+  );
+
+  return vulnerable ? <Status type="error" /> : "";
+};
+
 const columns: AppColumns[] = [
+  { field: "status", renderCell: statusCell, headerName: "" },
   { field: "full_path", headerName: "Name" },
   { field: "updated_at", headerName: "Last Updated" },
 ];
@@ -24,7 +39,7 @@ const onRowClick = ({ row }: { row: Row }) => {
   route(`/apps/${row.id}`);
 };
 
-export function Apps(): JSX.Element {
+const Apps: FunctionComponent = () => {
   const { data } = useSWR<AppWithRepo[]>("/api/v1/apps");
 
   if (!data) return <Spinner />;
@@ -46,4 +61,6 @@ export function Apps(): JSX.Element {
       </main>
     </>
   );
-}
+};
+
+export { Apps };
