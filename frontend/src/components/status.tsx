@@ -7,9 +7,9 @@ const colorFor = (type?: Type) => {
     case "error":
       return "bg-red-500";
     case "warning":
-      return "bg-yellow-500";
+      return "bg-yellow-300";
     default:
-      return "bg-green-500";
+      return "bg-green-400";
   }
 };
 
