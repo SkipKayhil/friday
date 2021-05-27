@@ -1,11 +1,10 @@
-version: "2.4"
-
 x-rails: &rails
   build: &build
     context: .
     dockerfile: Dockerfile
   environment: &env
     DATABASE_URL: postgres://postgres:postgres@postgres:5432
+    REDIS_URL: redis://redis:6379/
   image: dep:latest
   ports:
     - "3000:3000"
@@ -13,6 +12,8 @@ x-rails: &rails
     - /tmp
   depends_on: &deps
     postgres:
+      condition: service_healthy
+    redis:
       condition: service_healthy
 
 services:
@@ -50,7 +51,7 @@ services:
       interval: 5s
 
   postgres:
-    image: postgres:13.0
+    image: postgres:13
     volumes:
       - postgres:/var/lib/postgresql/data
     environment:
@@ -61,5 +62,18 @@ services:
       test: pg_isready -U postgres -h 127.0.0.1
       interval: 5s
 
+  redis:
+    image: redis:6-alpine
+    volumes:
+      - redis:/data
+    ports:
+      - 6379
+    healthcheck:
+      test: redis-cli ping
+      interval: 1s
+      timeout: 3s
+      retries: 30
+
 volumes:
   postgres:
+  redis:
