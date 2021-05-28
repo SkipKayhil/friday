@@ -43,6 +43,12 @@ module Api
 
         assert_response 204
       end
+
+      test 'should enqueue FetchDependenciesJob' do
+        assert_enqueued_with(job: FetchDependenciesJob, args: [@repo.app]) do
+          post dependencies_api_v1_app_url(@repo.app)
+        end
+      end
     end
   end
 end
