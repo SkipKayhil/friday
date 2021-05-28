@@ -31,7 +31,7 @@ module Api
 
       # PATCH/PUT /repos/1
       def update
-        if @repo.update_dependencies
+        if @repo.update(repo_params)
           render json: @repo
         else
           render json: @repo.errors, status: :unprocessable_entity

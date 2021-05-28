@@ -6,6 +6,6 @@ module Repoable
 
   included do
     has_one :repo, as: :repoable, touch: true, dependent: :destroy
-    accepts_nested_attributes_for :repo
+    accepts_nested_attributes_for :repo, update_only: true
   end
 end

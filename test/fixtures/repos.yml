@@ -1,0 +1,6 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+friday_repo:
+  full_path: skipkayhil/friday
+  host: github
+  repoable: friday (App)
