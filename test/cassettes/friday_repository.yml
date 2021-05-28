@@ -1,0 +1,406 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/skipkayhil/friday
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Octokit Ruby Gem 4.21.0
+      Accept:
+      - application/vnd.github.v3+json
+      Content-Type:
+      - application/json
+      Authorization:
+      - token thisisarealtoken
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 28 May 2021 02:23:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"f8ba3f1677662ec542d92af985a41e5c9e0f1a1f199e501713c1dfb316dc83a6"
+      Last-Modified:
+      - Tue, 25 May 2021 14:23:15 GMT
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4999'
+      X-Ratelimit-Reset:
+      - '1622172192'
+      X-Ratelimit-Used:
+      - '1'
+      X-Ratelimit-Resource:
+      - core
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
+        Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - DCD5:4FE8:10EED:116AE5:60B05410
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":368914453,"node_id":"MDEwOlJlcG9zaXRvcnkzNjg5MTQ0NTM=","name":"friday","full_name":"SkipKayhil/friday","private":false,"owner":{"login":"SkipKayhil","id":6014046,"node_id":"MDQ6VXNlcjYwMTQwNDY=","avatar_url":"https://avatars.githubusercontent.com/u/6014046?v=4","gravatar_id":"","url":"https://api.github.com/users/SkipKayhil","html_url":"https://github.com/SkipKayhil","followers_url":"https://api.github.com/users/SkipKayhil/followers","following_url":"https://api.github.com/users/SkipKayhil/following{/other_user}","gists_url":"https://api.github.com/users/SkipKayhil/gists{/gist_id}","starred_url":"https://api.github.com/users/SkipKayhil/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/SkipKayhil/subscriptions","organizations_url":"https://api.github.com/users/SkipKayhil/orgs","repos_url":"https://api.github.com/users/SkipKayhil/repos","events_url":"https://api.github.com/users/SkipKayhil/events{/privacy}","received_events_url":"https://api.github.com/users/SkipKayhil/received_events","type":"User","site_admin":false},"html_url":"https://github.com/SkipKayhil/friday","description":null,"fork":false,"url":"https://api.github.com/repos/SkipKayhil/friday","forks_url":"https://api.github.com/repos/SkipKayhil/friday/forks","keys_url":"https://api.github.com/repos/SkipKayhil/friday/keys{/key_id}","collaborators_url":"https://api.github.com/repos/SkipKayhil/friday/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/SkipKayhil/friday/teams","hooks_url":"https://api.github.com/repos/SkipKayhil/friday/hooks","issue_events_url":"https://api.github.com/repos/SkipKayhil/friday/issues/events{/number}","events_url":"https://api.github.com/repos/SkipKayhil/friday/events","assignees_url":"https://api.github.com/repos/SkipKayhil/friday/assignees{/user}","branches_url":"https://api.github.com/repos/SkipKayhil/friday/branches{/branch}","tags_url":"https://api.github.com/repos/SkipKayhil/friday/tags","blobs_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/SkipKayhil/friday/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/SkipKayhil/friday/git/refs{/sha}","trees_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees{/sha}","statuses_url":"https://api.github.com/repos/SkipKayhil/friday/statuses/{sha}","languages_url":"https://api.github.com/repos/SkipKayhil/friday/languages","stargazers_url":"https://api.github.com/repos/SkipKayhil/friday/stargazers","contributors_url":"https://api.github.com/repos/SkipKayhil/friday/contributors","subscribers_url":"https://api.github.com/repos/SkipKayhil/friday/subscribers","subscription_url":"https://api.github.com/repos/SkipKayhil/friday/subscription","commits_url":"https://api.github.com/repos/SkipKayhil/friday/commits{/sha}","git_commits_url":"https://api.github.com/repos/SkipKayhil/friday/git/commits{/sha}","comments_url":"https://api.github.com/repos/SkipKayhil/friday/comments{/number}","issue_comment_url":"https://api.github.com/repos/SkipKayhil/friday/issues/comments{/number}","contents_url":"https://api.github.com/repos/SkipKayhil/friday/contents/{+path}","compare_url":"https://api.github.com/repos/SkipKayhil/friday/compare/{base}...{head}","merges_url":"https://api.github.com/repos/SkipKayhil/friday/merges","archive_url":"https://api.github.com/repos/SkipKayhil/friday/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/SkipKayhil/friday/downloads","issues_url":"https://api.github.com/repos/SkipKayhil/friday/issues{/number}","pulls_url":"https://api.github.com/repos/SkipKayhil/friday/pulls{/number}","milestones_url":"https://api.github.com/repos/SkipKayhil/friday/milestones{/number}","notifications_url":"https://api.github.com/repos/SkipKayhil/friday/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/SkipKayhil/friday/labels{/name}","releases_url":"https://api.github.com/repos/SkipKayhil/friday/releases{/id}","deployments_url":"https://api.github.com/repos/SkipKayhil/friday/deployments","created_at":"2021-05-19T15:22:05Z","updated_at":"2021-05-25T14:23:15Z","pushed_at":"2021-05-25T14:23:13Z","git_url":"git://github.com/SkipKayhil/friday.git","ssh_url":"git@github.com:SkipKayhil/friday.git","clone_url":"https://github.com/SkipKayhil/friday.git","svn_url":"https://github.com/SkipKayhil/friday","homepage":null,"size":221,"stargazers_count":0,"watchers_count":0,"language":"Ruby","has_issues":true,"has_projects":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"archived":false,"disabled":false,"open_issues_count":0,"license":{"key":"gpl-3.0","name":"GNU
+        General Public License v3.0","spdx_id":"GPL-3.0","url":"https://api.github.com/licenses/gpl-3.0","node_id":"MDc6TGljZW5zZTk="},"forks":0,"open_issues":0,"watchers":0,"default_branch":"master","permissions":{"admin":true,"push":true,"pull":true},"temp_clone_token":"","allow_squash_merge":true,"allow_merge_commit":true,"allow_rebase_merge":true,"delete_branch_on_merge":false,"network_count":0,"subscribers_count":1}'
+  recorded_at: Fri, 28 May 2021 02:23:11 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/skipkayhil/friday/git/refs/heads/master
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Octokit Ruby Gem 4.21.0
+      Accept:
+      - application/vnd.github.v3+json
+      Content-Type:
+      - application/json
+      Authorization:
+      - token thisisarealtoken
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 28 May 2021 02:23:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"ba46bba08e2c83a56937b0c0a53753897a3105b49fff494e81dc8c4a7b871e9b"
+      Last-Modified:
+      - Tue, 25 May 2021 14:23:15 GMT
+      X-Poll-Interval:
+      - '300'
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4998'
+      X-Ratelimit-Reset:
+      - '1622172192'
+      X-Ratelimit-Used:
+      - '2'
+      X-Ratelimit-Resource:
+      - core
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
+        Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - DCD6:36C2:31AD70:9067AB:60B0541B
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ref":"refs/heads/master","node_id":"MDM6UmVmMzY4OTE0NDUzOnJlZnMvaGVhZHMvbWFzdGVy","url":"https://api.github.com/repos/SkipKayhil/friday/git/refs/heads/master","object":{"sha":"ff50a1aa7e10bb732fe12948980b620a63c8c923","type":"commit","url":"https://api.github.com/repos/SkipKayhil/friday/git/commits/ff50a1aa7e10bb732fe12948980b620a63c8c923"}}'
+  recorded_at: Fri, 28 May 2021 02:23:22 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/skipkayhil/friday/contents/?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Octokit Ruby Gem 4.21.0
+      Accept:
+      - application/vnd.github.v3+json
+      Content-Type:
+      - application/json
+      Authorization:
+      - token thisisarealtoken
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 28 May 2021 02:23:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"29ccca2963f46834c65d8086da30f1d2c44091ca"
+      Last-Modified:
+      - Tue, 25 May 2021 14:23:15 GMT
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4997'
+      X-Ratelimit-Reset:
+      - '1622172192'
+      X-Ratelimit-Used:
+      - '3'
+      X-Ratelimit-Resource:
+      - core
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
+        Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - DCD7:4FEE:30FEB7:90659A:60B05426
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"name":".gitattributes","path":".gitattributes","sha":"dff662b5375a4dc6d7e1bc0ca9ec8a4443ea404e","size":247,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/.gitattributes?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/.gitattributes","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/dff662b5375a4dc6d7e1bc0ca9ec8a4443ea404e","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/.gitattributes","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/.gitattributes?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/dff662b5375a4dc6d7e1bc0ca9ec8a4443ea404e","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/.gitattributes"}},{"name":".gitignore","path":".gitignore","sha":"473fac8d54cc8a126e9020c0f3769e830ea88578","size":667,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/.gitignore?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/.gitignore","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/473fac8d54cc8a126e9020c0f3769e830ea88578","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/.gitignore","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/.gitignore?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/473fac8d54cc8a126e9020c0f3769e830ea88578","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/.gitignore"}},{"name":".rubocop.yml","path":".rubocop.yml","sha":"69c12143d7e4bbed5626ba23643c3a5af60dfc95","size":79,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/.rubocop.yml?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/.rubocop.yml","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/69c12143d7e4bbed5626ba23643c3a5af60dfc95","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/.rubocop.yml","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/.rubocop.yml?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/69c12143d7e4bbed5626ba23643c3a5af60dfc95","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/.rubocop.yml"}},{"name":".ruby-version","path":".ruby-version","sha":"45418de7234b80ef3b1b7037ffe8779f4c8396aa","size":11,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/.ruby-version?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/.ruby-version","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/45418de7234b80ef3b1b7037ffe8779f4c8396aa","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/.ruby-version","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/.ruby-version?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/45418de7234b80ef3b1b7037ffe8779f4c8396aa","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/.ruby-version"}},{"name":"Dockerfile","path":"Dockerfile","sha":"574b5449bb8d1c6bc204dcb50b325cd039471ae9","size":294,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/Dockerfile?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Dockerfile","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/574b5449bb8d1c6bc204dcb50b325cd039471ae9","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/Dockerfile","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/Dockerfile?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/574b5449bb8d1c6bc204dcb50b325cd039471ae9","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Dockerfile"}},{"name":"Gemfile","path":"Gemfile","sha":"27f16cc33348e1949f065066451601b42526b7b3","size":1851,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/Gemfile?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/27f16cc33348e1949f065066451601b42526b7b3","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/Gemfile?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/27f16cc33348e1949f065066451601b42526b7b3","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile"}},{"name":"Gemfile.lock","path":"Gemfile.lock","sha":"e8a3cd32f433025cad8726c9ba77a9de4bc8f8a6","size":7628,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/Gemfile.lock?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile.lock","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/e8a3cd32f433025cad8726c9ba77a9de4bc8f8a6","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile.lock","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/Gemfile.lock?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/e8a3cd32f433025cad8726c9ba77a9de4bc8f8a6","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile.lock"}},{"name":"LICENSE","path":"LICENSE","sha":"f288702d2fa16d3cdf0035b15a9fcbc552cd88e7","size":35149,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/LICENSE?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/LICENSE","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/f288702d2fa16d3cdf0035b15a9fcbc552cd88e7","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/LICENSE","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/LICENSE?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/f288702d2fa16d3cdf0035b15a9fcbc552cd88e7","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/LICENSE"}},{"name":"README.md","path":"README.md","sha":"fe7a57405028e295c2f17cd10a58a46a7d439608","size":691,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/README.md?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/README.md","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/fe7a57405028e295c2f17cd10a58a46a7d439608","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/README.md","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/README.md?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/fe7a57405028e295c2f17cd10a58a46a7d439608","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/README.md"}},{"name":"Rakefile","path":"Rakefile","sha":"9a5ea7383aa83eec12490380a7391d1bb93eeb96","size":227,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/Rakefile?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Rakefile","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/9a5ea7383aa83eec12490380a7391d1bb93eeb96","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/Rakefile","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/Rakefile?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/9a5ea7383aa83eec12490380a7391d1bb93eeb96","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Rakefile"}},{"name":"app","path":"app","sha":"414687935c35c20ad00c941889f322afdb52118e","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/app?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/app","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/414687935c35c20ad00c941889f322afdb52118e","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/app?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/414687935c35c20ad00c941889f322afdb52118e","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/app"}},{"name":"bin","path":"bin","sha":"ad15be98ac31227cde34d9b5613001d547ae689d","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/bin?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/bin","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/ad15be98ac31227cde34d9b5613001d547ae689d","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/bin?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/ad15be98ac31227cde34d9b5613001d547ae689d","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/bin"}},{"name":"config.ru","path":"config.ru","sha":"4a3c09a6889a97a54af8cbcc1a47e03e58cce376","size":160,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/config.ru?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/config.ru","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/4a3c09a6889a97a54af8cbcc1a47e03e58cce376","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/config.ru","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/config.ru?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/4a3c09a6889a97a54af8cbcc1a47e03e58cce376","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/config.ru"}},{"name":"config","path":"config","sha":"3a1e61fdfe229a03332ae30e3b23d04fa3ddba9a","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/config?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/config","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/3a1e61fdfe229a03332ae30e3b23d04fa3ddba9a","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/config?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/3a1e61fdfe229a03332ae30e3b23d04fa3ddba9a","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/config"}},{"name":"db","path":"db","sha":"ca015dc756eff9e2b718744895e110b4a5dd3576","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/db?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/db","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/ca015dc756eff9e2b718744895e110b4a5dd3576","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/db?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/ca015dc756eff9e2b718744895e110b4a5dd3576","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/db"}},{"name":"docker-compose.yml","path":"docker-compose.yml","sha":"453828e23cab61a82045658b575c3798c849d582","size":1221,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/docker-compose.yml?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/docker-compose.yml","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/453828e23cab61a82045658b575c3798c849d582","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/docker-compose.yml","type":"file","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/docker-compose.yml?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/453828e23cab61a82045658b575c3798c849d582","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/docker-compose.yml"}},{"name":"frontend","path":"frontend","sha":"d2dcd763b7d48633170994e0785cd0ae53e5f459","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/frontend?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/frontend","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/d2dcd763b7d48633170994e0785cd0ae53e5f459","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/frontend?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/d2dcd763b7d48633170994e0785cd0ae53e5f459","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/frontend"}},{"name":"lib","path":"lib","sha":"07d89d0b7e50929dea0dcf7e7354358c1133be86","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/lib?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/lib","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/07d89d0b7e50929dea0dcf7e7354358c1133be86","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/lib?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/07d89d0b7e50929dea0dcf7e7354358c1133be86","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/lib"}},{"name":"log","path":"log","sha":"29a422c19251aeaeb907175e9b3219a9bed6c616","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/log?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/log","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/29a422c19251aeaeb907175e9b3219a9bed6c616","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/log?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/29a422c19251aeaeb907175e9b3219a9bed6c616","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/log"}},{"name":"public","path":"public","sha":"b7b0be843b747f0a1e74f7e6fb1fd91b8b9a038f","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/public?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/public","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/b7b0be843b747f0a1e74f7e6fb1fd91b8b9a038f","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/public?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/b7b0be843b747f0a1e74f7e6fb1fd91b8b9a038f","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/public"}},{"name":"test","path":"test","sha":"3649d9d08a3333294479075b91ff15f5fa3ef801","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/test?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/test","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/3649d9d08a3333294479075b91ff15f5fa3ef801","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/test?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/3649d9d08a3333294479075b91ff15f5fa3ef801","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/test"}},{"name":"tmp","path":"tmp","sha":"1d134449eff124a993ec5fb5b51c50fe90948ce9","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/tmp?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/tmp","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/1d134449eff124a993ec5fb5b51c50fe90948ce9","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/tmp?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/1d134449eff124a993ec5fb5b51c50fe90948ce9","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/tmp"}},{"name":"vendor","path":"vendor","sha":"29a422c19251aeaeb907175e9b3219a9bed6c616","size":0,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/vendor?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/vendor","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/trees/29a422c19251aeaeb907175e9b3219a9bed6c616","download_url":null,"type":"dir","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/vendor?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/trees/29a422c19251aeaeb907175e9b3219a9bed6c616","html":"https://github.com/SkipKayhil/friday/tree/ff50a1aa7e10bb732fe12948980b620a63c8c923/vendor"}}]'
+  recorded_at: Fri, 28 May 2021 02:23:33 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/skipkayhil/friday/contents/Gemfile?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Octokit Ruby Gem 4.21.0
+      Accept:
+      - application/vnd.github.v3+json
+      Content-Type:
+      - application/json
+      Authorization:
+      - token thisisarealtoken
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 28 May 2021 02:23:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"27f16cc33348e1949f065066451601b42526b7b3"
+      Last-Modified:
+      - Tue, 25 May 2021 14:22:53 GMT
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4996'
+      X-Ratelimit-Reset:
+      - '1622172192'
+      X-Ratelimit-Used:
+      - '4'
+      X-Ratelimit-Resource:
+      - core
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
+        Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - DCD8:525A:37FAA1:68CCED:60B05432
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name":"Gemfile","path":"Gemfile","sha":"27f16cc33348e1949f065066451601b42526b7b3","size":1851,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/Gemfile?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/27f16cc33348e1949f065066451601b42526b7b3","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile","type":"file","content":"c291cmNlICdodHRwczovL3J1YnlnZW1zLm9yZycKZ2l0X3NvdXJjZSg6Z2l0\naHViKSB7IHxyZXBvfCAiaHR0cHM6Ly9naXRodWIuY29tLyN7cmVwb30uZ2l0\nIiB9CgpydWJ5ICczLjAuMScKCiMgQnVuZGxlIGVkZ2UgUmFpbHMgaW5zdGVh\nZDogZ2VtICdyYWlscycsIGdpdGh1YjogJ3JhaWxzL3JhaWxzJywgYnJhbmNo\nOiAnbWFpbicKZ2VtICdyYWlscycsICd+PiA2LjEuMycsICc+PSA2LjEuMy4y\nJwojIFVzZSBwb3N0Z3Jlc3FsIGFzIHRoZSBkYXRhYmFzZSBmb3IgQWN0aXZl\nIFJlY29yZApnZW0gJ3BnJywgJ34+IDEuMScKIyBVc2UgUHVtYSBhcyB0aGUg\nYXBwIHNlcnZlcgpnZW0gJ3B1bWEnLCAnfj4gNS4wJwojIEJ1aWxkIEpTT04g\nQVBJcyB3aXRoIGVhc2UuIFJlYWQgbW9yZTogaHR0cHM6Ly9naXRodWIuY29t\nL3JhaWxzL2pidWlsZGVyCiMgZ2VtICdqYnVpbGRlcicsICd+PiAyLjcnCiMg\nVXNlIFJlZGlzIGFkYXB0ZXIgdG8gcnVuIEFjdGlvbiBDYWJsZSBpbiBwcm9k\ndWN0aW9uCiMgZ2VtICdyZWRpcycsICd+PiA0LjAnCiMgVXNlIEFjdGl2ZSBN\nb2RlbCBoYXNfc2VjdXJlX3Bhc3N3b3JkCiMgZ2VtICdiY3J5cHQnLCAnfj4g\nMy4xLjcnCgojIFVzZSBBY3RpdmUgU3RvcmFnZSB2YXJpYW50CiMgZ2VtICdp\nbWFnZV9wcm9jZXNzaW5nJywgJ34+IDEuMicKCiMgUmVkdWNlcyBib290IHRp\nbWVzIHRocm91Z2ggY2FjaGluZzsgcmVxdWlyZWQgaW4gY29uZmlnL2Jvb3Qu\ncmIKZ2VtICdib290c25hcCcsICc+PSAxLjQuNCcsIHJlcXVpcmU6IGZhbHNl\nCgpnZW0gJ2J1bmRsZXItYXVkaXQnCmdlbSAnZGVwZW5kYWJvdC1idW5kbGVy\nJwoKIyBVc2UgUmFjayBDT1JTIGZvciBoYW5kbGluZyBDcm9zcy1PcmlnaW4g\nUmVzb3VyY2UgU2hhcmluZyAoQ09SUyksIG1ha2luZyBjcm9zcy1vcmlnaW4g\nQUpBWCBwb3NzaWJsZQojIGdlbSAncmFjay1jb3JzJwoKZ3JvdXAgOmRldmVs\nb3BtZW50LCA6dGVzdCBkbwogICMgQ2FsbCAnYnllYnVnJyBhbnl3aGVyZSBp\nbiB0aGUgY29kZSB0byBzdG9wIGV4ZWN1dGlvbiBhbmQgZ2V0IGEgZGVidWdn\nZXIgY29uc29sZQogIGdlbSAnYnllYnVnJywgcGxhdGZvcm1zOiBbOm1yaSwg\nOm1pbmd3LCA6eDY0X21pbmd3XQplbmQKCmdyb3VwIDpkZXZlbG9wbWVudCBk\nbwogICMgRGlzcGxheSBwZXJmb3JtYW5jZSBpbmZvcm1hdGlvbiBzdWNoIGFz\nIFNRTCB0aW1lIGFuZCBmbGFtZSBncmFwaHMgZm9yIGVhY2ggcmVxdWVzdCBp\nbiB5b3VyIGJyb3dzZXIuCiAgIyBDYW4gYmUgY29uZmlndXJlZCB0byB3b3Jr\nIG9uIHByb2R1Y3Rpb24gYXMgd2VsbCBzZWU6IGh0dHBzOi8vZ2l0aHViLmNv\nbS9NaW5pUHJvZmlsZXIvcmFjay1taW5pLXByb2ZpbGVyL2Jsb2IvbWFzdGVy\nL1JFQURNRS5tZAogIGdlbSAncmFjay1taW5pLXByb2ZpbGVyJywgJ34+IDIu\nMCcKICBnZW0gJ2xpc3RlbicsICd+PiAzLjMnCiAgIyBTcHJpbmcgc3BlZWRz\nIHVwIGRldmVsb3BtZW50IGJ5IGtlZXBpbmcgeW91ciBhcHBsaWNhdGlvbiBy\ndW5uaW5nIGluIHRoZSBiYWNrZ3JvdW5kLiBSZWFkIG1vcmU6IGh0dHBzOi8v\nZ2l0aHViLmNvbS9yYWlscy9zcHJpbmcKICBnZW0gJ3NwcmluZycKZW5kCgpn\ncm91cCA6cnVib2NvcCBkbwogIGdlbSAncnVib2NvcCcsIHJlcXVpcmU6IGZh\nbHNlCiAgZ2VtICdydWJvY29wLXJhaWxzJywgcmVxdWlyZTogZmFsc2UKICBn\nZW0gJ3J1Ym9jb3AtcGVyZm9ybWFuY2UnLCByZXF1aXJlOiBmYWxzZQplbmQK\nCiMgV2luZG93cyBkb2VzIG5vdCBpbmNsdWRlIHpvbmVpbmZvIGZpbGVzLCBz\nbyBidW5kbGUgdGhlIHR6aW5mby1kYXRhIGdlbQpnZW0gJ3R6aW5mby1kYXRh\nJywgcGxhdGZvcm1zOiBbOm1pbmd3LCA6bXN3aW4sIDp4NjRfbWluZ3csIDpq\ncnVieV0K\n","encoding":"base64","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/Gemfile?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/27f16cc33348e1949f065066451601b42526b7b3","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile"}}'
+  recorded_at: Fri, 28 May 2021 02:23:45 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/skipkayhil/friday/contents/Gemfile.lock?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Octokit Ruby Gem 4.21.0
+      Accept:
+      - application/vnd.github.v3+json
+      Content-Type:
+      - application/json
+      Authorization:
+      - token thisisarealtoken
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 28 May 2021 02:23:57 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"e8a3cd32f433025cad8726c9ba77a9de4bc8f8a6"
+      Last-Modified:
+      - Tue, 25 May 2021 14:22:53 GMT
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4995'
+      X-Ratelimit-Reset:
+      - '1622172192'
+      X-Ratelimit-Used:
+      - '5'
+      X-Ratelimit-Resource:
+      - core
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
+        Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - DCD9:4A2D:356E47:98EE16:60B0543D
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name":"Gemfile.lock","path":"Gemfile.lock","sha":"e8a3cd32f433025cad8726c9ba77a9de4bc8f8a6","size":7628,"url":"https://api.github.com/repos/SkipKayhil/friday/contents/Gemfile.lock?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","html_url":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile.lock","git_url":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/e8a3cd32f433025cad8726c9ba77a9de4bc8f8a6","download_url":"https://raw.githubusercontent.com/SkipKayhil/friday/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile.lock","type":"file","content":"R0VNCiAgcmVtb3RlOiBodHRwczovL3J1YnlnZW1zLm9yZy8KICBzcGVjczoK\nICAgIGFjdGlvbmNhYmxlICg2LjEuMy4yKQogICAgICBhY3Rpb25wYWNrICg9\nIDYuMS4zLjIpCiAgICAgIGFjdGl2ZXN1cHBvcnQgKD0gNi4xLjMuMikKICAg\nICAgbmlvNHIgKH4+IDIuMCkKICAgICAgd2Vic29ja2V0LWRyaXZlciAoPj0g\nMC42LjEpCiAgICBhY3Rpb25tYWlsYm94ICg2LjEuMy4yKQogICAgICBhY3Rp\nb25wYWNrICg9IDYuMS4zLjIpCiAgICAgIGFjdGl2ZWpvYiAoPSA2LjEuMy4y\nKQogICAgICBhY3RpdmVyZWNvcmQgKD0gNi4xLjMuMikKICAgICAgYWN0aXZl\nc3RvcmFnZSAoPSA2LjEuMy4yKQogICAgICBhY3RpdmVzdXBwb3J0ICg9IDYu\nMS4zLjIpCiAgICAgIG1haWwgKD49IDIuNy4xKQogICAgYWN0aW9ubWFpbGVy\nICg2LjEuMy4yKQogICAgICBhY3Rpb25wYWNrICg9IDYuMS4zLjIpCiAgICAg\nIGFjdGlvbnZpZXcgKD0gNi4xLjMuMikKICAgICAgYWN0aXZlam9iICg9IDYu\nMS4zLjIpCiAgICAgIGFjdGl2ZXN1cHBvcnQgKD0gNi4xLjMuMikKICAgICAg\nbWFpbCAofj4gMi41LCA+PSAyLjUuNCkKICAgICAgcmFpbHMtZG9tLXRlc3Rp\nbmcgKH4+IDIuMCkKICAgIGFjdGlvbnBhY2sgKDYuMS4zLjIpCiAgICAgIGFj\ndGlvbnZpZXcgKD0gNi4xLjMuMikKICAgICAgYWN0aXZlc3VwcG9ydCAoPSA2\nLjEuMy4yKQogICAgICByYWNrICh+PiAyLjAsID49IDIuMC45KQogICAgICBy\nYWNrLXRlc3QgKD49IDAuNi4zKQogICAgICByYWlscy1kb20tdGVzdGluZyAo\nfj4gMi4wKQogICAgICByYWlscy1odG1sLXNhbml0aXplciAofj4gMS4wLCA+\nPSAxLjIuMCkKICAgIGFjdGlvbnRleHQgKDYuMS4zLjIpCiAgICAgIGFjdGlv\nbnBhY2sgKD0gNi4xLjMuMikKICAgICAgYWN0aXZlcmVjb3JkICg9IDYuMS4z\nLjIpCiAgICAgIGFjdGl2ZXN0b3JhZ2UgKD0gNi4xLjMuMikKICAgICAgYWN0\naXZlc3VwcG9ydCAoPSA2LjEuMy4yKQogICAgICBub2tvZ2lyaSAoPj0gMS44\nLjUpCiAgICBhY3Rpb252aWV3ICg2LjEuMy4yKQogICAgICBhY3RpdmVzdXBw\nb3J0ICg9IDYuMS4zLjIpCiAgICAgIGJ1aWxkZXIgKH4+IDMuMSkKICAgICAg\nZXJ1YmkgKH4+IDEuNCkKICAgICAgcmFpbHMtZG9tLXRlc3RpbmcgKH4+IDIu\nMCkKICAgICAgcmFpbHMtaHRtbC1zYW5pdGl6ZXIgKH4+IDEuMSwgPj0gMS4y\nLjApCiAgICBhY3RpdmVqb2IgKDYuMS4zLjIpCiAgICAgIGFjdGl2ZXN1cHBv\ncnQgKD0gNi4xLjMuMikKICAgICAgZ2xvYmFsaWQgKD49IDAuMy42KQogICAg\nYWN0aXZlbW9kZWwgKDYuMS4zLjIpCiAgICAgIGFjdGl2ZXN1cHBvcnQgKD0g\nNi4xLjMuMikKICAgIGFjdGl2ZXJlY29yZCAoNi4xLjMuMikKICAgICAgYWN0\naXZlbW9kZWwgKD0gNi4xLjMuMikKICAgICAgYWN0aXZlc3VwcG9ydCAoPSA2\nLjEuMy4yKQogICAgYWN0aXZlc3RvcmFnZSAoNi4xLjMuMikKICAgICAgYWN0\naW9ucGFjayAoPSA2LjEuMy4yKQogICAgICBhY3RpdmVqb2IgKD0gNi4xLjMu\nMikKICAgICAgYWN0aXZlcmVjb3JkICg9IDYuMS4zLjIpCiAgICAgIGFjdGl2\nZXN1cHBvcnQgKD0gNi4xLjMuMikKICAgICAgbWFyY2VsICh+PiAxLjAuMCkK\nICAgICAgbWluaV9taW1lICh+PiAxLjAuMikKICAgIGFjdGl2ZXN1cHBvcnQg\nKDYuMS4zLjIpCiAgICAgIGNvbmN1cnJlbnQtcnVieSAofj4gMS4wLCA+PSAx\nLjAuMikKICAgICAgaTE4biAoPj0gMS42LCA8IDIpCiAgICAgIG1pbml0ZXN0\nICg+PSA1LjEpCiAgICAgIHR6aW5mbyAofj4gMi4wKQogICAgICB6ZWl0d2Vy\nayAofj4gMi4zKQogICAgYWRkcmVzc2FibGUgKDIuNy4wKQogICAgICBwdWJs\naWNfc3VmZml4ICg+PSAyLjAuMiwgPCA1LjApCiAgICBhc3QgKDIuNC4yKQog\nICAgYXdzLWV2ZW50c3RyZWFtICgxLjEuMSkKICAgIGF3cy1wYXJ0aXRpb25z\nICgxLjQ2Mi4wKQogICAgYXdzLXNkay1jb2RlY29tbWl0ICgxLjQyLjApCiAg\nICAgIGF3cy1zZGstY29yZSAofj4gMywgPj0gMy4xMTIuMCkKICAgICAgYXdz\nLXNpZ3Y0ICh+PiAxLjEpCiAgICBhd3Mtc2RrLWNvcmUgKDMuMTE0LjApCiAg\nICAgIGF3cy1ldmVudHN0cmVhbSAofj4gMSwgPj0gMS4wLjIpCiAgICAgIGF3\ncy1wYXJ0aXRpb25zICh+PiAxLCA+PSAxLjIzOS4wKQogICAgICBhd3Mtc2ln\ndjQgKH4+IDEuMSkKICAgICAgam1lc3BhdGggKH4+IDEuMCkKICAgIGF3cy1z\nZGstZWNyICgxLjQyLjApCiAgICAgIGF3cy1zZGstY29yZSAofj4gMywgPj0g\nMy4xMTIuMCkKICAgICAgYXdzLXNpZ3Y0ICh+PiAxLjEpCiAgICBhd3Mtc2ln\ndjQgKDEuMi4zKQogICAgICBhd3MtZXZlbnRzdHJlYW0gKH4+IDEsID49IDEu\nMC4yKQogICAgYm9vdHNuYXAgKDEuNy41KQogICAgICBtc2dwYWNrICh+PiAx\nLjApCiAgICBidWlsZGVyICgzLjIuNCkKICAgIGJ1bmRsZXItYXVkaXQgKDAu\nOC4wKQogICAgICBidW5kbGVyICg+PSAxLjIuMCwgPCAzKQogICAgICB0aG9y\nICh+PiAxLjApCiAgICBieWVidWcgKDExLjEuMykKICAgIGNpdHJ1cyAoMy4w\nLjIpCiAgICBjb21tb25tYXJrZXIgKDAuMjEuMikKICAgICAgcnVieS1lbnVt\nICh+PiAwLjUpCiAgICBjb25jdXJyZW50LXJ1YnkgKDEuMS44KQogICAgY3Jh\nc3MgKDEuMC42KQogICAgZGVwZW5kYWJvdC1idW5kbGVyICgwLjE0OC42KQog\nICAgICBkZXBlbmRhYm90LWNvbW1vbiAoPSAwLjE0OC42KQogICAgZGVwZW5k\nYWJvdC1jb21tb24gKDAuMTQ4LjYpCiAgICAgIGFjdGl2ZXN1cHBvcnQgKD49\nIDYuMC4wKQogICAgICBhd3Mtc2RrLWNvZGVjb21taXQgKH4+IDEuMjgpCiAg\nICAgIGF3cy1zZGstZWNyICh+PiAxLjUpCiAgICAgIGJ1bmRsZXIgKD49IDEu\nMTYsIDwgMy4wLjApCiAgICAgIGNvbW1vbm1hcmtlciAoPj0gMC4yMC4xLCA8\nIDAuMjIuMCkKICAgICAgZG9ja2VyX3JlZ2lzdHJ5MiAofj4gMS43LCA+PSAx\nLjcuMSkKICAgICAgZXhjb24gKH4+IDAuNzUpCiAgICAgIGdpdGxhYiAoPSA0\nLjE3LjApCiAgICAgIG5va29naXJpICh+PiAxLjgpCiAgICAgIG9jdG9raXQg\nKH4+IDQuNikKICAgICAgcGFuZG9jLXJ1YnkgKH4+IDIuMCkKICAgICAgcGFy\nc2VyICg+PSAyLjUsIDwgNC4wKQogICAgICB0b21sLXJiICg+PSAxLjEuMiwg\nPCAzLjApCiAgICBkb2NrZXJfcmVnaXN0cnkyICgxLjEwLjApCiAgICAgIHJl\nc3QtY2xpZW50ICg+PSAxLjguMCkKICAgIGRvbWFpbl9uYW1lICgwLjUuMjAx\nOTA3MDEpCiAgICAgIHVuZiAoPj0gMC4wLjUsIDwgMS4wLjApCiAgICBlcnVi\naSAoMS4xMC4wKQogICAgZXhjb24gKDAuODEuMCkKICAgIGZhcmFkYXkgKDEu\nNC4yKQogICAgICBmYXJhZGF5LWVtX2h0dHAgKH4+IDEuMCkKICAgICAgZmFy\nYWRheS1lbV9zeW5jaHJvbnkgKH4+IDEuMCkKICAgICAgZmFyYWRheS1leGNv\nbiAofj4gMS4xKQogICAgICBmYXJhZGF5LW5ldF9odHRwICh+PiAxLjApCiAg\nICAgIGZhcmFkYXktbmV0X2h0dHBfcGVyc2lzdGVudCAofj4gMS4xKQogICAg\nICBtdWx0aXBhcnQtcG9zdCAoPj0gMS4yLCA8IDMpCiAgICAgIHJ1YnkyX2tl\neXdvcmRzICg+PSAwLjAuNCkKICAgIGZhcmFkYXktZW1faHR0cCAoMS4wLjAp\nCiAgICBmYXJhZGF5LWVtX3N5bmNocm9ueSAoMS4wLjApCiAgICBmYXJhZGF5\nLWV4Y29uICgxLjEuMCkKICAgIGZhcmFkYXktbmV0X2h0dHAgKDEuMC4xKQog\nICAgZmFyYWRheS1uZXRfaHR0cF9wZXJzaXN0ZW50ICgxLjEuMCkKICAgIGZm\naSAoMS4xNS4xKQogICAgZ2l0bGFiICg0LjE3LjApCiAgICAgIGh0dHBhcnR5\nICh+PiAwLjE4KQogICAgICB0ZXJtaW5hbC10YWJsZSAofj4gMS41LCA+PSAx\nLjUuMSkKICAgIGdsb2JhbGlkICgwLjQuMikKICAgICAgYWN0aXZlc3VwcG9y\ndCAoPj0gNC4yLjApCiAgICBodHRwLWFjY2VwdCAoMS43LjApCiAgICBodHRw\nLWNvb2tpZSAoMS4wLjMpCiAgICAgIGRvbWFpbl9uYW1lICh+PiAwLjUpCiAg\nICBodHRwYXJ0eSAoMC4xOC4xKQogICAgICBtaW1lLXR5cGVzICh+PiAzLjAp\nCiAgICAgIG11bHRpX3htbCAoPj0gMC41LjIpCiAgICBpMThuICgxLjguMTAp\nCiAgICAgIGNvbmN1cnJlbnQtcnVieSAofj4gMS4wKQogICAgam1lc3BhdGgg\nKDEuNC4wKQogICAgbGlzdGVuICgzLjUuMSkKICAgICAgcmItZnNldmVudCAo\nfj4gMC4xMCwgPj0gMC4xMC4zKQogICAgICByYi1pbm90aWZ5ICh+PiAwLjks\nID49IDAuOS4xMCkKICAgIGxvb2ZhaCAoMi45LjEpCiAgICAgIGNyYXNzICh+\nPiAxLjAuMikKICAgICAgbm9rb2dpcmkgKD49IDEuNS45KQogICAgbWFpbCAo\nMi43LjEpCiAgICAgIG1pbmlfbWltZSAoPj0gMC4xLjEpCiAgICBtYXJjZWwg\nKDEuMC4xKQogICAgbWV0aG9kX3NvdXJjZSAoMS4wLjApCiAgICBtaW1lLXR5\ncGVzICgzLjMuMSkKICAgICAgbWltZS10eXBlcy1kYXRhICh+PiAzLjIwMTUp\nCiAgICBtaW1lLXR5cGVzLWRhdGEgKDMuMjAyMS4wMjI1KQogICAgbWluaV9t\naW1lICgxLjAuMykKICAgIG1pbml0ZXN0ICg1LjE0LjQpCiAgICBtc2dwYWNr\nICgxLjQuMikKICAgIG11bHRpX3htbCAoMC42LjApCiAgICBtdWx0aXBhcnQt\ncG9zdCAoMi4xLjEpCiAgICBuZXRyYyAoMC4xMS4wKQogICAgbmlvNHIgKDIu\nNS43KQogICAgbm9rb2dpcmkgKDEuMTEuNS14ODZfNjQtZGFyd2luKQogICAg\nICByYWNjICh+PiAxLjQpCiAgICBub2tvZ2lyaSAoMS4xMS41LXg4Nl82NC1s\naW51eCkKICAgICAgcmFjYyAofj4gMS40KQogICAgb2N0b2tpdCAoNC4yMS4w\nKQogICAgICBmYXJhZGF5ICg+PSAwLjkpCiAgICAgIHNhd3llciAofj4gMC44\nLjAsID49IDAuNS4zKQogICAgcGFuZG9jLXJ1YnkgKDIuMS40KQogICAgcGFy\nYWxsZWwgKDEuMjAuMSkKICAgIHBhcnNlciAoMy4wLjEuMSkKICAgICAgYXN0\nICh+PiAyLjQuMSkKICAgIHBnICgxLjIuMykKICAgIHB1YmxpY19zdWZmaXgg\nKDQuMC42KQogICAgcHVtYSAoNS4zLjIpCiAgICAgIG5pbzRyICh+PiAyLjAp\nCiAgICByYWNjICgxLjUuMikKICAgIHJhY2sgKDIuMi4zKQogICAgcmFjay1t\naW5pLXByb2ZpbGVyICgyLjMuMikKICAgICAgcmFjayAoPj0gMS4yLjApCiAg\nICByYWNrLXRlc3QgKDEuMS4wKQogICAgICByYWNrICg+PSAxLjAsIDwgMykK\nICAgIHJhaWxzICg2LjEuMy4yKQogICAgICBhY3Rpb25jYWJsZSAoPSA2LjEu\nMy4yKQogICAgICBhY3Rpb25tYWlsYm94ICg9IDYuMS4zLjIpCiAgICAgIGFj\ndGlvbm1haWxlciAoPSA2LjEuMy4yKQogICAgICBhY3Rpb25wYWNrICg9IDYu\nMS4zLjIpCiAgICAgIGFjdGlvbnRleHQgKD0gNi4xLjMuMikKICAgICAgYWN0\naW9udmlldyAoPSA2LjEuMy4yKQogICAgICBhY3RpdmVqb2IgKD0gNi4xLjMu\nMikKICAgICAgYWN0aXZlbW9kZWwgKD0gNi4xLjMuMikKICAgICAgYWN0aXZl\ncmVjb3JkICg9IDYuMS4zLjIpCiAgICAgIGFjdGl2ZXN0b3JhZ2UgKD0gNi4x\nLjMuMikKICAgICAgYWN0aXZlc3VwcG9ydCAoPSA2LjEuMy4yKQogICAgICBi\ndW5kbGVyICg+PSAxLjE1LjApCiAgICAgIHJhaWx0aWVzICg9IDYuMS4zLjIp\nCiAgICAgIHNwcm9ja2V0cy1yYWlscyAoPj0gMi4wLjApCiAgICByYWlscy1k\nb20tdGVzdGluZyAoMi4wLjMpCiAgICAgIGFjdGl2ZXN1cHBvcnQgKD49IDQu\nMi4wKQogICAgICBub2tvZ2lyaSAoPj0gMS42KQogICAgcmFpbHMtaHRtbC1z\nYW5pdGl6ZXIgKDEuMy4wKQogICAgICBsb29mYWggKH4+IDIuMykKICAgIHJh\naWx0aWVzICg2LjEuMy4yKQogICAgICBhY3Rpb25wYWNrICg9IDYuMS4zLjIp\nCiAgICAgIGFjdGl2ZXN1cHBvcnQgKD0gNi4xLjMuMikKICAgICAgbWV0aG9k\nX3NvdXJjZQogICAgICByYWtlICg+PSAwLjguNykKICAgICAgdGhvciAofj4g\nMS4wKQogICAgcmFpbmJvdyAoMy4wLjApCiAgICByYWtlICgxMy4wLjMpCiAg\nICByYi1mc2V2ZW50ICgwLjExLjApCiAgICByYi1pbm90aWZ5ICgwLjEwLjEp\nCiAgICAgIGZmaSAofj4gMS4wKQogICAgcmVnZXhwX3BhcnNlciAoMi4xLjEp\nCiAgICByZXN0LWNsaWVudCAoMi4xLjApCiAgICAgIGh0dHAtYWNjZXB0ICg+\nPSAxLjcuMCwgPCAyLjApCiAgICAgIGh0dHAtY29va2llICg+PSAxLjAuMiwg\nPCAyLjApCiAgICAgIG1pbWUtdHlwZXMgKD49IDEuMTYsIDwgNC4wKQogICAg\nICBuZXRyYyAofj4gMC44KQogICAgcmV4bWwgKDMuMi41KQogICAgcnVib2Nv\ncCAoMS4xNS4wKQogICAgICBwYXJhbGxlbCAofj4gMS4xMCkKICAgICAgcGFy\nc2VyICg+PSAzLjAuMC4wKQogICAgICByYWluYm93ICg+PSAyLjIuMiwgPCA0\nLjApCiAgICAgIHJlZ2V4cF9wYXJzZXIgKD49IDEuOCwgPCAzLjApCiAgICAg\nIHJleG1sCiAgICAgIHJ1Ym9jb3AtYXN0ICg+PSAxLjUuMCwgPCAyLjApCiAg\nICAgIHJ1YnktcHJvZ3Jlc3NiYXIgKH4+IDEuNykKICAgICAgdW5pY29kZS1k\naXNwbGF5X3dpZHRoICg+PSAxLjQuMCwgPCAzLjApCiAgICBydWJvY29wLWFz\ndCAoMS41LjApCiAgICAgIHBhcnNlciAoPj0gMy4wLjEuMSkKICAgIHJ1Ym9j\nb3AtcGVyZm9ybWFuY2UgKDEuMTEuMykKICAgICAgcnVib2NvcCAoPj0gMS43\nLjAsIDwgMi4wKQogICAgICBydWJvY29wLWFzdCAoPj0gMC40LjApCiAgICBy\ndWJvY29wLXJhaWxzICgyLjEwLjEpCiAgICAgIGFjdGl2ZXN1cHBvcnQgKD49\nIDQuMi4wKQogICAgICByYWNrICg+PSAxLjEpCiAgICAgIHJ1Ym9jb3AgKD49\nIDEuNy4wLCA8IDIuMCkKICAgIHJ1YnktZW51bSAoMC45LjApCiAgICAgIGkx\nOG4KICAgIHJ1YnktcHJvZ3Jlc3NiYXIgKDEuMTEuMCkKICAgIHJ1YnkyX2tl\neXdvcmRzICgwLjAuNCkKICAgIHNhd3llciAoMC44LjIpCiAgICAgIGFkZHJl\nc3NhYmxlICg+PSAyLjMuNSkKICAgICAgZmFyYWRheSAoPiAwLjgsIDwgMi4w\nKQogICAgc3ByaW5nICgyLjEuMSkKICAgIHNwcm9ja2V0cyAoNC4wLjIpCiAg\nICAgIGNvbmN1cnJlbnQtcnVieSAofj4gMS4wKQogICAgICByYWNrICg+IDEs\nIDwgMykKICAgIHNwcm9ja2V0cy1yYWlscyAoMy4yLjIpCiAgICAgIGFjdGlv\nbnBhY2sgKD49IDQuMCkKICAgICAgYWN0aXZlc3VwcG9ydCAoPj0gNC4wKQog\nICAgICBzcHJvY2tldHMgKD49IDMuMC4wKQogICAgdGVybWluYWwtdGFibGUg\nKDEuNi4wKQogICAgdGhvciAoMS4xLjApCiAgICB0b21sLXJiICgyLjAuMSkK\nICAgICAgY2l0cnVzICh+PiAzLjAsID4gMy4wKQogICAgdHppbmZvICgyLjAu\nNCkKICAgICAgY29uY3VycmVudC1ydWJ5ICh+PiAxLjApCiAgICB1bmYgKDAu\nMS40KQogICAgICB1bmZfZXh0CiAgICB1bmZfZXh0ICgwLjAuNy43KQogICAg\ndW5pY29kZS1kaXNwbGF5X3dpZHRoICgyLjAuMCkKICAgIHdlYnNvY2tldC1k\ncml2ZXIgKDAuNy40KQogICAgICB3ZWJzb2NrZXQtZXh0ZW5zaW9ucyAoPj0g\nMC4xLjApCiAgICB3ZWJzb2NrZXQtZXh0ZW5zaW9ucyAoMC4xLjUpCiAgICB6\nZWl0d2VyayAoMi40LjIpCgpQTEFURk9STVMKICB4ODZfNjQtZGFyd2luLTE5\nCiAgeDg2XzY0LWxpbnV4LW11c2wKCkRFUEVOREVOQ0lFUwogIGJvb3RzbmFw\nICg+PSAxLjQuNCkKICBidW5kbGVyLWF1ZGl0CiAgYnllYnVnCiAgZGVwZW5k\nYWJvdC1idW5kbGVyCiAgbGlzdGVuICh+PiAzLjMpCiAgcGcgKH4+IDEuMSkK\nICBwdW1hICh+PiA1LjApCiAgcmFjay1taW5pLXByb2ZpbGVyICh+PiAyLjAp\nCiAgcmFpbHMgKH4+IDYuMS4zLCA+PSA2LjEuMy4yKQogIHJ1Ym9jb3AKICBy\ndWJvY29wLXBlcmZvcm1hbmNlCiAgcnVib2NvcC1yYWlscwogIHNwcmluZwog\nIHR6aW5mby1kYXRhCgpSVUJZIFZFUlNJT04KICAgcnVieSAzLjAuMXA2NAoK\nQlVORExFRCBXSVRICiAgIDIuMi4xNQo=\n","encoding":"base64","_links":{"self":"https://api.github.com/repos/SkipKayhil/friday/contents/Gemfile.lock?ref=ff50a1aa7e10bb732fe12948980b620a63c8c923","git":"https://api.github.com/repos/SkipKayhil/friday/git/blobs/e8a3cd32f433025cad8726c9ba77a9de4bc8f8a6","html":"https://github.com/SkipKayhil/friday/blob/ff50a1aa7e10bb732fe12948980b620a63c8c923/Gemfile.lock"}}'
+  recorded_at: Fri, 28 May 2021 02:23:56 GMT
+recorded_with: VCR 6.0.0

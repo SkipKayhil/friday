@@ -89,6 +89,8 @@ GEM
     commonmarker (0.21.2)
       ruby-enum (~> 0.5)
     concurrent-ruby (1.1.8)
+    crack (0.4.5)
+      rexml
     crass (1.0.6)
     dependabot-bundler (0.148.6)
       dependabot-common (= 0.148.6)
@@ -131,6 +133,7 @@ GEM
       terminal-table (~> 1.5, >= 1.5.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hashdiff (1.0.1)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -263,6 +266,11 @@ GEM
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (2.0.0)
+    vcr (6.0.0)
+    webmock (3.13.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     websocket-driver (0.7.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -288,6 +296,8 @@ DEPENDENCIES
   rubocop-rails
   spring
   tzinfo-data
+  vcr
+  webmock
 
 RUBY VERSION
    ruby 3.0.1p64
