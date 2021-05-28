@@ -5,9 +5,6 @@ x-rails: &rails
   environment: &env
     DATABASE_URL: postgres://postgres:postgres@postgres:5432
     REDIS_URL: redis://redis:6379/
-  image: dep:latest
-  ports:
-    - "3000:3000"
   tmpfs:
     - /tmp
   depends_on: &deps
@@ -33,10 +30,22 @@ services:
     environment:
       <<: *env
       RAILS_ENV: development
+    ports:
+      - "3000:3000"
     depends_on:
       <<: *deps
       vite-dev:
         condition: service_healthy
+
+  resque:
+    <<: *rails
+    volumes:
+      - .:/usr/src
+    environment:
+      <<: *env
+      RAILS_ENV: development
+      QUEUE: "*"
+    command: bin/rake resque:work
 
   vite-dev:
     build:

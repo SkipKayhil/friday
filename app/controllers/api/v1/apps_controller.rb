@@ -4,7 +4,7 @@ module Api
   module V1
     # REST API for interacting with Apps
     class AppsController < Api::ApplicationController
-      before_action :set_app, only: %i[show update destroy]
+      before_action :set_app, only: %i[show update destroy dependencies]
 
       # GET /apps
       def index
@@ -41,6 +41,11 @@ module Api
       # DELETE /apps/1
       def destroy
         @app.destroy
+      end
+
+      # POST /apps/1/dependencies
+      def dependencies
+        FetchDependenciesJob.perform_later(@app)
       end
 
       private
