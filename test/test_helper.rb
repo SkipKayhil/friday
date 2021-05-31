@@ -16,8 +16,17 @@ end
 
 module ActiveSupport
   class TestCase
+    teardown do
+      Redis.current.flushdb
+    end
+
     # Run tests in parallel with specified workers
     parallelize(workers: :number_of_processors)
+
+    parallelize_setup do |worker|
+      # One db per process, so mid-test flushes don't affect other processes
+      Redis.current.select(worker)
+    end
 
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
