@@ -7,13 +7,4 @@ class Repo < ApplicationRecord
   delegated_type :repoable, types: %w[App Library]
 
   scope :depends_on, ->(name) { where('(dependencies -> ?) is not null', name) }
-
-  def update_dependencies
-    parser = Dep::Source.new(repo: self, host: host).fetcher.parser
-
-    self.ruby_version = parser.ruby_version
-    self.dependencies = parser.dependencies
-
-    save
-  end
 end

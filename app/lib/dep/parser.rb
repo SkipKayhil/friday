@@ -16,13 +16,17 @@ module Dep
       @parser
     end
 
+    def parse
+      @parse ||= @parser.parse
+    end
+
     def ruby_version
       full_ruby_version.match(/\d+\.\d+\.\d+/)
     end
 
-    def dependencies
+    def dependencies_with_audit
       parsed_deps = {}
-      @parser.parse.each do |dep|
+      parse.each do |dep|
         parsed_deps[dep.name] = { version: dep.version, known_vulnerability: audit[dep.name] }
       end
 

@@ -12,6 +12,9 @@ class FetchDependenciesJobTest < ActiveJob::TestCase
 
     repo.reload
 
-    assert_not_nil repo.dependencies
+    assert_not_empty repo.dependencies
+    assert_equal '3.0.1', repo.ruby_version
+
+    assert_not_empty repo.app.dependencies.to_h
   end
 end
