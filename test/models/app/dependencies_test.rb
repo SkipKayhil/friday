@@ -4,8 +4,6 @@ require 'test_helper'
 
 class App
   class DependenciesTest < ActiveSupport::TestCase
-    Gem = Struct.new(:name, :version)
-
     setup do
       repo = repos(:friday_repo)
       @app = repo.app
@@ -14,24 +12,24 @@ class App
     test 'adding new dependencies' do
       assert_empty @app.dependencies.to_h
 
-      @app.dependencies.update([Gem.new(rails.name, rails.version)])
+      @app.dependencies.update([rails])
 
       assert_app_depends_on(rails)
     end
 
     test 'updates existing dependencies with replacement' do
-      @app.dependencies.update([Gem.new(rails6.name, rails6.version)])
+      @app.dependencies.update([rails6])
 
       assert_app_depends_on(rails6)
 
-      @app.dependencies.update([Gem.new(rails.name, rails.version)])
+      @app.dependencies.update([rails])
 
       assert_app_depends_on(rails)
       assert_empty rails6.dependents
     end
 
     test 'removes existing dependencies without replacement' do
-      @app.dependencies.update([Gem.new(rails.name, rails.version)])
+      @app.dependencies.update([rails])
 
       assert_app_depends_on(rails)
 
