@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 # A library/package that is depended on
-class Dependency
+Dependency = Struct.new(:language, :name, :version) do
   class << self
     def from_key(key:, language:)
       name, version = parse_key(key)
-      new(name: name, version: version, language: language)
+      new(language, name, version)
     end
 
     private
@@ -15,14 +15,6 @@ class Dependency
       # dependencies appear to have : in the name
       key.split(':')
     end
-  end
-
-  attr_reader :name, :version
-
-  def initialize(name:, version:, language:)
-    @name = name
-    @version = version
-    @language = language
   end
 
   def dependents
@@ -38,22 +30,12 @@ class Dependency
   end
 
   def to_value
-    "#{@name}:#{@version}"
-  end
-
-  def ==(other)
-    self.class == other.class && _state == other._state
+    "#{name}:#{version}"
   end
 
   private
 
   def apps_key
-    "#{@language}:#{@name}:#{@version}:apps"
-  end
-
-  protected
-
-  def _state
-    [@name, @version, @language]
+    "#{language}:#{name}:#{version}:apps"
   end
 end

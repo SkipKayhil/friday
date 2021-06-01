@@ -44,11 +44,11 @@ class App
     private
 
     def rails
-      @rails ||= Dependency.new(name: 'rails', version: '6.1.3.2', language: 'ruby')
+      @rails ||= Dependency.new('ruby', 'rails', '6.1.3.2')
     end
 
     def rails6
-      @rails6 ||= Dependency.new(name: 'rails', version: '6.0.3.7', language: 'ruby')
+      @rails6 ||= Dependency.new('ruby', 'rails', '6.0.3.7')
     end
 
     def assert_app_depends_on(dependency)
