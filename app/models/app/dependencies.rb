@@ -57,7 +57,7 @@ class App
 
     def parse_new_dependencies(new_dependencies)
       new_dependencies.map do |dep|
-        d = Dependency.new(@app.language, dep.name, dep.version)
+        d = Dependency.new(@app.language, dep.name).at(dep.version)
 
         old_version = @dependencies.delete(d.name)
 
