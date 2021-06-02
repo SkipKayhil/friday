@@ -6,5 +6,9 @@ require 'friday/version'
 require 'friday/engine'
 
 module Friday
-  # Your code goes here...
+  module_function
+
+  def redis
+    @redis ||= Redis.new(logger: Rails.logger)
+  end
 end

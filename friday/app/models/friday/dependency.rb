@@ -15,13 +15,13 @@ module Friday
       end
 
       def dependents
-        Redis.current.zrange(dependents_key, 0, -1)
+        Friday.redis.zrange(dependents_key, 0, -1)
       end
 
       def add_app(id)
-        Redis.current.zadd(dependency.deps_for_language_key, 0, name)
-        Redis.current.zadd(dependency.versions_key, 0, version)
-        Redis.current.zadd(dependents_key, 0, id.to_s)
+        Friday.redis.zadd(dependency.deps_for_language_key, 0, name)
+        Friday.redis.zadd(dependency.versions_key, 0, version)
+        Friday.redis.zadd(dependents_key, 0, id.to_s)
       end
 
       def remove_app(id)
@@ -37,7 +37,7 @@ module Friday
           redis.call("ZREM", KEYS[3], ARGV[3])
         LUA
 
-        Redis.current.eval(
+        Friday.redis.eval(
           script,
           [dependents_key, dependency.versions_key, dependency.deps_for_language_key],
           [id.to_s, version, name]
@@ -79,7 +79,7 @@ module Friday
       private
 
       def all_deps_for_language(language)
-        Redis.current.zrange("dependencies:#{language}", 0, -1)
+        Friday.redis.zrange("dependencies:#{language}", 0, -1)
       end
 
       def parse_key(key)
@@ -101,7 +101,7 @@ module Friday
     end
 
     def versions
-      Redis.current.zrange(versions_key, 0, -1)
+      Friday.redis.zrange(versions_key, 0, -1)
     end
 
     def to_s

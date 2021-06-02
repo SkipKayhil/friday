@@ -47,7 +47,7 @@ class App
     end
 
     def fetch_and_parse_dependencies
-      dependencies = Redis.current.zrange(dependencies_key, 0, -1)
+      dependencies = Friday.redis.zrange(dependencies_key, 0, -1)
 
       dependencies.map do |key|
         dep = Friday::Dependency.from_key(key)
@@ -72,12 +72,12 @@ class App
 
     def add_dependency(dep)
       dep.add_app(@app.id)
-      Redis.current.zadd(dependencies_key, 0, dep.to_s)
+      Friday.redis.zadd(dependencies_key, 0, dep.to_s)
     end
 
     def remove_dependency(dep)
       dep.remove_app(@app.id)
-      Redis.current.zrem(dependencies_key, dep.to_s)
+      Friday.redis.zrem(dependencies_key, dep.to_s)
     end
   end
 end
