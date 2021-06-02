@@ -50,7 +50,7 @@ class App
       dependencies = Redis.current.zrange(dependencies_key, 0, -1)
 
       dependencies.map do |key|
-        dep = Dependency.from_key(key: key, language: @app.language)
+        dep = Dependency.from_key(key)
         [dep.name, dep]
       end.to_h
     end
@@ -72,12 +72,12 @@ class App
 
     def add_dependency(dep)
       dep.add_app(@app.id)
-      Redis.current.zadd(dependencies_key, 0, dep.to_value)
+      Redis.current.zadd(dependencies_key, 0, dep.to_s)
     end
 
     def remove_dependency(dep)
       dep.remove_app(@app.id)
-      Redis.current.zrem(dependencies_key, dep.to_value)
+      Redis.current.zrem(dependencies_key, dep.to_s)
     end
   end
 end

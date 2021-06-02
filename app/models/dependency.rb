@@ -3,8 +3,8 @@
 # A library/package that is depended on
 Dependency = Struct.new(:language, :name, :version) do
   class << self
-    def from_key(key:, language:)
-      name, version = parse_key(key)
+    def from_key(key)
+      language, name, version = parse_key(key)
       new(language, name, version)
     end
 
@@ -29,13 +29,13 @@ Dependency = Struct.new(:language, :name, :version) do
     Redis.current.zrem(apps_key, id.to_s)
   end
 
-  def to_value
-    "#{name}:#{version}"
+  def to_s
+    "#{language}:#{name}:#{version}"
   end
 
   private
 
   def apps_key
-    "#{language}:#{name}:#{version}:apps"
+    "#{to_s}:apps"
   end
 end
