@@ -38,13 +38,13 @@ class App
       assert_empty @app.dependencies.to_h
       assert_empty rails_six_one.dependents
       assert_empty rails.versions
-      assert_empty Dependency.all
+      assert_empty Friday::Dependency.all
     end
 
     private
 
     def rails
-      @rails ||= Dependency.new('ruby', 'rails')
+      @rails ||= Friday::Dependency.new('ruby', 'rails')
     end
 
     def rails_six_one
@@ -59,7 +59,7 @@ class App
       assert_equal({ versioned.name => versioned }, @app.dependencies.to_h)
       assert_equal [@app.id.to_s], versioned.dependents
       assert_equal [versioned.version], versioned.dependency.versions
-      assert_equal [versioned.dependency], Dependency.all
+      assert_equal [versioned.dependency], Friday::Dependency.all
     end
   end
 end

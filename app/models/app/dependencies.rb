@@ -50,14 +50,14 @@ class App
       dependencies = Redis.current.zrange(dependencies_key, 0, -1)
 
       dependencies.map do |key|
-        dep = Dependency.from_key(key)
+        dep = Friday::Dependency.from_key(key)
         [dep.name, dep]
       end.to_h
     end
 
     def parse_new_dependencies(new_dependencies)
       new_dependencies.map do |dep|
-        d = Dependency.new(@app.language, dep.name).at(dep.version)
+        d = Friday::Dependency.new(@app.language, dep.name).at(dep.version)
 
         old_version = @dependencies.delete(d.name)
 
