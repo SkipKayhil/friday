@@ -62,8 +62,8 @@ class App
         old_version = @dependencies.delete(d.name)
 
         if old_version != d
-          remove_dependency(old_version) if old_version
           add_dependency(d)
+          remove_dependency(old_version) if old_version
         end
 
         [d.name, d]

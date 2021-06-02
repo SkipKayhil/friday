@@ -37,6 +37,8 @@ class App
 
       assert_empty @app.dependencies.to_h
       assert_empty rails_six_one.dependents
+      assert_empty rails.versions
+      assert_empty Dependency.all
     end
 
     private
@@ -53,9 +55,11 @@ class App
       @rails_six ||= rails.at('6.0.3.7')
     end
 
-    def assert_app_depends_on(dependency)
-      assert_equal({ dependency.name => dependency }, @app.dependencies.to_h)
-      assert_equal [@app.id.to_s], dependency.dependents
+    def assert_app_depends_on(versioned)
+      assert_equal({ versioned.name => versioned }, @app.dependencies.to_h)
+      assert_equal [@app.id.to_s], versioned.dependents
+      assert_equal [versioned.version], versioned.dependency.versions
+      assert_equal [versioned.dependency], Dependency.all
     end
   end
 end
