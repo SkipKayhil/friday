@@ -11,6 +11,8 @@ github = Host::Github.find_or_create_by(domain: 'github.com', token: ENV['GITHUB
 # gitlab = Host.find_or_create_by(domain: 'gitlab.com', token: ENV['GITLAB_ACCESS_TOKEN'])
 
 apps = [
+  ['skipkayhil/friday'],
+  ['discourse/discourse'],
   ['gitlabhq/gitlabhq']
 ]
 apps.each do |path, dir|

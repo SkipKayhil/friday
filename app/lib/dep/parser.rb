@@ -66,7 +66,9 @@ module Dep
 
       ruby_version = @config.fetcher.get.send(:fetch_file_if_present, '.ruby-version')
 
-      ruby_version.content
+      return ruby_version.content if ruby_version
+
+      ''
     end
   end
 end
