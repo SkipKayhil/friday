@@ -22,6 +22,7 @@ class App
     # update a dependency
     # - remove 'app:1' from the old version of dependency's list
     # - add '1' to new version's list
+    delegate :empty?, to: :@dependencies
 
     def initialize(app)
       @app = app
@@ -37,7 +38,11 @@ class App
     end
 
     def to_hash
-      @dependencies.values.as_json(except: 'language')
+      @dependencies.values
+    end
+
+    def as_json
+      to_hash.as_json(except: 'language')
     end
 
     private

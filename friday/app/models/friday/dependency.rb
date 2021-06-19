@@ -19,7 +19,7 @@ module Friday
       end
 
       def add_app(id)
-        Friday.redis.zadd(dependency.deps_for_language_key, 0, name)
+        Friday.redis.zadd('dependencies', 0, dependency.to_s)
         Friday.redis.zadd(dependency.versions_key, 0, version)
         Friday.redis.zadd(dependents_key, 0, id.to_s)
       end
@@ -34,13 +34,13 @@ module Friday
 
           if redis.call("EXISTS", KEYS[2]) == 1 then return end
 
-          redis.call("ZREM", KEYS[3], ARGV[3])
+          redis.call("ZREM", "dependencies", ARGV[3])
         LUA
 
         Friday.redis.eval(
           script,
-          [dependents_key, dependency.versions_key, dependency.deps_for_language_key],
-          [id.to_s, version, name]
+          [dependents_key, dependency.versions_key],
+          [id.to_s, version, dependency.to_s]
         )
       end
 
@@ -65,8 +65,8 @@ module Friday
 
     class << self
       def all
-        all_deps_for_language('ruby').map do |name|
-          new('ruby', name)
+        Friday.redis.zrange("dependencies", 0, -1).map do |key, vulnerabilities|
+          from_key(key)
         end
       end
 
@@ -81,10 +81,6 @@ module Friday
       end
 
       private
-
-      def all_deps_for_language(language)
-        Friday.redis.zrange("dependencies:#{language}", 0, -1)
-      end
 
       def parse_key(key)
         # I think the dependency name will have to be base64 encoded because java

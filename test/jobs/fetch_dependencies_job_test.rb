@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require 'test_helper'
 
 class FetchDependenciesJobTest < ActiveJob::TestCase
-  test "app dependencies are updated" do
+  test 'app dependencies are updated' do
     repo = repos(:friday_repo)
 
     VCR.use_cassette('friday_repository') do
@@ -15,6 +15,6 @@ class FetchDependenciesJobTest < ActiveJob::TestCase
     assert_not_empty repo.dependencies
     assert_equal '3.0.1', repo.ruby_version
 
-    assert_not_empty repo.app.dependencies.to_h
+    assert_not_empty repo.app.dependencies
   end
 end

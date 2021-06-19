@@ -10,7 +10,7 @@ class App
     end
 
     test 'adding new dependencies' do
-      assert_empty @app.dependencies.to_h
+      assert_empty @app.dependencies
 
       @app.dependencies.update([rails_six_one])
 
@@ -35,7 +35,7 @@ class App
 
       @app.dependencies.update([])
 
-      assert_empty @app.dependencies.to_h
+      assert_empty @app.dependencies
       assert_empty rails_six_one.dependents
       assert_empty rails.versions
       assert_empty Friday::Dependency.all
@@ -56,7 +56,7 @@ class App
     end
 
     def assert_app_depends_on(versioned)
-      assert_equal({ versioned.name => versioned }, @app.dependencies.to_h)
+      assert_equal [versioned.as_json(except: 'language')], @app.dependencies.as_json
       assert_equal [@app.id.to_s], versioned.dependents
       assert_equal [versioned.version], versioned.dependency.versions
       assert_equal [versioned.dependency], Friday::Dependency.all
