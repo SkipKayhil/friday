@@ -44,6 +44,10 @@ module Friday
         )
       end
 
+      def to_hash
+        @dependency.as_json.merge!(version: @version)
+      end
+
       def to_s
         "#{@dependency}:#{version}"
       end

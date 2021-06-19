@@ -21,25 +21,25 @@ export function App({ id }: { id: string }): JSX.Element {
   if (!data) return <Spinner />;
   if (error) return <>{"error fetching app"}</>;
 
-  const transformedData = Object.entries(data.repo.dependencies || {})
-    .map(([name, { known_vulnerability, ...value }]) => ({
-      ...value,
-      known_vulnerability: known_vulnerability ? "YES" : "",
-      name,
-    }))
-    .sort((a, b) => {
-      if (a.known_vulnerability === b.known_vulnerability) {
-        return a.name.localeCompare(b.name);
-      }
+  // const transformedData = Object.entries(data.repo.dependencies || {})
+  //   .map(([name, { known_vulnerability, ...value }]) => ({
+  //     ...value,
+  //     known_vulnerability: known_vulnerability ? "YES" : "",
+  //     name,
+  //   }))
+  //   .sort((a, b) => {
+  //     if (a.known_vulnerability === b.known_vulnerability) {
+  //       return a.name.localeCompare(b.name);
+  //     }
 
-      return a.known_vulnerability === "YES" ? -1 : 1;
-    });
+  //     return a.known_vulnerability === "YES" ? -1 : 1;
+  //   });
 
   return (
     <>
       <Header title={data.repo.full_path} />
       <main>
-        <Table rows={transformedData} columns={columns} />
+        <Table rows={data.dependencies} columns={columns} />
       </main>
     </>
   );

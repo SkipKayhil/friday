@@ -36,8 +36,8 @@ class App
       @dependencies = parsed_dependencies
     end
 
-    def to_h
-      @dependencies
+    def to_hash
+      @dependencies.values.as_json(except: 'language')
     end
 
     private

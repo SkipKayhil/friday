@@ -15,4 +15,10 @@ class App < ApplicationRecord
   def package_manager
     :bundler
   end
+
+  def attributes
+    h = super
+    h['dependencies'] = nil
+    h
+  end
 end
