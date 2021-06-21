@@ -30,7 +30,11 @@ class App
     end
 
     def update(new_dependencies)
+      Friday.redis.multi
       parsed_dependencies = parse_new_dependencies(new_dependencies)
+      result = Friday.redis.exec
+
+      @app.touch unless result.empty?
 
       @dependencies.each_value { |removed_dep| remove_dependency(removed_dep) }
 

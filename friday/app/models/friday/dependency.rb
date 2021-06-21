@@ -95,6 +95,9 @@ module Friday
       CRITICALITIES = %i(none low medium high critical)
 
       def criticality_index
+        # Ignore git commit versions for now so the whole thing doesn't fail
+        return 0 unless version.include?('.')
+
         gem = Gem::Specification.new(name, version)
 
         Friday::RubyDB.check_gem(gem).reduce(0) do |score, advisory|
