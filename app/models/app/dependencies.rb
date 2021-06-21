@@ -26,7 +26,7 @@ class App
 
     def initialize(app)
       @app = app
-      @dependencies = fetch_and_parse_dependencies
+      @dependencies = Friday::Dependency.for(dependencies_key)
     end
 
     def update(new_dependencies)
@@ -48,16 +48,7 @@ class App
     private
 
     def dependencies_key
-      "app:#{@app.id}:dependencies:#{@app.language}"
-    end
-
-    def fetch_and_parse_dependencies
-      dependencies = Friday.redis.zrange(dependencies_key, 0, -1)
-
-      dependencies.map do |key|
-        dep = Friday::Dependency.from_key(key)
-        [dep.name, dep]
-      end.to_h
+      "app:#{@app.id}:dependencies"
     end
 
     def parse_new_dependencies(new_dependencies)

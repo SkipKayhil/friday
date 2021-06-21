@@ -56,7 +56,7 @@ class App
     end
 
     def assert_app_depends_on(versioned)
-      assert_equal [versioned.as_json(except: 'language')], @app.dependencies.as_json
+      assert_equal [versioned], @app.dependencies.to_hash
       assert_equal [@app.id.to_s], versioned.dependents
       assert_equal [versioned.version], versioned.dependency.versions
       assert_equal [versioned.dependency], Friday::Dependency.all
