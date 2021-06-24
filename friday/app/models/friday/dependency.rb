@@ -112,7 +112,7 @@ module Friday
 
     class << self
       def all
-        Friday.redis.zrange("dependencies", 0, -1).map do |key, vulnerabilities|
+        Friday.redis.zrange("dependencies", 0, -1).map do |key|
           from_key(key)
         end
       end
@@ -159,6 +159,12 @@ module Friday
 
     def versions
       Friday.redis.zrange(versions_key, 0, -1)
+    end
+
+    def with_dependents
+      as_json.merge!({
+        versions: versions.map { |v| [v, at(v).dependents] }.to_h
+      })
     end
 
     def to_s
