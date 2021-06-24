@@ -1,4 +1,4 @@
-interface Dependency {
+interface OldDependency {
   version: string;
   known_vulnerability: boolean;
 }
@@ -9,7 +9,7 @@ interface Repo {
   full_path: string;
   directory: string;
   ruby_version: string;
-  dependencies?: Record<string, Dependency | undefined>;
+  dependencies?: Record<string, OldDependency | undefined>;
   host_id: number;
   created_at: string;
   updated_at: string;
@@ -17,11 +17,23 @@ interface Repo {
 
 interface App {
   id: number;
+  dependencies: VersionedDependency[];
   created_at: string;
   updated_at: string;
 }
 
-interface Dependent extends Dependency {
+interface Dependency {
+  language: 'ruby';
+  name: string;
+  versions?: Record<string, number[]>;
+}
+
+interface VersionedDependency extends Dependency {
+  version: string;
+  vulnerability_status: 'none' | 'low' | 'medium' | 'high' | 'critical';
+}
+
+interface Dependent extends OldDependency {
   id: number;
   full_path: string;
 }
@@ -59,6 +71,7 @@ export {
   Dependency,
   Repo,
   App,
+  VersionedDependency,
   Library,
   RepoWithRepoable,
   AppWithRepo,

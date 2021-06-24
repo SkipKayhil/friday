@@ -163,7 +163,7 @@ module Friday
 
     def with_dependents
       as_json.merge!({
-        versions: versions.map { |v| [v, at(v).dependents] }.to_h
+        versions: versions.map { |v| [v, at(v).dependents.map(&:to_i)] }.to_h
       })
     end
 

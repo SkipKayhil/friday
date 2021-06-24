@@ -1,4 +1,4 @@
-import { JSX } from "preact";
+import { JSX, ComponentChildren } from "preact";
 
 type RowClick<T> = (params: { row: T; columns?: Column<T>[] }) => unknown;
 
@@ -7,10 +7,10 @@ interface RowCol<T> {
   column: Column<T>;
 }
 
-interface Column<T> {
+export interface Column<T> {
   field: keyof T;
   headerName?: string;
-  renderCell?: (params: RowCol<T>) => JSX.Element;
+  renderCell?: (params: RowCol<T>) => ComponentChildren;
 }
 
 const getColumnName = <T,>(column: Column<T>) =>

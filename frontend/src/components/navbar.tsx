@@ -15,7 +15,7 @@ export function Navbar(): JSX.Element {
             dashboard
           </Link>
         </li>
-        {["apps", "libraries"].map((text) => (
+        {["apps", "dependencies", "libraries"].map((text) => (
           <li key={text}>
             <Link
               href={`/${text}`}
