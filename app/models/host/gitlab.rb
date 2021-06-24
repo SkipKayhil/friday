@@ -7,7 +7,7 @@ class Host
     DEFAULT_DOMAIN = 'gitlab.com'
 
     def api_endpoint
-      "https://#{domain}/api/v4"
+      "https://#{domain}/api/v4" unless default_domain?
     end
   end
 end

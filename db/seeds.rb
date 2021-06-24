@@ -8,17 +8,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 github = Host::Github.find_or_create_by(domain: 'github.com', token: ENV['GITHUB_ACCESS_TOKEN'])
-# gitlab = Host.find_or_create_by(domain: 'gitlab.com', token: ENV['GITLAB_ACCESS_TOKEN'])
+gitlab = Host::Gitlab.find_or_create_by(domain: 'gitlab.com', token: ENV['GITLAB_ACCESS_TOKEN'])
 
 apps = [
-  ['skipkayhil/friday'],
-  ['discourse/discourse'],
-  ['gitlabhq/gitlabhq']
+  { path: 'skipkayhil/friday', host: github },
+  { path: 'discourse/discourse', host: github },
+  { path: 'gitlab-org/gitlab', host: gitlab },
 ]
-apps.each do |path, dir|
-  Repo.find_or_create_by(full_path: path, directory: dir) do |repo|
+apps.each do |app|
+  Repo.find_or_create_by(full_path: app[:path]) do |repo|
     repo.repoable = App.new
-    repo.host = github
+    repo.host = app[:host]
   end
 end
 
