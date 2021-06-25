@@ -1,0 +1,8 @@
+.dockerignore
+.git
+.gitattributes
+.gitignore
+.rubocop.yml
+.ruby-version
+Dockerfile
+docker-compose.yml
