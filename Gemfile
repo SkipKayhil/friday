@@ -22,7 +22,8 @@ gem 'redis', github: 'skipkayhil/redis-rb', branch: 'add-zinter'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'friday', path: 'friday'
+gem 'friday'
+# gem 'friday', path: 'friday'
 
 gem 'resque'
 
