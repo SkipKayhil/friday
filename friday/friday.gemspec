@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors     = ['Hartley McGuire']
   spec.email       = ['skipkayhil@gmail.com']
   spec.homepage    = 'https://github.com/skipkayhil/friday'
-  spec.summary     = 'Dependency graph service'
-  spec.description = 'Track and visualize dependencies and dependents across Git services'
+  spec.summary     = 'Repository automation'
+  spec.description = 'Automate making code changes in git repositories'
   spec.license     = 'GPL-3.0-or-later'
 
   spec.metadata['homepage_uri'] = spec.homepage

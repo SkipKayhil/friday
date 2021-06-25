@@ -20,7 +20,7 @@ module Friday
     private
 
     def database
-      @ruby_db ||= begin
+      @database ||= begin
         if Bundler::Audit::Database.exists?
           Bundler::Audit::Database.update!
         else

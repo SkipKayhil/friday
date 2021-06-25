@@ -1,4 +1,6 @@
-require_dependency "friday/application_controller"
+# frozen_string_literal: true
+
+require_dependency 'friday/application_controller'
 
 module Friday
   class DependenciesController < ApplicationController
@@ -11,9 +13,7 @@ module Friday
 
     # GET /dependencies/:language/:name
     def show
-      if params[:language] != 'ruby' || params[:name].include?(':')
-        return render json: {}, status: :bad_request
-      end
+      return render json: {}, status: :bad_request if params[:language] != 'ruby' || params[:name].include?(':')
 
       @dependency = Dependency.new(params[:language], params[:name])
 

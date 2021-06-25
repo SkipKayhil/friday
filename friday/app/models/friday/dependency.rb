@@ -36,9 +36,7 @@ module Friday
       end
 
       def vulnerability_status
-        @vulnerability_status ||= begin
-          CRITICALITIES[criticality_index]
-        end
+        @vulnerability_status ||= CRITICALITIES[criticality_index]
       end
 
       def add_app(id)
@@ -92,7 +90,7 @@ module Friday
         "#{self}:apps"
       end
 
-      CRITICALITIES = %i(none low medium high critical)
+      CRITICALITIES = %i[none low medium high critical].freeze
 
       def criticality_index
         # Ignore git commit versions for now so the whole thing doesn't fail
@@ -112,7 +110,7 @@ module Friday
 
     class << self
       def all
-        Friday.redis.zrange("dependencies", 0, -1).map do |key|
+        Friday.redis.zrange('dependencies', 0, -1).map do |key|
           from_key(key)
         end
       end
@@ -162,9 +160,7 @@ module Friday
     end
 
     def with_dependents
-      as_json.merge!({
-        versions: versions.map { |v| [v, at(v).dependents.map(&:to_i)] }.to_h
-      })
+      as_json.merge!({ versions: versions.index_with { |v| at(v).dependents.map(&:to_i) } })
     end
 
     def to_s
