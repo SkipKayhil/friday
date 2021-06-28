@@ -144,7 +144,7 @@ module Friday
       end
 
       def zinter(key)
-        native_zinter = Friday.redis.info['redis_version'].starts_with?('6.2'))
+        native_zinter = Friday.redis.info['redis_version'].starts_with?('6.2')
 
         if native_zinter
           Friday.redis.zinter(key, 'vulnerabilities', with_scores: true)
