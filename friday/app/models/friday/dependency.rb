@@ -116,7 +116,7 @@ module Friday
       end
 
       def for(dependencies_key)
-        dependencies = Friday.redis.zinter(dependencies_key, 'vulnerabilities', with_scores: true)
+        dependencies = zinter(dependencies_key)
 
         dependencies.map do |key, vulnerability_score|
           dep = Versioned.from_redis(key, vulnerability_score)
@@ -141,6 +141,18 @@ module Friday
         # I think the dependency name will have to be base64 encoded because java
         # dependencies appear to have : in the name
         key.split(':')
+      end
+
+      def zinter(key)
+        native_zinter = Friday.redis.info['redis_version'].starts_with?('6.2'))
+
+        if native_zinter
+          Friday.redis.zinter(key, 'vulnerabilities', with_scores: true)
+        else
+          vulnerability_scores = Friday.redis.zrange('vulnerabilities', 0, -1, with_scores: true).to_h
+
+          Friday.redis.zrange(key, 0, -1).map { |v| [v, vulnerability_scores[v]] }
+        end
       end
     end
 
