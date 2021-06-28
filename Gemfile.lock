@@ -4,8 +4,10 @@ GIT
   specs:
     redis (4.3.1)
 
-PATH
-  remote: friday
+GIT
+  remote: https://github.com/skipkayhil/friday.git
+  revision: a176596bc04ebc9bbb28ccd50f866dc02187e135
+  glob: friday/friday.gemspec
   specs:
     friday (0.1.0)
       bundler-audit (~> 0.8)
