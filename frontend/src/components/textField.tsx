@@ -15,7 +15,7 @@ const TextField: FunctionComponent<TextFieldProps> = ({
   ...props
 }) => (
   <div class={c}>
-    { label ? <Label label={label} for={id} /> : null }
+    {label ? <Label label={label} for={id} /> : null}
     <input
       id={id}
       type={type || "text"}

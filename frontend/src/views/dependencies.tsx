@@ -23,7 +23,9 @@ export function Dependencies(): JSX.Element {
 
   if (!data) return <Spinner />;
 
-  const transformedData = data.filter((dependency) => dependency.name.includes(search));
+  const transformedData = data.filter((dependency) =>
+    dependency.name.includes(search)
+  );
 
   return (
     <>
@@ -37,7 +39,11 @@ export function Dependencies(): JSX.Element {
         />
       </Header>
       <main>
-        <Table rows={transformedData} columns={columns} onRowClick={onRowClick} />
+        <Table
+          rows={transformedData}
+          columns={columns}
+          onRowClick={onRowClick}
+        />
       </main>
     </>
   );

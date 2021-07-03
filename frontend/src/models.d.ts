@@ -23,14 +23,14 @@ interface App {
 }
 
 interface Dependency {
-  language: 'ruby';
+  language: "ruby";
   name: string;
   versions?: Record<string, number[]>;
 }
 
 interface VersionedDependency extends Dependency {
   version: string;
-  vulnerability_status: 'none' | 'low' | 'medium' | 'high' | 'critical';
+  vulnerability_status: "none" | "low" | "medium" | "high" | "critical";
 }
 
 interface Dependent extends OldDependency {

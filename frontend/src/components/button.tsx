@@ -8,7 +8,7 @@ const Button: FunctionComponent<{ class?: string }> = ({
   class: c,
   ...props
 }) => (
-  <button class={`${buttonClass} ${c || ''}`} {...props}>
+  <button class={`${buttonClass} ${c || ""}`} {...props}>
     {children}
   </button>
 );
