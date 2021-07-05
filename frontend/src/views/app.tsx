@@ -5,14 +5,16 @@ import { Spinner } from "../components/spinner";
 import { Table, Column } from "../components/table";
 import { AppWithRepo, VersionedDependency } from "../models";
 
+const statusCell = ({ row }: { row: VersionedDependency }) => (
+  <>{row.vulnerability_status === "none" ? "" : row.vulnerability_status}</>
+);
 const columns: Column<VersionedDependency>[] = [
   { field: "name" },
   { field: "version" },
   {
     field: "vulnerability_status",
     headerName: "Vulnerability Status",
-    renderCell: ({ row }) =>
-      row.vulnerability_status === "none" ? "" : row.vulnerability_status,
+    renderCell: statusCell,
   },
 ];
 

@@ -4,17 +4,20 @@ import useSWR from "swr";
 import { route } from "preact-router";
 import { Badge } from "../components/badge";
 import { Header } from "../components/header";
+import { Link } from "../components/link";
 import { Spinner } from "../components/spinner";
 import { Table, Column } from "../components/table";
 import { TextField } from "../components/textField";
 import { TimeAgo } from "../components/timeAgo";
 import { AppWithRepo } from "../models";
 
-interface AppRow extends AppWithRepo {
-  full_path: AppWithRepo["repo"]["full_path"];
-}
+const pathCell = ({ row }: { row: AppWithRepo }) => (
+  <Link href={`/apps/${row.id}`} class="hover:text-indigo-500 hover:underline">
+    {row.repo.full_path}
+  </Link>
+);
 
-const statusCell = ({ row }: { row: AppRow }) => {
+const statusCell = ({ row }: { row: AppWithRepo }) => {
   if (!row.repo.dependencies) {
     return <Badge type="warning">Parse Error</Badge>;
   }
@@ -26,17 +29,17 @@ const statusCell = ({ row }: { row: AppRow }) => {
   return vulnerable ? <Badge type="error">Vulnerable</Badge> : null;
 };
 
-const updatedCell = ({ row }: { row: AppRow }) => (
+const updatedCell = ({ row }: { row: AppWithRepo }) => (
   <TimeAgo date={new Date(row.updated_at)} />
 );
 
-const columns: Column<AppRow>[] = [
-  { field: "full_path", headerName: "Name" },
+const columns: Column<AppWithRepo>[] = [
+  { field: "name", renderCell: pathCell },
   { field: "dependencies", renderCell: statusCell, headerName: "status" },
   { field: "updated_at", renderCell: updatedCell, headerName: "Last Updated" },
 ];
 
-const onRowClick = ({ row }: { row: AppRow }) => {
+const onRowClick = ({ row }: { row: AppWithRepo }) => {
   route(`/apps/${row.id}`);
 };
 
@@ -49,9 +52,9 @@ const Apps: FunctionComponent = () => {
   const transformedData = data
     .map((app) => ({
       ...app,
-      full_path: app.repo.full_path,
+      name: app.repo.full_path,
     }))
-    .filter((app) => app.full_path.includes(search));
+    .filter((app) => app.name.includes(search));
 
   return (
     <>
@@ -65,11 +68,7 @@ const Apps: FunctionComponent = () => {
         />
       </Header>
       <main>
-        <Table
-          rows={transformedData}
-          columns={columns}
-          onRowClick={onRowClick}
-        />
+        <Table rows={transformedData} columns={columns} />
       </main>
     </>
   );

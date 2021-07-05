@@ -1,4 +1,4 @@
-import { JSX, ComponentChildren } from "preact";
+import { JSX, FunctionComponent, ComponentChildren } from "preact";
 
 type RowClick<T> = (params: { row: T; columns?: Column<T>[] }) => unknown;
 
@@ -7,11 +7,21 @@ interface RowCol<T> {
   column: Column<T>;
 }
 
-export interface Column<T> {
-  field: keyof T;
+interface BaseColumn<T> {
   headerName?: string;
-  renderCell?: (params: RowCol<T>) => ComponentChildren;
+  renderCell?: FunctionComponent<RowCol<T>>;
 }
+
+interface BasicColumn<T> extends BaseColumn<T> {
+  field: keyof T;
+}
+
+interface CustomColumn<T> extends BaseColumn<T> {
+  field: string;
+  renderCell: BaseColumn<T>["renderCell"];
+}
+
+export type Column<T> = BasicColumn<T> | CustomColumn<T>;
 
 const getColumnName = <T,>(column: Column<T>) =>
   column.headerName === undefined
@@ -19,9 +29,15 @@ const getColumnName = <T,>(column: Column<T>) =>
     : column.headerName;
 
 function Cell<T>({ row, column }: RowCol<T>) {
-  const cellContent = column.renderCell
-    ? column.renderCell({ row, column })
-    : (row[column.field] as any);
+  // TODO: ts doesn't seem like its able to figure out that the type here should
+  // be narrowed. Possibly same as #44401 fixed by #44771. It doesn't have a
+  // milestone yet, so check in around TS 4.4.1+
+  const cellContent =
+    column.renderCell === undefined ? (
+      ((row[(column as BasicColumn<T>).field] as unknown) as ComponentChildren)
+    ) : (
+      <column.renderCell row={row} column={column} />
+    );
 
   return <td class="px-6 py-4 whitespace-nowrap">{cellContent}</td>;
 }
@@ -33,12 +49,12 @@ interface RowProps<T> {
 }
 
 function Row<T>({ row, columns, onRowClick }: RowProps<T>) {
-  const rowClass = `${onRowClick ? "hover:bg-gray-100 cursor-pointer" : ""}`;
+  const rowClass = `${onRowClick ? "cursor-pointer" : ""}`;
 
   return (
     <tr
       onClick={() => onRowClick && onRowClick({ row, columns })}
-      class={rowClass}
+      class={`hover:bg-gray-100 ${rowClass}`}
     >
       {columns.map((column) => (
         <Cell key={column.field} row={row} column={column} />
