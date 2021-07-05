@@ -1,43 +1,42 @@
-import { FunctionComponent, JSX } from "preact";
+import { FunctionComponent, ComponentChildren } from "preact";
 import { useState } from "preact/hooks";
 import useSWR from "swr";
 import { route } from "preact-router";
+import { Badge } from "../components/badge";
 import { Header } from "../components/header";
 import { Spinner } from "../components/spinner";
-import { Status } from "../components/status";
-import { Table } from "../components/table";
+import { Table, Column } from "../components/table";
 import { TextField } from "../components/textField";
+import { TimeAgo } from "../components/timeAgo";
 import { AppWithRepo } from "../models";
 
-interface Row extends AppWithRepo {
+interface AppRow extends AppWithRepo {
   full_path: AppWithRepo["repo"]["full_path"];
 }
 
-interface AppColumns {
-  field: keyof Row | "status";
-  headerName: string;
-  renderCell?({ row, column }: { row: Row; column: AppColumns }): JSX.Element;
-}
-
-const statusCell = ({ row }: { row: Row }) => {
+const statusCell = ({ row }: { row: AppRow }) => {
   if (!row.repo.dependencies) {
-    return <Status type="warning" />;
+    return <Badge type="warning">Parse Error</Badge>;
   }
 
   const vulnerable = Object.entries(row.repo.dependencies).some(
     ([, dep]) => dep?.known_vulnerability
   );
 
-  return vulnerable ? <Status type="error" /> : "";
+  return vulnerable ? <Badge type="error">Vulnerable</Badge> : null;
 };
 
-const columns: AppColumns[] = [
-  { field: "status", renderCell: statusCell, headerName: "" },
+const updatedCell = ({ row }: { row: AppRow }) => (
+  <TimeAgo date={new Date(row.updated_at)} />
+);
+
+const columns: Column<AppRow>[] = [
   { field: "full_path", headerName: "Name" },
-  { field: "updated_at", headerName: "Last Updated" },
+  { field: "dependencies", renderCell: statusCell, headerName: "status" },
+  { field: "updated_at", renderCell: updatedCell, headerName: "Last Updated" },
 ];
 
-const onRowClick = ({ row }: { row: Row }) => {
+const onRowClick = ({ row }: { row: AppRow }) => {
   route(`/apps/${row.id}`);
 };
 

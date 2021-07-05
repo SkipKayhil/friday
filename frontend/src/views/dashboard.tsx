@@ -2,18 +2,18 @@ import { JSX } from "preact";
 import useSWR from "swr";
 import { route } from "preact-router";
 import { Header } from "../components/header";
-import { Table } from "../components/table";
+import { Table, Column } from "../components/table";
+import { TimeAgo } from "../components/timeAgo";
 import { RepoWithRepoable } from "../models";
 
-interface RepoColumns {
-  field: keyof RepoWithRepoable;
-  headerName: string;
-}
+const updatedCell = ({ row }: { row: RepoWithRepoable }) => (
+  <TimeAgo date={new Date(row.updated_at)} />
+);
 
-const columns: RepoColumns[] = [
+const columns: Column<RepoWithRepoable>[] = [
   { field: "full_path", headerName: "Name" },
   { field: "repoable_type", headerName: "Type" },
-  { field: "updated_at", headerName: "Last Updated" },
+  { field: "updated_at", renderCell: updatedCell, headerName: "Last Updated" },
 ];
 
 const onRowClick = ({ row }: { row: RepoWithRepoable }) => {
