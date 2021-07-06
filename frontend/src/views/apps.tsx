@@ -18,14 +18,14 @@ const pathCell = ({ row }: { row: AppWithRepo }) => (
 
 const statusCell = ({ row }: { row: AppWithRepo }) => {
   if (!row.repo.dependencies) {
-    return <Badge type="warning">Parse Error</Badge>;
+    return <Badge color="yellow">Parse Error</Badge>;
   }
 
   const vulnerable = Object.entries(row.repo.dependencies).some(
     ([, dep]) => dep?.known_vulnerability
   );
 
-  return vulnerable ? <Badge type="error">Vulnerable</Badge> : null;
+  return vulnerable ? <Badge color="red">Vulnerable</Badge> : null;
 };
 
 const updatedCell = ({ row }: { row: AppWithRepo }) => (

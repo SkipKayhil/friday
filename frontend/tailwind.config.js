@@ -1,8 +1,13 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: ["src/**/*.{js,jsx,ts,tsx}", "index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        orange: colors.orange,
+      },
       animation: {
         "material-spin": "spin 1.4s linear infinite",
         "material-spin-circle":
