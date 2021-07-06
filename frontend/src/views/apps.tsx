@@ -1,7 +1,6 @@
-import { FunctionComponent, ComponentChildren } from "preact";
+import { FunctionComponent } from "preact";
 import { useState } from "preact/hooks";
 import useSWR from "swr";
-import { route } from "preact-router";
 import { Badge } from "../components/badge";
 import { Header } from "../components/header";
 import { Link } from "../components/link";
@@ -38,10 +37,6 @@ const columns: Column<AppWithRepo>[] = [
   { field: "dependencies", renderCell: statusCell, headerName: "status" },
   { field: "updated_at", renderCell: updatedCell, headerName: "Last Updated" },
 ];
-
-const onRowClick = ({ row }: { row: AppWithRepo }) => {
-  route(`/apps/${row.id}`);
-};
 
 const Apps: FunctionComponent = () => {
   const [search, setSearch] = useState("");

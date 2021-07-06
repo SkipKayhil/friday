@@ -1,15 +1,26 @@
 import { JSX } from "preact";
 import useSWR from "swr";
 import { Header } from "../components/header";
+import { Link } from "../components/link";
 import { Spinner } from "../components/spinner";
 import { Table, Column } from "../components/table";
 import { AppWithRepo, VersionedDependency } from "../models";
+
+const nameCell = ({ row }: { row: VersionedDependency }) => (
+  // TODO: need to use the App's language here
+  <Link
+    href={`/dependencies/ruby/${row.name}`}
+    class="hover:text-indigo-500 hover:underline"
+  >
+    {row.name}
+  </Link>
+);
 
 const statusCell = ({ row }: { row: VersionedDependency }) => (
   <>{row.vulnerability_status === "none" ? "" : row.vulnerability_status}</>
 );
 const columns: Column<VersionedDependency>[] = [
-  { field: "name" },
+  { field: "name", renderCell: nameCell },
   { field: "version" },
   {
     field: "vulnerability_status",

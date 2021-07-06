@@ -1,21 +1,26 @@
 import { JSX } from "preact";
 import { useState } from "preact/hooks";
 import useSWR from "swr";
-import { route } from "preact-router";
 import { Header } from "../components/header";
+import { Link } from "../components/link";
 import { Spinner } from "../components/spinner";
 import { Table, Column } from "../components/table";
 import { TextField } from "../components/textField";
 import { Dependency } from "../models";
 
+const nameCell = ({ row }: { row: Dependency }) => (
+  <Link
+    href={`/dependencies/${row.language}/${row.name}`}
+    class="hover:text-indigo-500 hover:underline"
+  >
+    {row.name}
+  </Link>
+);
+
 const columns: Column<Dependency>[] = [
   { field: "language" },
-  { field: "name" },
+  { field: "name", renderCell: nameCell },
 ];
-
-const onRowClick = ({ row }: { row: Dependency }) => {
-  route(`/dependencies/${row.language}/${row.name}`);
-};
 
 export function Dependencies(): JSX.Element {
   const [search, setSearch] = useState("");
@@ -39,11 +44,7 @@ export function Dependencies(): JSX.Element {
         />
       </Header>
       <main>
-        <Table
-          rows={transformedData}
-          columns={columns}
-          onRowClick={onRowClick}
-        />
+        <Table rows={transformedData} columns={columns} />
       </main>
     </>
   );
