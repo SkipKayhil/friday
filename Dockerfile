@@ -9,10 +9,10 @@ RUN apk add --no-cache --update \
   tzdata
 
 COPY Gemfile Gemfile.lock ./
-RUN bundle install
+RUN gem install bundler && bundle install
 
 COPY . ./
 
 ENV RAILS_ENV=production
-CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]
+CMD ["bin/rails", "s", "-b", "0.0.0.0"]
 EXPOSE 3000
