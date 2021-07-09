@@ -24,51 +24,18 @@ module Dep
       full_ruby_version.match(/\d+\.\d+\.\d+/)
     end
 
-    def dependencies_with_audit
-      parsed_deps = {}
-      parse.each do |dep|
-        parsed_deps[dep.name] = { version: dep.version, known_vulnerability: audit[dep.name] }
-      end
-
-      parsed_deps
-    end
-
-    def audit
-      @audit ||= @parser.send(:parsed_lockfile).specs.map do |gem|
-        known_vulnerability = false
-
-        database.check_gem(gem) do |advisory|
-          known_vulnerability = true
-        end
-
-        [gem.name, known_vulnerability]
-      end.to_h
-    end
-
     private
-
-    def database
-      @database ||= begin
-        if Bundler::Audit::Database.exists?
-          Bundler::Audit::Database.update!
-        else
-          Bundler::Audit::Database.download
-        end
-
-        Bundler::Audit::Database.new
-      end
-    end
 
     def full_ruby_version
       lockfile_ruby = Bundler::LockfileParser.new(@parser.send(:lockfile).content).ruby_version
 
       return lockfile_ruby if lockfile_ruby
 
-      ruby_version = @config.fetcher.get.send(:fetch_file_if_present, '.ruby-version')
+      ruby_version = @config.fetcher.get.send(:fetch_file_if_present, ".ruby-version")
 
       return ruby_version.content if ruby_version
 
-      ''
+      ""
     end
   end
 end

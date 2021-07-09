@@ -11,7 +11,6 @@ class FetchDependenciesJob < ApplicationJob
     # Keep updating the repo's dependencies for now, but this will be removed
     # once the Redis implementation is used everywhere
     app.repo.ruby_version = parser.ruby_version
-    app.repo.dependencies = parser.dependencies_with_audit
 
     app.repo.save!
   end

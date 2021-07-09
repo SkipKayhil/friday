@@ -25,7 +25,8 @@ module ActiveSupport
 
     parallelize_setup do |worker|
       # One db per process, so mid-test flushes don't affect other processes
-      Friday.redis.select(worker)
+      # To prevent flushing the dev db, 1 is added to worker index
+      Friday.redis.select(worker + 1)
     end
 
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
