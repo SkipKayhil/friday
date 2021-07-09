@@ -17,12 +17,12 @@ const pathCell = ({ row }: { row: AppWithRepo }) => (
 );
 
 const statusCell = ({ row }: { row: AppWithRepo }) => {
-  if (!row.repo.dependencies) {
+  if (!row.dependencies) {
     return <Badge color="yellow">Parse Error</Badge>;
   }
 
-  const vulnerable = Object.entries(row.repo.dependencies).some(
-    ([, dep]) => dep?.known_vulnerability
+  const vulnerable = row.dependencies.some(
+    (dep) => dep.vulnerability_status !== "none"
   );
 
   return vulnerable ? <Badge color="red">Vulnerable</Badge> : null;
