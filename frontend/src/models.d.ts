@@ -65,15 +65,11 @@ type RepoWithRepoable = RepoApp | RepoLibrary;
 
 type AppWithRepo = App & Repoable;
 
-type LibraryWithRepo = Library & Repoable;
-
 export {
   Dependency,
   Repo,
   App,
   VersionedDependency,
-  Library,
   RepoWithRepoable,
   AppWithRepo,
-  LibraryWithRepo,
 };
