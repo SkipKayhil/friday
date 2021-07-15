@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "resolv-replace"
 require 'dependabot/bundler'
 require 'bundler/audit'
 require 'friday/version'

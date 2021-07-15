@@ -22,4 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'dependabot-bundler', '~> 0.149'
   spec.add_dependency 'rails', '~> 6.1.3', '>= 6.1.3.2'
   spec.add_dependency 'redis', '~> 4.2', '>= 4.2.5'
+  spec.add_dependency "resolv-replace", "~> 0.1"
 end
