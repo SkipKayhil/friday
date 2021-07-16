@@ -42,7 +42,7 @@ class App
     end
 
     def to_hash
-      @dependencies.values
+      @dependencies&.values
     end
 
     def as_json
