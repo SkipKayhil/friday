@@ -116,6 +116,8 @@ module Friday
       end
 
       def for(dependencies_key)
+        return unless Friday.redis.exists?(dependencies_key)
+
         dependencies = zinter(dependencies_key)
 
         dependencies.map do |key, vulnerability_score|
