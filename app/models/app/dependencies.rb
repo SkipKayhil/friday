@@ -26,7 +26,7 @@ class App
 
     def initialize(app)
       @app = app
-      @dependencies = Friday::Dependency.for(dependencies_key)
+      self.dependencies = Friday::Dependency.for(dependencies_key)
     end
 
     def update(new_dependencies)
@@ -38,11 +38,13 @@ class App
 
       @dependencies.each_value { |removed_dep| remove_dependency(removed_dep) }
 
-      @dependencies = parsed_dependencies
+      self.dependencies = parsed_dependencies
     end
 
     def to_hash
-      @dependencies&.values
+      return if @error
+
+      @dependencies.values
     end
 
     def as_json
@@ -50,6 +52,11 @@ class App
     end
 
     private
+
+    def dependencies=(dependencies)
+      @error = dependencies.nil?
+      @dependencies = dependencies || {}
+    end
 
     def dependencies_key
       "app:#{@app.id}:dependencies"
