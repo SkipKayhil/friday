@@ -1,14 +1,29 @@
 import { FunctionComponent } from "preact";
 
-const units = [
-  { label: "year", toSeconds: 31536000, singular: "last year" },
-  { label: "month", toSeconds: 2592000, singular: "last month" },
-  { label: "day", toSeconds: 86400, singular: "yesterday" },
-  { label: "hour", toSeconds: 3600, singular: "1 hour ago" },
-  { label: "minute", toSeconds: 60, singular: "1 minute ago" },
+const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+const dtf = new Intl.DateTimeFormat("default", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+  hour: "numeric",
+  minute: "2-digit",
+  timeZoneName: "short",
+});
+
+type Unit = {
+  label: Intl.RelativeTimeFormatUnit;
+  toSeconds: number;
+};
+
+const units: Unit[] = [
+  { label: "year", toSeconds: 31536000 },
+  { label: "month", toSeconds: 2592000 },
+  { label: "day", toSeconds: 86400 },
+  { label: "hour", toSeconds: 3600 },
+  { label: "minute", toSeconds: 60 },
 ];
 
-const second = { label: "second", toSeconds: 1, singular: "1 second ago" };
+const second: Unit = { label: "second", toSeconds: 1 };
 
 const TimeAgo: FunctionComponent<{ date: Date }> = ({ date }) => {
   const secondsSince = Math.floor((Date.now() - date.getTime()) / 1000);
@@ -16,11 +31,9 @@ const TimeAgo: FunctionComponent<{ date: Date }> = ({ date }) => {
   const roundedValue = Math.floor(secondsSince / unit.toSeconds);
 
   return (
-    <>
-      {roundedValue === 1
-        ? unit.singular
-        : `${roundedValue} ${unit.label}s ago`}
-    </>
+    <span title={dtf.format(date)}>
+      {rtf.format(-1 * roundedValue, unit.label)}
+    </span>
   );
 };
 
