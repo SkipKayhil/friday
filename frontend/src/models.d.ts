@@ -11,7 +11,7 @@ interface Repo {
 
 interface App {
   id: number;
-  dependencies: VersionedDependency[];
+  dependencies?: VersionedDependency[];
   created_at: string;
   updated_at: string;
 }

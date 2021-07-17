@@ -7,7 +7,10 @@ import { Spinner } from "../components/spinner";
 import { Table, Column } from "../components/table";
 import { AppWithRepo, VersionedDependency } from "../models";
 
-const criticalityColors = {
+const criticalityColors: Record<
+  string,
+  "gray" | "yellow" | "orange" | "red"
+> = {
   low: "gray",
   medium: "yellow",
   high: "orange",
@@ -49,16 +52,18 @@ export function App({ id }: { id: string }): JSX.Element {
   if (!data) return <Spinner />;
   if (error) return <>error fetching app</>;
 
-  const transformedData = data.dependencies.sort((a, b) => {
-    if (a.vulnerability_status === b.vulnerability_status) {
-      return a.name.localeCompare(b.name);
-    }
+  const transformedData = data.dependencies
+    ? data.dependencies.sort((a, b) => {
+        if (a.vulnerability_status === b.vulnerability_status) {
+          return a.name.localeCompare(b.name);
+        }
 
-    const aCriticality = criticalities.indexOf(a.vulnerability_status);
-    const bCriticality = criticalities.indexOf(b.vulnerability_status);
+        const aCriticality = criticalities.indexOf(a.vulnerability_status);
+        const bCriticality = criticalities.indexOf(b.vulnerability_status);
 
-    return bCriticality - aCriticality;
-  });
+        return bCriticality - aCriticality;
+      })
+    : [];
 
   return (
     <>
