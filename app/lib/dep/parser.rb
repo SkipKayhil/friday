@@ -3,12 +3,11 @@
 module Dep
   # A wrapper class for Dependabot::FileParsers
   class Parser
-    def initialize(config:)
-      @config = config
-      @parser = Dependabot::FileParsers.for_package_manager(config.package_manager).new(
-        dependency_files: config.fetcher.get.files,
-        source: config.source.get,
-        credentials: config.credentials
+    def initialize(artifacts)
+      @parser = Dependabot::FileParsers.for_package_manager(artifacts.package_manager).new(
+        dependency_files: artifacts.fetcher.files,
+        source: artifacts.source,
+        credentials: artifacts.credentials
       )
     end
 
@@ -31,7 +30,7 @@ module Dep
 
       return lockfile_ruby if lockfile_ruby
 
-      ruby_version = @config.fetcher.get.send(:fetch_file_if_present, ".ruby-version")
+      ruby_version = @artifacts.fetcher.send(:fetch_file_if_present, ".ruby-version")
 
       return ruby_version.content if ruby_version
 

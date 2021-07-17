@@ -3,16 +3,18 @@
 module Dep
   # A wrapper class for Dependabot::FileFetcher
   class Fetcher
-    def initialize(config:)
-      unless config.package_manager.in? %w[bundler]
-        raise "Invalid package_manager provided to Dep::Fetcher - #{config.package_manager}"
+    def initialize(artifacts)
+      unless artifacts.package_manager.in? %w[bundler]
+        raise "Invalid package_manager provided to Dep::Fetcher - #{artifacts.package_manager}"
       end
 
-      @config = config
-      @fetcher = Dependabot::FileFetchers.for_package_manager(config.package_manager).new(
-        source: config.source.get,
-        credentials: config.credentials
+      @fetcher = Dependabot::FileFetchers.for_package_manager(artifacts.package_manager).new(
+        source: artifacts.source,
+        credentials: artifacts.credentials
       )
+
+      @artifacts = artifacts
+      @artifacts.fetcher = @fetcher
     end
 
     def get
@@ -20,12 +22,7 @@ module Dep
     end
 
     def parser
-      @parser ||= begin
-        config = @config.dup
-        config.fetcher = self
-
-        Parser.new(config: config)
-      end
+      @parser ||= Parser.new(@artifacts)
     end
   end
 end
