@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require "resolv-replace"
-require 'dependabot/bundler'
-require 'bundler/audit'
-require 'friday/version'
-require 'friday/engine'
+require "dependabot/bundler"
+require "bundler/audit"
+require_relative "./friday/version"
+require_relative "./friday/engine"
+require_relative "./friday/dbot_runner"
 
 module Friday
   module_function

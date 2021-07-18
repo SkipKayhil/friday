@@ -4,13 +4,12 @@ class FetchDependenciesJob < ApplicationJob
   queue_as :default
 
   def perform(app)
-    parser = Dep::Source.new(repo: app.repo, host: app.repo.host).fetcher.parser
+    runner = Friday::DbotRunner.new(app)
 
-    app.dependencies.update(parser.parse)
+    app.dependencies.update(runner.dependencies)
 
-    # Keep updating the repo's dependencies for now, but this will be removed
-    # once the Redis implementation is used everywhere
-    app.repo.ruby_version = parser.ruby_version
+    # TODO: use language_version on app instead of ruby_version on repo
+    app.repo.ruby_version = runner.language_version
 
     app.repo.save!
   end
