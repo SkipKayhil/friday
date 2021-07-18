@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/skipkayhil/friday.git
-  revision: f1015621fe6045f6e7d1bc5f62ce2547f1112b3f
+  revision: 652b75512df38637b6e39bef3e187b5c395307cc
   glob: friday/friday.gemspec
   specs:
     friday (0.1.0)
@@ -82,7 +82,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
     aws-eventstream (1.1.1)
-    aws-partitions (1.478.0)
+    aws-partitions (1.479.0)
     aws-sdk-codecommit (1.42.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
