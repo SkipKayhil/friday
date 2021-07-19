@@ -1,0 +1,8 @@
+#! /usr/bin/env sh
+
+set -ex
+
+bundle config unset without
+cd /opt/bundler/v2 && bundle
+cd /opt/bundler/v1 && bundle
+cd /usr/src
