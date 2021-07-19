@@ -27,6 +27,7 @@ services:
     <<: *rails
     volumes:
       - .:/usr/src
+      - bundle:/usr/src/.bundle
     environment:
       <<: *env
       RAILS_ENV: development
@@ -41,6 +42,7 @@ services:
     <<: *rails
     volumes:
       - .:/usr/src
+      - bundle:/usr/src/.bundle
     environment:
       <<: *env
       RAILS_ENV: development
@@ -84,5 +86,6 @@ services:
       retries: 30
 
 volumes:
+  bundle:
   postgres:
   redis:

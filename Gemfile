@@ -25,9 +25,6 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "friday", github: "skipkayhil/friday", glob: "friday/friday.gemspec"
 # gem 'friday', path: 'friday'
 
-# Locked because tags from 0.154.0 to 0.156.2 cause errors
-gem "dependabot-bundler", "0.153.0"
-
 gem "resque"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
