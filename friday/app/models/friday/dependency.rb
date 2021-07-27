@@ -35,15 +35,18 @@ module Friday
         Friday.redis.zrange(dependents_key, 0, -1)
       end
 
+      def update_vulnerability_status
+        criticality_score = CRITICALITIES.index(vulnerability_status)
+
+        Friday.redis.zadd("vulnerabilities", criticality_score, to_s)
+      end
+
       def vulnerability_status
         @vulnerability_status ||= CRITICALITIES[criticality_index]
       end
 
       def add_app(id)
-        criticality_score = CRITICALITIES.index(vulnerability_status)
-
         Friday.redis.zadd('dependencies', 0, dependency.to_s)
-        Friday.redis.zadd('vulnerabilities', criticality_score, to_s)
         Friday.redis.zadd(dependency.versions_key, 0, version)
         Friday.redis.zadd(dependents_key, 0, id.to_s)
       end
