@@ -1,12 +1,12 @@
 GIT
   remote: https://github.com/redis/redis-rb.git
-  revision: baf57060a8dfca433fc840eedcd85c786fdd2101
+  revision: a200ee3fbf9d39e01bc8bfe1433386fa97f365ed
   specs:
     redis (4.3.1)
 
 GIT
   remote: https://github.com/skipkayhil/friday.git
-  revision: 91ed06f38d680ba2a7d20deeb8efeb5c3f021fe0
+  revision: 7a9d4fc51bbff0152ae4edba3d32351db43ddfb3
   glob: friday/friday.gemspec
   specs:
     friday (0.1.0)
@@ -110,9 +110,9 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
-    dependabot-bundler (0.156.8)
-      dependabot-common (= 0.156.8)
-    dependabot-common (0.156.8)
+    dependabot-bundler (0.157.0)
+      dependabot-common (= 0.157.0)
+    dependabot-common (0.157.0)
       activesupport (>= 6.0.0)
       aws-sdk-codecommit (~> 1.28)
       aws-sdk-ecr (~> 1.5)
