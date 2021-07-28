@@ -38,6 +38,8 @@ class App
 
       @dependencies.each_value { |removed_dep| remove_dependency(removed_dep) }
 
+      parsed_dependencies.each_value(&:update_vulnerability_status)
+
       self.dependencies = parsed_dependencies
     end
 
@@ -65,7 +67,6 @@ class App
     def parse_new_dependencies(new_dependencies)
       new_dependencies.map do |dep|
         d = Friday::Dependency.new(@app.language, dep.name).at(dep.version)
-        d.update_vulnerability_status
 
         old_version = @dependencies.delete(d.name)
 
