@@ -10,7 +10,6 @@ Rails.application.routes.draw do
       resources :apps do
         post :dependencies, on: :member
       end
-      resources :libraries
     end
   end
 

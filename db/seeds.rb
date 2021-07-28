@@ -21,13 +21,3 @@ apps.each do |app|
     repo.host = app[:host]
   end
 end
-
-libraries = [
-  ['rails/rails']
-]
-libraries.each do |path, name|
-  Repo.find_or_create_by(full_path: path, name: name) do |repo|
-    repo.repoable = Library.new
-    repo.host = github
-  end
-end
