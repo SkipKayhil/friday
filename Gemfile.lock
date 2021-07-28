@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/skipkayhil/friday.git
-  revision: 7a9d4fc51bbff0152ae4edba3d32351db43ddfb3
+  revision: 2dd908cd3cafc44ae33ff5bce08fd0d53b67a675
   glob: friday/friday.gemspec
   specs:
     friday (0.1.0)
@@ -82,7 +82,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
     aws-eventstream (1.1.1)
-    aws-partitions (1.479.0)
+    aws-partitions (1.480.0)
     aws-sdk-codecommit (1.42.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
@@ -110,9 +110,9 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
-    dependabot-bundler (0.157.0)
-      dependabot-common (= 0.157.0)
-    dependabot-common (0.157.0)
+    dependabot-bundler (0.157.1)
+      dependabot-common (= 0.157.1)
+    dependabot-common (0.157.1)
       activesupport (>= 6.0.0)
       aws-sdk-codecommit (~> 1.28)
       aws-sdk-ecr (~> 1.5)
@@ -153,8 +153,8 @@ GEM
     gitlab (4.17.0)
       httparty (~> 0.18)
       terminal-table (~> 1.5, >= 1.5.1)
-    globalid (0.4.2)
-      activesupport (>= 4.2.0)
+    globalid (0.5.1)
+      activesupport (>= 5.0)
     hashdiff (1.0.1)
     http-accept (1.7.0)
     http-cookie (1.0.4)
