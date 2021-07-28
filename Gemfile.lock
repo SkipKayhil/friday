@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/skipkayhil/friday.git
-  revision: 2dd908cd3cafc44ae33ff5bce08fd0d53b67a675
+  revision: 09e226e42d4c842c76948036e07baffc676a9cfb
   glob: friday/friday.gemspec
   specs:
     friday (0.1.0)
