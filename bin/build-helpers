@@ -1,0 +1,10 @@
+#! /usr/bin/env sh
+
+set -ex
+
+mkdir -p /opt/bundler/v2 /opt/bundler/v1
+
+bundler_path=$(bundle show dependabot-bundler)
+
+"$bundler_path/helpers/v2/build" /opt/bundler/v2
+"$bundler_path/helpers/v1/build" /opt/bundler/v1

@@ -20,10 +20,8 @@ RUN gem install bundler -v 2.2.24 --no-document \
   && bundle install -j 3
 
 ENV DEPENDABOT_NATIVE_HELPERS_PATH=/opt
-RUN mkdir -p /opt/bundler/v2 \
-  && mkdir -p /opt/bundler/v1 \
-  && bash "$(bundle show dependabot-bundler)/helpers/v2/build" /opt/bundler/v2 \
-  && bash "$(bundle show dependabot-bundler)/helpers/v1/build" /opt/bundler/v1
+COPY bin ./bin
+RUN bin/build-helpers
 
 COPY . ./
 
