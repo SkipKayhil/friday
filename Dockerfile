@@ -9,9 +9,11 @@ RUN apk add --no-cache --update \
   postgresql-dev \
   tzdata
 
-# Dependabot native helpers set this path, so setting it here makes bundler
-# install gems to where they'll be expected later
-ENV BUNDLE_PATH=".bundle"
+# The ruby image sets this to /usr/local/bundle, however this prevents different
+# folders having different bundler settings. Setting it to .bundle (the default)
+# allows the native bundler helpers to have their own bundler configuration.
+ENV BUNDLE_APP_CONFIG=".bundle"
+
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler -v 2.2.24 --no-document \
   && gem install bundler -v 1.17.3 --no-document \
