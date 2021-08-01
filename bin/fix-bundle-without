@@ -2,7 +2,8 @@
 
 set -ex
 
+cwd=$(pwd)
 bundle config unset without
 cd /opt/bundler/v2 && bundle
 cd /opt/bundler/v1 && bundle
-cd /usr/src
+cd $cwd
