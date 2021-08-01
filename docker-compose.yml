@@ -13,6 +13,12 @@ x-rails: &rails
     redis:
       condition: service_healthy
 
+x-dev: &dev
+  volumes:
+    - .:/usr/src:cached
+    - bundle:/usr/src/.bundle
+    - rails_cache:/usr/src/tmp/cache
+
 services:
   rails-prod:
     <<: *rails
@@ -25,9 +31,7 @@ services:
 
   rails-dev:
     <<: *rails
-    volumes:
-      - .:/usr/src
-      - bundle:/usr/src/.bundle
+    <<: *dev
     environment:
       <<: *env
       RAILS_ENV: development
@@ -40,9 +44,7 @@ services:
 
   resque:
     <<: *rails
-    volumes:
-      - .:/usr/src
-      - bundle:/usr/src/.bundle
+    <<: *dev
     environment:
       <<: *env
       RAILS_ENV: development
@@ -55,6 +57,7 @@ services:
       target: builder
     volumes:
       - ./frontend:/usr/src
+      - node_modules:/usr/src/node_modules
     ports:
       - "4000:4000"
     healthcheck:
@@ -87,5 +90,7 @@ services:
 
 volumes:
   bundle:
+  node_modules:
   postgres:
+  rails_cache:
   redis:

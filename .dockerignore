@@ -1,8 +1,13 @@
 .dockerignore
-.git
+/.git
 .gitattributes
 .gitignore
 .rubocop.yml
 .ruby-version
 Dockerfile
 docker-compose.yml
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
