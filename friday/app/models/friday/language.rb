@@ -3,10 +3,12 @@
 module Friday
   # A programming language that dependabot can parse dependencies of
   class Language
-    def self.for_package_manager(package_manager = :bundler)
+    def self.for_package_manager(package_manager)
       case package_manager
-      when :bundler
+      when "bundler"
         "ruby"
+      else
+        raise "Unsupported package manager: #{package_manager}"
       end
     end
   end

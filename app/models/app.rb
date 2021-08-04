@@ -13,7 +13,7 @@ class App < ApplicationRecord
 
   # Hard coding this for now but it'll be a field on the db later
   def package_manager
-    :bundler
+    "bundler"
   end
 
   def attributes
