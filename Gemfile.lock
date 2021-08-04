@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/skipkayhil/friday.git
-  revision: 17e0d1c10e0c00cad5205ed4b7f2836b3bbc5db3
+  revision: fb7e69ea54f82181995da76d5ba1529ff12e9bf3
   glob: friday/friday.gemspec
   specs:
     friday (0.1.0)
@@ -104,9 +104,9 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
-    dependabot-bundler (0.157.2)
-      dependabot-common (= 0.157.2)
-    dependabot-common (0.157.2)
+    dependabot-bundler (0.158.0)
+      dependabot-common (= 0.158.0)
+    dependabot-common (0.158.0)
       activesupport (>= 6.0.0)
       aws-sdk-codecommit (~> 1.28)
       aws-sdk-ecr (~> 1.5)
@@ -184,10 +184,10 @@ GEM
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     netrc (0.11.0)
-    nio4r (2.5.7)
-    nokogiri (1.12.0-x86_64-darwin)
+    nio4r (2.5.8)
+    nokogiri (1.12.1-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.12.0-x86_64-linux)
+    nokogiri (1.12.1-x86_64-linux)
       racc (~> 1.4)
     octokit (4.21.0)
       faraday (>= 0.9)
