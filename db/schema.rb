@@ -64,5 +64,5 @@ ActiveRecord::Schema.define(version: 2021_08_01_230031) do
     t.index ["repoable_type", "repoable_id"], name: "index_repos_on_repoable"
   end
 
-  add_foreign_key "friday_repositories", "hosts"
+  add_foreign_key "friday_repositories", "friday_hosts", column: "host_id"
 end
