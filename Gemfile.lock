@@ -1,7 +1,5 @@
-GIT
-  remote: https://github.com/skipkayhil/friday.git
-  revision: fb7e69ea54f82181995da76d5ba1529ff12e9bf3
-  glob: friday/friday.gemspec
+PATH
+  remote: friday
   specs:
     friday (0.1.0)
       bundler-audit (~> 0.8)
@@ -185,8 +183,6 @@ GEM
       ruby2_keywords (~> 0.0.1)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.12.1-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.12.1-x86_64-linux)
       racc (~> 1.4)
     octokit (4.21.0)

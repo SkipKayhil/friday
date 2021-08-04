@@ -15,6 +15,7 @@ RUN apk add --no-cache --update \
 ENV BUNDLE_APP_CONFIG=".bundle"
 
 COPY Gemfile Gemfile.lock ./
+COPY friday/ ./friday
 RUN gem install bundler -v 2.2.24 --no-document \
   && gem install bundler -v 1.17.3 --no-document \
   && bundle install -j 3

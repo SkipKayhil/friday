@@ -22,8 +22,8 @@ gem "redis", "~> 4.4"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
-gem "friday", github: "skipkayhil/friday", glob: "friday/friday.gemspec"
-# gem 'friday', path: 'friday'
+# gem "friday", github: "skipkayhil/friday", glob: "friday/friday.gemspec"
+gem 'friday', path: 'friday'
 
 gem "resque"
 
