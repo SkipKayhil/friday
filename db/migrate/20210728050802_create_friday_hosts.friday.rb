@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from friday (originally 20210728033940)
 class CreateFridayHosts < ActiveRecord::Migration[6.1]
   def change

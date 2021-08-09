@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateFridayHosts < ActiveRecord::Migration[6.1]
   def change
     create_table :friday_hosts do |t|
