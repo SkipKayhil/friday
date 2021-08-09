@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_01_230031) do
+ActiveRecord::Schema.define(version: 2021_08_04_032200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 2021_08_01_230031) do
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "friday_projects", force: :cascade do |t|
+    t.string "name"
+    t.string "directory"
+    t.string "package_manager"
+    t.string "language_version"
+    t.bigint "repository_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["repository_id"], name: "index_friday_projects_on_repository_id"
   end
 
   create_table "friday_repositories", force: :cascade do |t|
@@ -64,5 +75,6 @@ ActiveRecord::Schema.define(version: 2021_08_01_230031) do
     t.index ["repoable_type", "repoable_id"], name: "index_repos_on_repoable"
   end
 
+  add_foreign_key "friday_projects", "friday_repositories", column: "repository_id"
   add_foreign_key "friday_repositories", "friday_hosts", column: "host_id"
 end

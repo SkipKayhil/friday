@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+friday_app:
+  name: friday app
+  directory:
+  package_manager: bundler
+  language_version: 3.0.2
+  repository: skipkayhil_friday
+
+friday_frontend:
+  name: friday frontend
+  directory: frontend
+  package_manager: npm_and_yarn
+  language_version:
+  repository: skipkayhil_friday
