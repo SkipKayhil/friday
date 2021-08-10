@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 # Things to put in redis:
-  # - an App needs a set of dependencies
-  #   - key: 'app:1:dependencies:ruby'
-  #   - values: 'rails:6.1'
-  #     - needs to be intersectable with vulnerability set
-  # - a Library needs a set of dependents
-  #   - key: 'ruby:rails:6.1:apps'
-  #   - values: '1'
-  # - a Language needs a _sorted_ set of Library/Versions to vulnerability count
-  #   - key: 'ruby:vulnerabilities'
-  #   - values: 'rails:5.2.5' '1'
+# - an App needs a set of dependencies
+#   - key: 'app:1:dependencies:ruby'
+#   - values: 'rails:6.1'
+#     - needs to be intersectable with vulnerability set
+# - a Library needs a set of dependents
+#   - key: 'ruby:rails:6.1:apps'
+#   - values: '1'
+# - a Language needs a _sorted_ set of Library/Versions to vulnerability count
+#   - key: 'ruby:vulnerabilities'
+#   - values: 'rails:5.2.5' '1'
 module Friday
-  class App
+  class Project
     # Manage an app's dependencies using Redis
     class Dependencies
       # add a fresh dependency
@@ -51,7 +51,7 @@ module Friday
       end
 
       def as_json
-        to_hash.as_json(except: 'language')
+        to_hash.as_json(except: "language")
       end
 
       private

@@ -8,7 +8,7 @@ class App < ApplicationRecord
   end
 
   def dependencies
-    @dependencies ||= Friday::App::Dependencies.new(self)
+    @dependencies ||= Friday::Project::Dependencies.new(self)
   end
 
   # Hard coding this for now but it'll be a field on the db later

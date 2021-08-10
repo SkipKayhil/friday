@@ -10,7 +10,7 @@ module Friday
     end
 
     def dependencies
-      @dependencies ||= App::Dependencies.new(self)
+      @dependencies ||= Dependencies.new(self)
     end
 
     def attributes
