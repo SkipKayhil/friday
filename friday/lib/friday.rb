@@ -11,7 +11,10 @@ module Friday
   module_function
 
   def redis
-    @redis ||= Redis.new(logger: Rails.logger)
+    @redis ||= Redis.new(
+      db: Rails.env.test? ? 1 : 0,
+      logger: Rails.logger
+    )
   end
 
   module RubyDB
