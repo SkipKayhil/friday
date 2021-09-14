@@ -1,6 +1,25 @@
 # Friday
 
-kinda experimental
+Friday is a repository task runner. It currently uses Dependabot to parse
+repositories' dependencies and provides insight into their usage.
+
+## Development
+
+```bash
+docker-compose up rails-dev
+```
+
+Which will start the following containers
+
+
+| Service       | Port |
+| ------------- | ---- |
+| rails (api)   | 3000 |
+| vite (web)    | 4000 |
+| postgres (db) | 5432 |
+| redis (db)    | 6379 |
+
+There is also an optional `resque` container that can be run to process background jobs.
 
 ## License
 
