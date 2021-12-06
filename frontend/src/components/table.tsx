@@ -23,7 +23,7 @@ interface CustomColumn<T> extends BaseColumn<T> {
 
 export type Column<T> = BasicColumn<T> | CustomColumn<T>;
 
-function getColumnName <T>(column: Column<T>) {
+function getColumnName<T>(column: Column<T>) {
   return column.headerName === undefined
     ? (column.field as string)
     : column.headerName;

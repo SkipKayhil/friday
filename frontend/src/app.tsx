@@ -17,7 +17,10 @@ export function App(): JSX.Element {
         <Route component={Apps} path="/apps" />
         <Route component={AppView} path="/apps/:id" />
         <Route component={Dependencies} path="/dependencies" />
-        <Route component={DependencyView} path="/dependencies/:language/:name" />
+        <Route
+          component={DependencyView}
+          path="/dependencies/:language/:name"
+        />
         <Route component={NewRepo} path="/repos/new" />
       </Router>
     </>

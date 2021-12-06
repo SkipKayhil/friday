@@ -11,7 +11,7 @@
     "@tailwindcss/forms": "^0.3.2",
     "preact": "^10.5.13",
     "preact-router": "^3.2.1",
-    "swr": "^0.5.5"
+    "swr": "^1.1.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.0.0",
