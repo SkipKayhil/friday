@@ -1,5 +1,6 @@
 import { JSX } from "preact";
 import { Router, Route } from "preact-router";
+import { SWRConfig } from "swr";
 import { Navbar } from "./components/navbar";
 // import { Dashboard } from "./views/dashboard";
 import { Apps } from "./views/apps";
@@ -10,7 +11,12 @@ import { NewRepo } from "./views/newRepo";
 
 export function App(): JSX.Element {
   return (
-    <>
+    <SWRConfig
+      value={{
+        fetcher: (resource: string, init: any) =>
+          fetch(resource, init).then((response) => response.json()),
+      }}
+    >
       <Navbar />
       <Router>
         <Route component={Apps} path="/" />
@@ -23,6 +29,6 @@ export function App(): JSX.Element {
         />
         <Route component={NewRepo} path="/repos/new" />
       </Router>
-    </>
+    </SWRConfig>
   );
 }
