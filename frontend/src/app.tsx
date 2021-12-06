@@ -4,7 +4,7 @@ import { Navbar } from "./components/navbar";
 // import { Dashboard } from "./views/dashboard";
 import { Apps } from "./views/apps";
 import { Dependencies } from "./views/dependencies";
-import { Dependency } from "./views/dependency";
+import { DependencyView } from "./views/dependency";
 import { App as AppView } from "./views/app";
 import { NewRepo } from "./views/newRepo";
 
@@ -17,7 +17,7 @@ export function App(): JSX.Element {
         <Route component={Apps} path="/apps" />
         <Route component={AppView} path="/apps/:id" />
         <Route component={Dependencies} path="/dependencies" />
-        <Route component={Dependency} path="/dependencies/:language/:name" />
+        <Route component={DependencyView} path="/dependencies/:language/:name" />
         <Route component={NewRepo} path="/repos/new" />
       </Router>
     </>

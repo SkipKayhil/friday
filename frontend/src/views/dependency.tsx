@@ -24,7 +24,7 @@ const columns: Column<Row>[] = [
   // { field: "known_vulnerability", headerName: "Known Vulnerability" },
 ];
 
-export function Dependency({
+export function DependencyView({
   language,
   name,
 }: {

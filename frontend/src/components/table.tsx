@@ -23,10 +23,11 @@ interface CustomColumn<T> extends BaseColumn<T> {
 
 export type Column<T> = BasicColumn<T> | CustomColumn<T>;
 
-const getColumnName = <T,>(column: Column<T>) =>
-  column.headerName === undefined
+function getColumnName <T>(column: Column<T>) {
+  return column.headerName === undefined
     ? (column.field as string)
     : column.headerName;
+}
 
 function Cell<T>({ row, column }: RowCol<T>) {
   // TODO: ts doesn't seem like its able to figure out that the type here should
