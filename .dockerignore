@@ -6,6 +6,7 @@
 .ruby-version
 Dockerfile
 docker-compose.yml
+/frontend
 
 /log/*
 /tmp/*
