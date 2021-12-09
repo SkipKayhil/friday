@@ -13,7 +13,7 @@ export function App(): JSX.Element {
   return (
     <SWRConfig
       value={{
-        fetcher: (resource: string, init: any) =>
+        fetcher: (resource: string, init: RequestInit) =>
           fetch(resource, init).then((response) => response.json()),
       }}
     >

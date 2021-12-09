@@ -31,11 +31,13 @@ export function DependencyView({
   language: string;
   name: string;
 }): JSX.Element {
-  const { data, error } = useSWR<Dependency>(
+  const { data, error } = useSWR<Dependency, unknown>(
     `/api/v1/dependencies/${language}/${name}`
   );
   // TODO: get the list of App names without a second request
-  const { data: apps, error: appError } = useSWR<AppWithRepo[]>(`/api/v1/apps`);
+  const { data: apps, error: appError } = useSWR<AppWithRepo[], unknown>(
+    `/api/v1/apps`
+  );
 
   if (!data || !data.versions || !apps) return <Spinner />;
   if (error || appError) return <>error fetching dependency</>;

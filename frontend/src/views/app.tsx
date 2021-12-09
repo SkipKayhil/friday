@@ -45,7 +45,7 @@ const columns: Column<VersionedDependency>[] = [
 ];
 
 export function App({ id }: { id: string }): JSX.Element {
-  const { data, error } = useSWR<AppWithRepo>(`/api/v1/apps/${id}`);
+  const { data, error } = useSWR<AppWithRepo, unknown>(`/api/v1/apps/${id}`);
 
   if (!data) return <Spinner />;
   if (error) return <>error fetching app</>;

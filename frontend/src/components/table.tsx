@@ -92,8 +92,8 @@ export function Table<T>({
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
-          {rows.map((row) => (
-            <Row row={row} columns={columns} onRowClick={onRowClick} />
+          {rows.map((row, i) => (
+            <Row key={i} row={row} columns={columns} onRowClick={onRowClick} />
           ))}
         </tbody>
       </table>
