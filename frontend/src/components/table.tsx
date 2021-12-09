@@ -35,7 +35,7 @@ function Cell<T>({ row, column }: RowCol<T>) {
   // milestone yet, so check in around TS 4.4.1+
   const cellContent =
     column.renderCell === undefined ? (
-      ((row[(column as BasicColumn<T>).field] as unknown) as ComponentChildren)
+      (row[(column as BasicColumn<T>).field] as unknown as ComponentChildren)
     ) : (
       <column.renderCell row={row} column={column} />
     );
