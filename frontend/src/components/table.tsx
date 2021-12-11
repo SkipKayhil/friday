@@ -1,4 +1,4 @@
-import { JSX, FunctionComponent, ComponentChildren } from "preact";
+import { JSX, ComponentChildren, VNode } from "preact";
 
 type RowClick<T> = (params: { row: T; columns?: Column<T>[] }) => unknown;
 
@@ -7,21 +7,20 @@ interface RowCol<T> {
   column: Column<T>;
 }
 
-interface BaseColumn<T> {
+interface BaseColumn {
   headerName?: string;
-  renderCell?: FunctionComponent<RowCol<T>>;
 }
 
-interface BasicColumn<T> extends BaseColumn<T> {
+interface BasicColumn<T> {
   field: keyof T;
 }
 
-interface CustomColumn<T> extends BaseColumn<T> {
+interface CustomColumn<T> {
   field: string;
-  renderCell: BaseColumn<T>["renderCell"];
+  renderCell: (props: RowCol<T>) => VNode | null;
 }
 
-export type Column<T> = BasicColumn<T> | CustomColumn<T>;
+export type Column<T> = BaseColumn & (BasicColumn<T> | CustomColumn<T>);
 
 function getColumnName<T>(column: Column<T>) {
   return column.headerName === undefined
@@ -30,14 +29,11 @@ function getColumnName<T>(column: Column<T>) {
 }
 
 function Cell<T>({ row, column }: RowCol<T>) {
-  // TODO: ts doesn't seem like its able to figure out that the type here should
-  // be narrowed. Possibly same as #44401 fixed by #44771. It doesn't have a
-  // milestone yet, so check in around TS 4.4.1+
   const cellContent =
-    column.renderCell === undefined ? (
-      (row[(column as BasicColumn<T>).field] as unknown as ComponentChildren)
-    ) : (
+    "renderCell" in column ? (
       <column.renderCell row={row} column={column} />
+    ) : (
+      (row[column.field] as unknown as ComponentChildren)
     );
 
   return <td class="px-6 py-4 whitespace-nowrap">{cellContent}</td>;
