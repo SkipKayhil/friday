@@ -8,9 +8,9 @@ module Friday
 
     # GET /projects
     def index
-      @projects = Project.all
+      @projects = Project.all.includes(repository: :host)
 
-      render json: @projects
+      render json: @projects.as_json(include: {repository: {include: :host}})
     end
 
     # GET /projects/1

@@ -8,6 +8,7 @@ import { Dependencies } from "./views/dependencies";
 import { DependencyView } from "./views/dependency";
 import { App as AppView } from "./views/app";
 import { NewRepo } from "./views/newRepo";
+import { Projects } from "./views/projects";
 
 export function App(): JSX.Element {
   return (
@@ -19,7 +20,7 @@ export function App(): JSX.Element {
     >
       <Navbar />
       <Router>
-        <Route component={Apps} path="/" />
+        <Route component={Projects} path="/" />
         <Route component={Apps} path="/apps" />
         <Route component={AppView} path="/apps/:id" />
         <Route component={Dependencies} path="/dependencies" />

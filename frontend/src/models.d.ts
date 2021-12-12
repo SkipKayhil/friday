@@ -1,3 +1,25 @@
+type PackageManager = "bundler";
+
+interface ActiveRecord {
+  id: number;
+  created_at: string;
+  updated_at: string;
+}
+
+interface Project extends ActiveRecord {
+  name?: string;
+  directory?: string;
+  package_manager: PackageManager;
+  language_version: string;
+  repository_id: number;
+  dependencies: VersionedDependency[];
+}
+
+interface Repository extends ActiveRecord {
+  full_path: string;
+  host_id: number;
+}
+
 interface Repo {
   id: number;
   name: string;
@@ -22,7 +44,8 @@ interface Dependency {
   versions?: Record<string, number[]>;
 }
 
-interface VersionedDependency extends Dependency {
+interface VersionedDependency {
+  name: string;
   version: string;
   vulnerability_status: "none" | "low" | "medium" | "high" | "critical";
 }
@@ -53,9 +76,20 @@ type RepoWithRepoable = RepoApp | RepoLibrary;
 
 type AppWithRepo = App & Repoable;
 
+interface RepositoryWithHost extends Repository {
+  host: Host;
+}
+
+interface ProjectWithRepositoryHost extends Project {
+  repository: RepositoryWithHost;
+}
+
 export {
   Dependency,
+  Project,
+  ProjectWithRepositoryHost,
   Repo,
+  Repository,
   App,
   VersionedDependency,
   RepoWithRepoable,
