@@ -3,3 +3,7 @@
 skipkayhil_friday:
   full_path: skipkayhil/friday
   host: github
+
+rails_rails:
+  full_path: rails/rails
+  host: github
