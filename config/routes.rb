@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount Friday::Engine, at: '/api/v1'
+  mount Friday::Engine, at: '/api/v2'
 
   namespace :api do
     namespace :v1 do

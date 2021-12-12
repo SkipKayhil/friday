@@ -24,7 +24,7 @@ const columns: Column<Dependency>[] = [
 
 export function Dependencies(): JSX.Element {
   const [search, setSearch] = useState("");
-  const { data } = useSWR<Dependency[]>("/api/v1/dependencies");
+  const { data } = useSWR<Dependency[]>("/api/v2/dependencies");
 
   if (!data) return <Spinner />;
 
