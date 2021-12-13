@@ -48,8 +48,8 @@ end
 
 group :test do
   gem "simplecov", require: false
-  gem "vcr"
-  gem "webmock"
+  gem "vcr", require: false
+  gem "webmock", require: false
 end
 
 group :rubocop do

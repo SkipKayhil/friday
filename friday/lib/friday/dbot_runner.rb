@@ -5,8 +5,8 @@ require_relative "./dbot_runner/ruby"
 module Friday
   # A wrapper for Dependabot tasks
   class DbotRunner
-    def initialize(app)
-      @app = app
+    def initialize(project)
+      @project = project
     end
 
     def dependencies
@@ -26,12 +26,8 @@ module Friday
 
     private
 
-    # TODO: put this on the app. Using a var for now so its easier to replace
-    # in the future
-    PACKAGE_MANAGER = "bundler"
-
     def repo
-      @app.repo
+      @project.repository
     end
 
     def host
@@ -46,21 +42,21 @@ module Friday
       @source ||= Dependabot::Source.new(
         provider: host.class::PROVIDER,
         hostname: host.domain_unless_default,
-        api_endpoint: host.api_endpoint,
+        api_endpoint: host.endpoint_unless_default,
         repo: repo.full_path,
-        directory: repo.directory || "/"
+        directory: @project.directory || "/"
       )
     end
 
     def fetcher
-      @fetcher ||= Dependabot::FileFetchers.for_package_manager(PACKAGE_MANAGER).new(
+      @fetcher ||= Dependabot::FileFetchers.for_package_manager(@project.package_manager).new(
         source: source,
         credentials: credentials
       )
     end
 
     def parser
-      @parser ||= Dependabot::FileParsers.for_package_manager(PACKAGE_MANAGER).new(
+      @parser ||= Dependabot::FileParsers.for_package_manager(@project.package_manager).new(
         dependency_files: fetcher.files,
         source: source,
         credentials: credentials

@@ -40,5 +40,11 @@ module Friday
 
       assert_response 204
     end
+
+    test "should enqueue FetchDependenciesJob" do
+      assert_enqueued_with(job: FetchDependenciesJob, args: [@project]) do
+        post dependencies_project_url(@project)
+      end
+    end
   end
 end

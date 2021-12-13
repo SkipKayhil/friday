@@ -7,9 +7,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :hosts
       resources :repos
-      resources :apps do
-        post :dependencies, on: :member
-      end
+      resources :apps
     end
   end
 

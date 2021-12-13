@@ -4,7 +4,7 @@ require_dependency "friday/application_controller"
 
 module Friday
   class ProjectsController < ApplicationController
-    before_action :set_project, only: %i[show update destroy]
+    before_action :set_project, only: %i[show update destroy dependencies]
 
     # GET /projects
     def index
@@ -41,6 +41,11 @@ module Friday
     # DELETE /projects/1
     def destroy
       @project.destroy
+    end
+
+    # POST /projects/1/dependencies
+    def dependencies
+      FetchDependenciesJob.perform_later(@project)
     end
 
     private
