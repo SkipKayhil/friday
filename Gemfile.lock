@@ -4,6 +4,8 @@ PATH
     friday (0.1.0)
       bundler-audit (~> 0.8)
       dependabot-bundler (~> 0.149)
+      dependabot-gradle
+      dependabot-maven
       rails (~> 6.1.3, >= 6.1.3.2)
       redis (~> 4.2, >= 4.2.5)
       resolv-replace (~> 0.1)
@@ -118,6 +120,11 @@ GEM
       pandoc-ruby (~> 2.0)
       parser (>= 2.5, < 4.0)
       toml-rb (>= 1.1.2, < 3.0)
+    dependabot-gradle (0.158.0)
+      dependabot-common (= 0.158.0)
+      dependabot-maven (= 0.158.0)
+    dependabot-maven (0.158.0)
+      dependabot-common (= 0.158.0)
     docile (1.4.0)
     docker_registry2 (1.10.0)
       rest-client (>= 1.8.0)

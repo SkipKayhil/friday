@@ -17,7 +17,12 @@ module Friday
         def parse_key(key)
           # I think the dependency name will have to be base64 encoded because java
           # dependencies appear to have : in the name
-          key.split(':')
+          parts = key.split(':')
+
+          # Bad hack for pulling java dependencies out of redis...
+          return parts if parts.length === 3
+
+          [parts[0], "#{parts[1]}:#{parts[2]}", parts[3]]
         end
       end
 
@@ -36,6 +41,9 @@ module Friday
       end
 
       def update_vulnerability_status
+        # Sometimes java deps won't have a version
+        return unless version
+
         criticality_score = CRITICALITIES.index(vulnerability_status)
 
         Friday.redis.zadd("vulnerabilities", criticality_score, to_s)

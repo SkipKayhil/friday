@@ -7,6 +7,8 @@ module Friday
       case package_manager
       when "bundler"
         "ruby"
+      when "maven", "gradle"
+        "java"
       else
         raise "Unsupported package manager: #{package_manager}"
       end

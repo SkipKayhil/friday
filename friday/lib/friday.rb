@@ -2,6 +2,8 @@
 
 require "resolv-replace"
 require "dependabot/bundler"
+require "dependabot/gradle"
+require "dependabot/maven"
 require "bundler/audit"
 require_relative "./friday/version"
 require_relative "./friday/engine"
