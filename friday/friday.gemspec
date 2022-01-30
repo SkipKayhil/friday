@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir['{app,config,db,lib}/**/*', 'LICENSE', 'Rakefile', 'README.md']
 
   spec.add_dependency 'bundler-audit', '~> 0.8'
-  spec.add_dependency 'dependabot-bundler', '~> 0.149'
+  spec.add_dependency "dependabot-bundler", "~> 0.171"
   spec.add_dependency "dependabot-gradle"
   spec.add_dependency "dependabot-maven"
   spec.add_dependency 'rails', '~> 6.1.3', '>= 6.1.3.2'
