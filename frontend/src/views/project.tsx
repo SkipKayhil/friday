@@ -7,15 +7,13 @@ import { Spinner } from "../components/spinner";
 import { Table, Column } from "../components/table";
 import { ProjectWithRepositoryHost, VersionedDependency } from "../models";
 
-const criticalityColors: Record<
-  string,
-  "gray" | "yellow" | "orange" | "red"
-> = {
-  low: "gray",
-  medium: "yellow",
-  high: "orange",
-  critical: "red",
-};
+const criticalityColors: Record<string, "gray" | "yellow" | "orange" | "red"> =
+  {
+    low: "gray",
+    medium: "yellow",
+    high: "orange",
+    critical: "red",
+  };
 
 const criticalities = ["none", ...Object.keys(criticalityColors)];
 
