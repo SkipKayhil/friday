@@ -9,6 +9,8 @@ module Friday
         "ruby"
       when "maven", "gradle"
         "java"
+      when "npm_and_yarn"
+        "javascript"
       else
         raise "Unsupported package manager: #{package_manager}"
       end

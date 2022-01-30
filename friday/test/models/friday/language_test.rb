@@ -8,7 +8,8 @@ module Friday
       expectations = [
         ["bundler", "ruby"],
         ["maven", "java"],
-        ["gradle", "java"]
+        ["gradle", "java"],
+        ["npm_and_yarn", "javascript"]
       ]
 
       expectations.each do |package_manager, expected_language|
