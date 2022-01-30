@@ -1,4 +1,3 @@
-import { FunctionComponent } from "preact";
 import { useState } from "preact/hooks";
 import useSWR from "swr";
 import { Badge } from "../components/badge";
@@ -43,7 +42,7 @@ const columns: Column<ProjectWithRepositoryHost>[] = [
   { field: "updated_at", renderCell: updatedCell, headerName: "Last Updated" },
 ];
 
-const Projects: FunctionComponent = () => {
+const Projects = (): JSX.Element => {
   const [search, setSearch] = useState("");
   const { data } = useSWR<ProjectWithRepositoryHost[]>("/api/v2/projects");
 

@@ -15,7 +15,7 @@ module Friday
 
     # GET /projects/1
     def show
-      render json: @project
+      render json: @project.as_json(include: {repository: {include: :host}})
     end
 
     # POST /projects

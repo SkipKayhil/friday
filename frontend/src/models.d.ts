@@ -1,4 +1,5 @@
-type PackageManager = "bundler";
+type Language = "ruby" | "java";
+type PackageManager = "bundler" | "gradle" | "maven";
 
 interface ActiveRecord {
   id: number;
@@ -10,6 +11,7 @@ interface Project extends ActiveRecord {
   name?: string;
   directory?: string;
   package_manager: PackageManager;
+  language: Language;
   language_version: string;
   repository_id: number;
   dependencies: VersionedDependency[];

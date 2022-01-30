@@ -15,6 +15,7 @@ module Friday
 
     def attributes
       h = super
+      h["language"] = nil
       h["dependencies"] = nil
       h
     end

@@ -4,7 +4,7 @@ import { Header } from "../components/header";
 import { Link } from "../components/link";
 import { Spinner } from "../components/spinner";
 import { Table, Column } from "../components/table";
-import { AppWithRepo, Dependency } from "../models";
+import { AppWithRepo, Dependency, ProjectWithRepositoryHost } from "../models";
 
 interface Row {
   id: number;
@@ -13,7 +13,7 @@ interface Row {
 }
 
 const nameCell = ({ row }: { row: Row }) => (
-  <Link href={`/apps/${row.id}`} class="hover:text-indigo-500 hover:underline">
+  <Link href={`/projects/${row.id}`} class="hover:text-indigo-500 hover:underline">
     {row.full_path}
   </Link>
 );
@@ -32,11 +32,10 @@ export function DependencyView({
   name: string;
 }): JSX.Element {
   const { data, error } = useSWR<Dependency, unknown>(
-    `/api/v1/dependencies/${language}/${name}`
+    `/api/v2/dependencies/${language}/${name}`
   );
-  // TODO: get the list of App names without a second request
-  const { data: apps, error: appError } = useSWR<AppWithRepo[], unknown>(
-    `/api/v1/apps`
+  const { data: apps, error: appError } = useSWR<ProjectWithRepositoryHost[], unknown>(
+    `/api/v2/projects`
   );
 
   if (!data || !data.versions || !apps) return <Spinner />;
@@ -51,7 +50,7 @@ export function DependencyView({
 
         return {
           id: app.id,
-          full_path: app.repo.full_path,
+          full_path: app.repository.full_path,
           version,
         };
       })
