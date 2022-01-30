@@ -33,7 +33,7 @@ function Cell<T>({ row, column }: RowCol<T>) {
     "renderCell" in column ? (
       <column.renderCell row={row} column={column} />
     ) : (
-      (row[column.field] as unknown as ComponentChildren)
+      ((row[column.field] as unknown) as ComponentChildren)
     );
 
   return <td class="px-6 py-4 whitespace-nowrap">{cellContent}</td>;

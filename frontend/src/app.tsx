@@ -3,10 +3,8 @@ import { Router, Route } from "preact-router";
 import { SWRConfig } from "swr";
 import { Navbar } from "./components/navbar";
 // import { Dashboard } from "./views/dashboard";
-import { Apps } from "./views/apps";
 import { Dependencies } from "./views/dependencies";
 import { DependencyView } from "./views/dependency";
-import { App as AppView } from "./views/app";
 import { NewRepo } from "./views/newRepo";
 import { Projects } from "./views/projects";
 import { Project } from "./views/project";
@@ -24,8 +22,6 @@ export function App(): JSX.Element {
         <Route component={Projects} path="/" />
         <Route component={Projects} path="/projects" />
         <Route component={Project} path="/projects/:id" />
-        <Route component={Apps} path="/apps" />
-        <Route component={AppView} path="/apps/:id" />
         <Route component={Dependencies} path="/dependencies" />
         <Route
           component={DependencyView}

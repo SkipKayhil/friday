@@ -19,14 +19,17 @@ const criticalityColors: Record<
 
 const criticalities = ["none", ...Object.keys(criticalityColors)];
 
-const nameCell = (language: string) => ({ row }: { row: VersionedDependency }) => (
-  <Link
-    href={`/dependencies/${language}/${row.name}`}
-    class="hover:text-indigo-500 hover:underline"
-  >
-    {row.name}
-  </Link>
-);
+const nameCell = (language: string) =>
+  function NamedLanguageCell({ row }: { row: VersionedDependency }) {
+    return (
+      <Link
+        href={`/dependencies/${language}/${row.name}`}
+        class="hover:text-indigo-500 hover:underline"
+      >
+        {row.name}
+      </Link>
+    );
+  };
 
 const statusCell = ({ row }: { row: VersionedDependency }) =>
   row.vulnerability_status === "none" ? null : (
