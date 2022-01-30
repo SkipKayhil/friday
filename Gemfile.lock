@@ -91,19 +91,21 @@ GEM
     aws-sigv4 (1.2.4)
       aws-eventstream (~> 1, >= 1.0.2)
     benchmark-ips (2.9.1)
-    bootsnap (1.9.3)
-      msgpack (~> 1.0)
+    bootsnap (1.10.2)
+      msgpack (~> 1.2)
     builder (3.2.4)
     bundler-audit (0.8.0)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
-    byebug (11.1.3)
     citrus (3.0.2)
     commonmarker (0.22.0)
     concurrent-ruby (1.1.9)
     crack (0.4.5)
       rexml
     crass (1.0.6)
+    debug (1.4.0)
+      irb (>= 1.3.6)
+      reline (>= 0.2.7)
     dependabot-bundler (0.158.0)
       dependabot-common (= 0.158.0)
     dependabot-common (0.158.0)
@@ -151,7 +153,6 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
-    ffi (1.15.3)
     gitlab (4.17.0)
       httparty (~> 0.18)
       terminal-table (~> 1.5, >= 1.5.1)
@@ -166,10 +167,10 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    io-console (0.5.11)
+    irb (1.4.1)
+      reline (>= 0.3.0)
     jmespath (1.4.0)
-    listen (3.6.0)
-      rb-fsevent (~> 0.10, >= 0.10.3)
-      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.11.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -183,7 +184,7 @@ GEM
     mini_mime (1.1.0)
     minitest (5.14.4)
     mono_logger (1.1.1)
-    msgpack (1.4.2)
+    msgpack (1.4.4)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
@@ -242,13 +243,12 @@ GEM
       thor (~> 1.0)
     rainbow (3.0.0)
     rake (13.0.6)
-    rb-fsevent (0.11.0)
-    rb-inotify (0.10.1)
-      ffi (~> 1.0)
     redis (4.4.0)
     redis-namespace (1.8.1)
       redis (>= 3.0.4)
     regexp_parser (2.1.1)
+    reline (0.3.1)
+      io-console (~> 0.5)
     resolv (0.2.1)
     resolv-replace (0.1.0)
       resolv
@@ -298,7 +298,6 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
-    spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -340,9 +339,8 @@ PLATFORMS
 DEPENDENCIES
   benchmark-ips
   bootsnap (>= 1.9.3)
-  byebug
+  debug
   friday!
-  listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
@@ -353,7 +351,6 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   simplecov
-  spring
   stackprof
   standard
   tzinfo-data
