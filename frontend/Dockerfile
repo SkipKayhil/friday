@@ -1,13 +1,16 @@
 FROM node:lts-alpine AS base
-WORKDIR /usr/src/friday
+RUN mkdir /opt/friday && chown node:node /opt/friday
+WORKDIR /opt/friday
 
-ENV PATH /usr/src/friday/node_modules/.bin:$PATH
-COPY package.json yarn.lock ./
+USER node
+
+ENV PATH /opt/friday/node_modules/.bin:$PATH
+COPY --chown=node:node package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-WORKDIR /usr/src/friday/src
+WORKDIR /opt/friday/src
 
-COPY . ./
+COPY --chown=node:node . ./
 
 FROM base as builder
 RUN yarn build
@@ -19,4 +22,4 @@ FROM nginx:alpine
 WORKDIR /app
 
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /usr/src/friday/src/dist ./
+COPY --from=builder /opt/friday/src/dist ./

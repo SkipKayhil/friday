@@ -58,10 +58,9 @@ services:
       context: ./frontend
       target: dev
     volumes:
-      - ./frontend:/usr/src/friday/src
-      - ./frontend/package.json:/usr/src/friday/package.json
-      - ./frontend/yarn.lock:/usr/src/friday/yarn.lock
-      - notused:/usr/src/friday/src/node_modules
+      - ./frontend:/opt/friday/src
+      - ./frontend/package.json:/opt/friday/package.json
+      - ./frontend/yarn.lock:/opt/friday/yarn.lock
     ports:
       - "4000:4000"
     healthcheck:
@@ -94,7 +93,6 @@ services:
 
 volumes:
   bundle:
-  notused:
   postgres:
   rails_cache:
   redis:

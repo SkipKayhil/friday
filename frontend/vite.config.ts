@@ -16,4 +16,7 @@ export default defineConfig({
       "/api": "http://rails-dev:3000",
     },
   },
+  // This will only really work inside docker, however the
+  // proxy configuration will also only work inside docker
+  cacheDir: "../node_modules/.vite"
 });
