@@ -56,10 +56,12 @@ services:
   vite-dev:
     build:
       context: ./frontend
-      target: builder
+      target: dev
     volumes:
-      - ./frontend:/usr/src
-      - node_modules:/usr/src/node_modules
+      - ./frontend:/usr/src/friday/src
+      - ./frontend/package.json:/usr/src/friday/package.json
+      - ./frontend/yarn.lock:/usr/src/friday/yarn.lock
+      - notused:/usr/src/friday/src/node_modules
     ports:
       - "4000:4000"
     healthcheck:
@@ -92,7 +94,7 @@ services:
 
 volumes:
   bundle:
-  node_modules:
+  notused:
   postgres:
   rails_cache:
   redis:
