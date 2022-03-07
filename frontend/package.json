@@ -8,7 +8,7 @@
     "lint": "prettier --check . && eslint src/**/*"
   },
   "dependencies": {
-    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.0",
     "preact": "^10.6.5",
     "preact-router": "^4.0.1",
     "swr": "^1.2.0"
