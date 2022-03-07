@@ -48,12 +48,7 @@ const Projects = (): JSX.Element => {
 
   if (!data) return <Spinner />;
 
-  const transformedData = data
-    .map((project) => ({
-      ...project,
-      name: project.repository.full_path,
-    }))
-    .filter((project) => project.name.includes(search));
+  const transformedData = data.filter((project) => project.repository.full_path.includes(search));
 
   return (
     <>

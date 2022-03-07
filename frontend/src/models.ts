@@ -7,6 +7,10 @@ interface ActiveRecord {
   updated_at: string;
 }
 
+interface Host extends ActiveRecord {
+  domain: string;
+}
+
 interface Project extends ActiveRecord {
   name?: string;
   directory?: string;
@@ -22,24 +26,6 @@ interface Repository extends ActiveRecord {
   host_id: number;
 }
 
-interface Repo {
-  id: number;
-  name: string;
-  full_path: string;
-  directory: string;
-  ruby_version: string;
-  host_id: number;
-  created_at: string;
-  updated_at: string;
-}
-
-interface App {
-  id: number;
-  dependencies?: VersionedDependency[];
-  created_at: string;
-  updated_at: string;
-}
-
 interface Dependency {
   language: "ruby";
   name: string;
@@ -52,32 +38,6 @@ interface VersionedDependency {
   vulnerability_status: "none" | "low" | "medium" | "high" | "critical";
 }
 
-interface Library {
-  id: number;
-  created_at: string;
-  updated_at: string;
-}
-
-interface Repoable {
-  repo: Repo;
-}
-
-interface RepoApp extends Repo {
-  repoable_type: "App";
-  repoable_id: number;
-  repoable: App;
-}
-
-interface RepoLibrary extends Repo {
-  repoable_type: "Library";
-  repoable_id: number;
-  repoable: Library;
-}
-
-type RepoWithRepoable = RepoApp | RepoLibrary;
-
-type AppWithRepo = App & Repoable;
-
 interface RepositoryWithHost extends Repository {
   host: Host;
 }
@@ -86,14 +46,10 @@ interface ProjectWithRepositoryHost extends Project {
   repository: RepositoryWithHost;
 }
 
-export {
+export type {
   Dependency,
   Project,
   ProjectWithRepositoryHost,
-  Repo,
   Repository,
-  App,
   VersionedDependency,
-  RepoWithRepoable,
-  AppWithRepo,
 };
