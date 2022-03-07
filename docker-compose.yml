@@ -60,7 +60,7 @@ services:
     volumes:
       - ./frontend:/opt/friday/src
       - ./frontend/package.json:/opt/friday/package.json
-      - ./frontend/yarn.lock:/opt/friday/yarn.lock
+      - ./frontend/package-lock.json:/opt/friday/package-lock.json
     ports:
       - "4000:4000"
     healthcheck:
