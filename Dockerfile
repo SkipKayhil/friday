@@ -1,4 +1,4 @@
-FROM ruby:3.0-alpine
+FROM ruby:3.1.1-alpine
 WORKDIR /usr/src
 
 RUN apk add --no-cache --update \
@@ -16,7 +16,7 @@ ENV BUNDLE_APP_CONFIG=".bundle"
 
 COPY Gemfile Gemfile.lock ./
 COPY friday/ ./friday
-RUN gem install bundler -v 2.2.33 --no-document \
+RUN gem install bundler -v 2.3.8 --no-document \
   && gem install bundler -v 1.17.3 --no-document \
   && bundle install -j 3
 
