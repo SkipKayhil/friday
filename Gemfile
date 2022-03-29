@@ -49,7 +49,7 @@ end
 
 group :development do
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  gem "rack-mini-profiler", "~> 2.0"
+  gem "rack-mini-profiler", "~> 3.0"
 end
 
 group :test do
